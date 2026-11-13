@@ -93,8 +93,9 @@ cmake --build build --parallel && ctest --test-dir build --output-on-failure
 ```
 
 The tests build as ISO C++20 (`CMAKE_CXX_EXTENSIONS OFF`, `-pedantic-errors`) with `-fno-exceptions -fno-rtti
--Werror`, and the target `tmc5160_header_checks` compiles each public header alone. CI runs GCC and Clang; run
-the compilers you have. The host example runs as the CTest `tmc5160_host_example`. ESP32 builds run in CI
+-Werror`, and the target `tmc5160_header_checks` compiles each public header alone. CI runs GCC and Clang; run the
+compilers you have. Every host example runs as the CTest `tmc5160_host_<name>`; the standalone build of
+`examples/host` also makes `tmc5160_host_example` (the quickstart) for CI. ESP32 builds run in CI
 (`esp32-examples-build-ci.yml`); the host build covers a change locally.
 
 ## Docs checks

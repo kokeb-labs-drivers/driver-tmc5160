@@ -50,10 +50,12 @@ constexpr Config KconfigDefaults() noexcept {
   Config c = MakeConfig(motor, board);
 #if defined(CONFIG_TMC5160_RUN_MA) && (CONFIG_TMC5160_RUN_MA > 0)
   c.current.run_ma = static_cast<uint32_t>(CONFIG_TMC5160_RUN_MA);
-  c.current.hold_ma = (c.current.run_ma * 3U) / 10U;
 #endif
+  // The hold current once: the configured one, else 30 percent of a configured run current.
 #if defined(CONFIG_TMC5160_HOLD_MA) && (CONFIG_TMC5160_HOLD_MA > 0)
   c.current.hold_ma = static_cast<uint32_t>(CONFIG_TMC5160_HOLD_MA);
+#elif defined(CONFIG_TMC5160_RUN_MA) && (CONFIG_TMC5160_RUN_MA > 0)
+  c.current.hold_ma = (c.current.run_ma * 3U) / 10U;
 #endif
 #ifdef CONFIG_TMC5160_MRES
   c.chopper.mres = static_cast<Microsteps>(CONFIG_TMC5160_MRES);
