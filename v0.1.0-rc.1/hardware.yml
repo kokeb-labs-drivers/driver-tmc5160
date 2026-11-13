@@ -1,0 +1,256 @@
+---
+# The chip's hardware in one file: package, pins, the driver hook of each pin, the blocks inside and the reference
+# circuits. `kokeb-docs figures` draws the pinout, the package outline, the block diagram and the circuits from it,
+# `kokeb-docs gen` writes the chip card of the README and the tables of docs/hardware.md,
+# `kokeb-docs hardware --check` validates it and `kokeb-docs hardware --kicad-netlist OUT --circuit ID` exports a
+# circuit for a schematic or PCB tool. Every fact cites the datasheet in docs/datasheets.yml (document `ds`).
+schema: 1
+chip: TMC5160A
+
+refs:
+  principles: {doc: ds, section: "1 Principles of Operation", page: 5}
+  pinout: {doc: ds, section: "2.1 Package Outline", page: 11}
+  signals: {doc: ds, section: "2.2 Signal Descriptions", page: 12}
+  sample: {doc: ds, section: "3 Sample Circuits", page: 15}
+  spi: {doc: ds, section: "4 SPI Interface", page: 23}
+  uart: {doc: ds, section: "5 UART Single Wire Interface", page: 26}
+  chain: {doc: ds, section: "5.4 Addressing Multiple Nodes", page: 29}
+  electrical: {doc: ds, section: "28.1 Operational Range", page: 120}
+  io: {doc: ds, section: "28.2 DC and Timing Characteristics", page: 123}
+  outline: {doc: ds, section: "30.1 Dimensional Drawings TQFP48-EP", page: 128}
+  outline_qfn: {doc: ds, section: "30.2 Dimensional Drawings QFN-WA", page: 130}
+  order: {doc: ds, section: "30.3 Package Codes", page: 131}
+
+package:
+  type: TQFP-48
+  pins: 48
+  exposed_pad: true
+  ref: pinout
+  outline: {length_mm: 7.0, width_mm: 7.0, height_mm: 1.2, pitch_mm: 0.5, ref: outline}
+  variants:
+    - {id: qfn-wa, type: QFN-WA, pins: 47, size: "8.0 x 8.0 x 0.85 mm", ordering: "TMC5160A-WA",
+       note: "wettable flanks, exposed pad 6.25 x 6.25 mm; the datasheet calls it QFN56 but numbers 47 pins",
+       ref: outline_qfn}
+
+supply:
+  - {name: VS, min_v: 10.0, max_v: 55.0, ref: electrical}
+  - {name: VSA, min_v: 10.0, max_v: 50.0, ref: electrical}
+  - {name: VCC_IO, min_v: 3.0, max_v: 5.25, ref: electrical}
+
+hooks:
+  - {id: transfer, call: "Transfer()", kind: spi, source: inc/tmc5160_spi_interface.hpp, symbol: Transfer}
+  - {id: exchange, call: "Exchange()", kind: uart, source: inc/tmc5160_uart_interface.hpp, symbol: Exchange}
+  - {id: drv_enn, call: "GpioSet(CtrlPin::DrvEnn)", kind: gpio-out, source: inc/tmc5160_types.hpp, symbol: DrvEnn}
+  - {id: diag0, call: "GpioGet(InputPin::Diag0)", kind: irq, source: inc/tmc5160_types.hpp, symbol: Diag0}
+  - {id: diag1, call: "GpioGet(InputPin::Diag1)", kind: gpio-in, source: inc/tmc5160_types.hpp, symbol: Diag1}
+
+pins:
+  - {number: 1, name: HB1, type: power-out, domain: VS, function: "High-side gate driver output, bridge B1",
+     ref: signals}
+  - {number: 2, name: CB1, type: analog, domain: VS, function: "Bootstrap capacitor positive, bridge B1", ref: signals}
+  - {number: 3, name: 12VOUT, type: power-out, domain: VSA,
+     function: "11.5 V gate regulator output; supplies the low-side drivers", ref: signals}
+  - {number: 4, name: VSA, type: power, domain: VSA, function: "Analog supply for the 11.5 V and 5 V regulators",
+     ref: signals}
+  - {number: 5, name: 5VOUT, type: power-out, domain: VSA, function: "5 V regulator output", ref: signals}
+  - {number: 6, name: GNDA, type: ground, function: "Analog ground", ref: signals}
+  - {number: 7, name: SRAL, type: analog, domain: VS, function: "Sense resistor A, ground side", ref: signals}
+  - {number: 8, name: SRAH, type: analog, domain: VS, function: "Sense resistor A, upper side", ref: signals}
+  - {number: 9, name: SRBH, type: analog, domain: VS, function: "Sense resistor B, upper side", ref: signals}
+  - {number: 10, name: SRBL, type: analog, domain: VS, function: "Sense resistor B, ground side", ref: signals}
+  - {number: 11, name: TST_MODE, type: digital-in, domain: VCC_IO, function: "Test mode; tie to GND",
+     unused: Tie to GND, ref: signals}
+  - {number: 12, name: CLK, type: digital-in, domain: VCC_IO,
+     function: "Clock input, 4 to 18 MHz; GND selects the internal 12 MHz oscillator", unused: Tie to GND,
+     ref: signals}
+  - {number: 13, name: CSN_CFG3, type: bus, domain: VCC_IO, function: "SPI chip select, active low", hook: transfer,
+     ref: signals}
+  - {number: 14, name: SCK_CFG2, type: bus, domain: VCC_IO,
+     function: "SPI clock, mode 3, up to 4 MHz on the internal clock",
+     hook: transfer, ref: signals}
+  - {number: 15, name: SDI_CFG1, type: bus, domain: VCC_IO, function: "SPI data in; NAI in UART mode",
+     hook: transfer, ref: signals}
+  - {number: 16, name: SDO_CFG0, type: bus, domain: VCC_IO,
+     function: "SPI data out, tristate; NAO in UART mode", hook: transfer, ref: signals}
+  - {number: 17, name: REFL_STEP, type: digital-in, domain: VCC_IO, function: "Left reference switch or STEP input",
+     unused: Tie to GND, ref: signals}
+  - {number: 18, name: REFR_DIR, type: digital-in, domain: VCC_IO, function: "Right reference switch or DIR input",
+     unused: Tie to GND, ref: signals}
+  - {number: 19, name: GNDD, type: ground, function: "Digital ground", ref: signals}
+  - {number: 20, name: VCC_IO, type: power, domain: VCC_IO, function: "3.0 V to 5.25 V I/O supply", ref: signals}
+  - {number: 21, name: SD_MODE, type: digital-in, domain: VCC_IO,
+     function: "Low: ramp generator; high: STEP/DIR; both strap pins low: UART", unused: Tie to GND, ref: signals}
+  - {number: 22, name: SPI_MODE, type: digital-in, domain: VCC_IO,
+     function: "High: SPI; low with SD_MODE low: UART; internal pull-down", ref: signals}
+  - {number: 23, name: ENCB_DCEN_CFG4, type: digital-in, domain: VCC_IO,
+     function: "Encoder B, DcStep enable or CFG4; internal pull-down", unused: Tie to GND,
+     ref: signals}
+  - {number: 24, name: ENCA_DCIN_CFG5, type: digital-in, domain: VCC_IO,
+     function: "Encoder A, DcStep input, emergency stop or CFG5; internal pull-down",
+     unused: Tie to GND, ref: signals}
+  - {number: 25, name: ENCN_DCO_CFG6, type: digital-io, domain: VCC_IO,
+     function: "Encoder N, DcStep ready output or CFG6", unused: Tie to GND, ref: signals}
+  - {number: 26, name: DIAG0_SWN, type: open-drain, domain: VCC_IO,
+     function: "DIAG0 interrupt or STEP output; SWN of the single wire interface; open drain, 47 k pull-up or less",
+     hook: diag0, unused: Leave open, ref: signals}
+  - {number: 27, name: DIAG1_SWP, type: open-drain, domain: VCC_IO,
+     function: "DIAG1 position compare or DIR output; SWP of the single wire interface; open drain, internal pull-down",
+     hook: diag1, unused: Leave open, ref: signals}
+  - {number: 28, name: DRV_ENN, type: digital-in, domain: VCC_IO, function: "Driver enable, active low",
+     hook: drv_enn, ref: signals}
+  - {number: 29, name: VCC, type: power, domain: VSA, function: "5 V digital supply, from 5VOUT through 2.2 ohm",
+     ref: signals}
+  - {number: 30, name: GNDD, type: ground, function: "Digital ground", ref: signals}
+  - {number: 31, name: CPO, type: analog, domain: VS, function: "Charge pump capacitor output", ref: signals}
+  - {number: 32, name: CPI, type: analog, domain: VS, function: "Charge pump capacitor input", ref: signals}
+  - {number: 33, name: VS, type: power, domain: VS, function: "Motor and bridge supply, 10 V to 55 V", ref: signals}
+  - {number: 34, name: VCP, type: analog, domain: VS, function: "Charge pump voltage", ref: signals}
+  - {number: 35, name: CA2, type: analog, domain: VS, function: "Bootstrap capacitor positive, bridge A2", ref: signals}
+  - {number: 36, name: HA2, type: power-out, domain: VS, function: "High-side gate driver output, bridge A2",
+     ref: signals}
+  - {number: 37, name: BMA2, type: analog, domain: VS, function: "Bridge centre A2", ref: signals}
+  - {number: 38, name: LA2, type: power-out, domain: VSA, function: "Low-side gate driver output, bridge A2",
+     ref: signals}
+  - {number: 39, name: LA1, type: power-out, domain: VSA, function: "Low-side gate driver output, bridge A1",
+     ref: signals}
+  - {number: 40, name: BMA1, type: analog, domain: VS, function: "Bridge centre A1", ref: signals}
+  - {number: 41, name: HA1, type: power-out, domain: VS, function: "High-side gate driver output, bridge A1",
+     ref: signals}
+  - {number: 42, name: CA1, type: analog, domain: VS, function: "Bootstrap capacitor positive, bridge A1", ref: signals}
+  - {number: 43, name: CB2, type: analog, domain: VS, function: "Bootstrap capacitor positive, bridge B2", ref: signals}
+  - {number: 44, name: HB2, type: power-out, domain: VS, function: "High-side gate driver output, bridge B2",
+     ref: signals}
+  - {number: 45, name: BMB2, type: analog, domain: VS, function: "Bridge centre B2", ref: signals}
+  - {number: 46, name: LB2, type: power-out, domain: VSA, function: "Low-side gate driver output, bridge B2",
+     ref: signals}
+  - {number: 47, name: LB1, type: power-out, domain: VSA, function: "Low-side gate driver output, bridge B1",
+     ref: signals}
+  - {number: 48, name: BMB1, type: analog, domain: VS, function: "Bridge centre B1", ref: signals}
+  - {number: EP, name: EP, type: ground, function: "Exposed die pad: GNDD and GNDP, the heat path", ref: signals}
+
+block_diagram:
+  ref: principles
+  blocks:
+    - {id: bus, label: SPI / UART interface, detail: "SPI mode 3 or single wire UART with CRC", at: [0, 0], tone: blue,
+       pins: [CSN_CFG3, SCK_CFG2, SDI_CFG1, SDO_CFG0]}
+    - {id: regs, label: Registers and ramp generator, detail: "XTARGET, VMAX, AMAX, DMAX, XACTUAL", at: [1, 0]}
+    - {id: seq, label: Sequencer and microstep table, detail: "256 microsteps, MicroPlyer", at: [2, 0], tone: teal}
+    - {id: stepdir, label: STEP/DIR and switches, detail: "SD_MODE, reference switches", at: [0, 1], tone: slate,
+       pins: [SD_MODE, SPI_MODE, REFL_STEP, REFR_DIR]}
+    - {id: chop, label: Chopper, detail: "SpreadCycle, StealthChop2", at: [1, 1], tone: teal}
+    - {id: sense, label: StallGuard2 and CoolStep, detail: "load measurement, current control", at: [2, 1], tone: amber,
+       pins: [SRAH, SRAL, SRBH, SRBL]}
+    - {id: enc, label: Encoder and DcStep, detail: "ABN encoder, load dependent speed", at: [0, 2], tone: slate,
+       pins: [ENCB_DCEN_CFG4, ENCA_DCIN_CFG5, ENCN_DCO_CFG6]}
+    - {id: diag, label: Protection and diagnostics, detail: "short, overtemperature, DIAG outputs", at: [1, 2],
+       tone: amber, pins: [DIAG0_SWN, DIAG1_SWP, DRV_ENN]}
+    - {id: gate, label: Gate drivers and charge pump, detail: "8 MOSFET gates, bootstrap", at: [2, 2], tone: blue,
+       pins: [HA1, LA1, HB1, LB1, HA2, LA2, HB2, LB2]}
+  links:
+    - {from: bus, to: regs, label: frames, both: true}
+    - {from: regs, to: seq, label: position}
+    - {from: stepdir, to: regs, label: STEP/DIR}
+    - {from: seq, to: chop, label: currents}
+    - {from: sense, to: chop, label: load}
+    - {from: enc, to: regs, label: X_ENC}
+    - {from: diag, to: chop, label: shutdown}
+    - {from: chop, to: gate, label: PWM}
+
+circuits:
+  - id: spi-typical
+    title: SPI application
+    description: >-
+      The TMC5160 on an MCU's SPI bus with the internal clock, DRV_ENN on a GPIO the driver drives through
+      GpioSet() and DIAG0 on an interrupt input. The power bridge (gate, bridge centre and bootstrap pins, eight
+      MOSFETs and the sense resistors) is wired as in Figure 3.1 of the datasheet and drawn here as one block.
+    ref: sample
+    parts:
+      - {id: U1, kind: chip}
+      - id: U2
+        kind: mcu
+        label: MCU
+        pins:
+          - {name: SCK, label: SPI SCK}
+          - {name: MOSI, label: SPI MOSI}
+          - {name: MISO, label: SPI MISO}
+          - {name: CS, label: GPIO / CS}
+          - {name: ENN, label: GPIO}
+          - {name: IRQ, label: GPIO (IRQ)}
+          - VIO
+          - GND
+      - id: U3
+        kind: ic
+        label: "Power bridge and sense resistors"
+        pins: [SRAH, SRAL, SRBH, SRBL]
+      - {id: C1, kind: capacitor, value: 22 nF, ref: sample}
+      - {id: C2, kind: capacitor, value: 100 nF, ref: sample}
+      - {id: C3, kind: capacitor, value: 2.2 µF, ref: sample}
+      - {id: C4, kind: capacitor, value: 2.2 µF, ref: sample}
+      - {id: C5, kind: capacitor, value: 470 nF, ref: sample}
+      - {id: C6, kind: capacitor, value: 100 nF, ref: sample}
+      - {id: C7, kind: capacitor, value: 100 nF, ref: sample}
+      - {id: R1, kind: resistor, value: 2.2 Ω, ref: sample}
+      - {id: R2, kind: resistor, value: 4.7 kΩ, ref: signals}
+    nets:
+      - {name: VS, kind: supply, nodes: [U1.VS, U1.VSA, C2.2, C7.1]}
+      - {name: "VCC_IO", kind: supply, nodes: [U1.VCC_IO, U1.SPI_MODE, C6.1, R2.1, U2.VIO]}
+      - {name: GND, kind: ground, nodes: [U1.GNDA, U1.GNDD, U1.EP, C3.2, C4.2, C5.2, C6.2, C7.2, U2.GND]}
+      - {name: VCP, nodes: [U1.VCP, C2.1]}
+      - {name: CPI, nodes: [U1.CPI, C1.1]}
+      - {name: CPO, nodes: [U1.CPO, C1.2]}
+      - {name: 12VOUT, nodes: [U1.12VOUT, C3.1]}
+      - {name: 5VOUT, nodes: [U1.5VOUT, R1.1, C4.1]}
+      - {name: VCC, nodes: [U1.VCC, R1.2, C5.1]}
+      - {name: SCLK, nodes: [U1.SCK_CFG2, U2.SCK]}
+      - {name: SDI, nodes: [U1.SDI_CFG1, U2.MOSI]}
+      - {name: SDO, nodes: [U1.SDO_CFG0, U2.MISO]}
+      - {name: CSN, nodes: [U1.CSN_CFG3, U2.CS]}
+      - {name: DRV_ENN, nodes: [U1.DRV_ENN, U2.ENN]}
+      - {name: DIAG0, nodes: [U1.DIAG0_SWN, R2.2, U2.IRQ]}
+      - {name: SRAH, nodes: [U1.SRAH, U3.SRAH]}
+      - {name: SRAL, nodes: [U1.SRAL, U3.SRAL]}
+      - {name: SRBH, nodes: [U1.SRBH, U3.SRBH]}
+      - {name: SRBL, nodes: [U1.SRBL, U3.SRBL]}
+    # TST_MODE, CLK, SD_MODE, REFL and REFR are tied to GND (internal clock, ramp generator, no switches).
+    unused: [U1.TST_MODE, U1.CLK, U1.SD_MODE, U1.REFL_STEP, U1.REFR_DIR, U1.ENCB_DCEN_CFG4, U1.ENCA_DCIN_CFG5,
+             U1.ENCN_DCO_CFG6, U1.DIAG1_SWP, U1.HB1, U1.CB1,
+             U1.HB2, U1.CB2, U1.LB1, U1.LB2, U1.BMB1, U1.BMB2, U1.HA1, U1.CA1, U1.HA2, U1.CA2, U1.LA1, U1.LA2,
+             U1.BMA1, U1.BMA2]
+  - id: uart-chain
+    title: UART chain of two nodes
+    description: >-
+      Two TMC5160 on one single wire line: the MCU's TX through a resistor and its RX meet on SWP, SWN stays open,
+      and NAO of the first node drives NAI of the second so each can be given its own address.
+    ref: chain
+    parts:
+      - {id: U1, kind: chip}
+      - id: U2
+        kind: mcu
+        label: MCU
+        pins:
+          - {name: TX, label: UART TX}
+          - {name: RX, label: UART RX}
+          - {name: ENN, label: GPIO}
+          - VIO
+          - GND
+      - id: U3
+        kind: ic
+        label: "TMC5160 node 2 (supply and ground as node 1)"
+        pins: [NAI, SWP]
+      - {id: R1, kind: resistor, value: 1 kΩ, ref: chain,
+         unverified: "the series value is a choice; the datasheet shows the wiring only"}
+      - {id: C1, kind: capacitor, value: 100 nF, ref: sample}
+    nets:
+      - {name: "VCC_IO", kind: supply, nodes: [U1.VCC_IO, C1.1, U2.VIO]}
+      - {name: GND, kind: ground, nodes: [U1.GNDD, U1.GNDA, U1.EP, C1.2, U2.GND]}
+      - {name: SWP, nodes: [U1.DIAG1_SWP, U3.SWP, R1.2, U2.RX]}
+      - {name: TX, nodes: [R1.1, U2.TX]}
+      - {name: NAO, nodes: [U1.SDO_CFG0, U3.NAI]}
+      - {name: DRV_ENN, nodes: [U1.DRV_ENN, U2.ENN]}
+    # SD_MODE and SPI_MODE are strapped low for UART mode, TST_MODE and CLK to GND (internal clock).
+    # The supply, charge pump, bootstrap and bridge pins are wired as in the SPI application circuit.
+    unused: [U1.SD_MODE, U1.TST_MODE, U1.CLK, U1.SPI_MODE, U1.SDI_CFG1, U1.DIAG0_SWN, U1.REFL_STEP, U1.REFR_DIR,
+             U1.ENCB_DCEN_CFG4, U1.ENCA_DCIN_CFG5, U1.ENCN_DCO_CFG6, U1.CSN_CFG3, U1.SCK_CFG2, U1.HB1, U1.CB1,
+             U1.12VOUT, U1.VSA, U1.5VOUT, U1.SRAL, U1.SRAH, U1.SRBH, U1.SRBL, U1.VCC, U1.CPO, U1.CPI, U1.VS, U1.VCP,
+             U1.CA2, U1.HA2, U1.BMA2, U1.LA2, U1.LA1, U1.BMA1, U1.HA1, U1.CA1, U1.CB2, U1.HB2, U1.BMB2, U1.LB2,
+             U1.LB1, U1.BMB1]

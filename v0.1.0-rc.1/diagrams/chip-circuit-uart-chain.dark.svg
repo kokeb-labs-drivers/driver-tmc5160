@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1432" height="1511" viewBox="0 0 1432 1511" role="img" aria-labelledby="chip-circuit-uart-chain-title chip-circuit-uart-chain-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-circuit-uart-chain-title">TMC5160A: UART chain of two nodes</title>
+<desc id="chip-circuit-uart-chain-desc">Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().</desc>
+<rect x="0.5" y="0.5" width="1431" height="1510" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#F8D27A">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">TMC5160A: UART chain of two nodes</text>
+<text x="32" y="103.8" font-size="15" fill="#9AA6B5">Two TMC5160 on one single wire line: the MCU's TX through a resistor and its RX meet on SWP, SWN stays open, and NAO of the first node drives NAI of the second so each can be</text>
+<text x="32" y="125.5" font-size="15" fill="#9AA6B5">given its own address. Above each MCU wire: the port hook that drives it. Datasheet: 5.4 Addressing Multiple Nodes, p. 29.</text>
+<rect x="32" y="141.6" width="1368" height="1" fill="#252F3C"/>
+<path d="M200 823.5 L440 823.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M824 663.5 L832 663.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M832 367.6 L912 367.6" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M832 367.6 L832 663.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 799.5 L440 799.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M432 799.5 L432 1423.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M432 1343.5 L912 1343.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M432 1423.5 L464 1423.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M912 391.6 L912 1343.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 847.5 L200 1375.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M200 1375.5 L464 1375.5" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M560 207.6 L560 295.6" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<path d="M560 231.6 L608 231.6" fill="none" stroke="#D2DAE4" stroke-width="1.5"/>
+<rect x="464" y="319.6" width="336" height="976" rx="4" fill="#151C26" stroke="#F4B942" stroke-width="1.8"/>
+<path d="M464 799.5 L440 799.5" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M464 823.5 L440 823.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 351.6 L824 351.6" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 375.6 L824 375.6" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 399.6 L824 399.6" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 423.6 L824 423.6" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 447.6 L824 447.6" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 471.6 L824 471.6" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 495.6 L824 495.6" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 519.5 L824 519.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 543.5 L824 543.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 567.5 L824 567.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 591.5 L824 591.5" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 615.5 L824 615.5" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 639.5 L824 639.5" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 663.5 L824 663.5" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 687.5 L824 687.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 711.5 L824 711.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 735.5 L824 735.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 759.5 L824 759.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 783.5 L824 783.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 807.5 L824 807.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 831.5 L824 831.5" fill="none" stroke="#A78BFA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 855.5 L824 855.5" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 879.5 L824 879.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 903.5 L824 903.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 927.5 L824 927.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 951.5 L824 951.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 975.5 L824 975.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 999.5 L824 999.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1023.5 L824 1023.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1047.5 L824 1047.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1071.5 L824 1071.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1095.5 L824 1095.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1119.5 L824 1119.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1143.5 L824 1143.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1167.5 L824 1167.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1191.5 L824 1191.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1215.5 L824 1215.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1239.5 L824 1239.5" fill="none" stroke="#D6A26B" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M800 1263.5 L824 1263.5" fill="none" stroke="#F0ABFC" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M504 319.6 L504 295.6" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M560 319.6 L560 295.6" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M704 319.6 L704 295.6" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M752 319.6 L752 295.6" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M568 1295.5 L568 1319.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M616 1295.5 L616 1319.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M688 1295.5 L688 1319.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<rect x="32" y="751.5" width="144" height="128" rx="4" fill="#18202B" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M176 799.5 L200 799.5" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M176 823.5 L200 823.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M176 847.5 L200 847.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M152 751.5 L152 727.5" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M152 879.5 L152 903.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M560 207.6 L560 196.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M551 196.6 L569 196.6" fill="none" stroke="#FB7185" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M608 231.6 L608 252.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M608 259.1 L608 279.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M598 252.1 L618 252.1" fill="none" stroke="#E8EDF3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M598 259.1 L618 259.1" fill="none" stroke="#E8EDF3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M608 279.6 L608 287.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M600 287.6 L616 287.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M603 291.1 L613 291.1" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M606 294.6 L610 294.6" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M568 1319.5 L568 1327.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M560 1327.5 L576 1327.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M563 1331 L573 1331" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M566 1334.5 L570 1334.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M616 1319.5 L616 1327.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M608 1327.5 L624 1327.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M611 1331 L621 1331" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M614 1334.5 L618 1334.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M688 1319.5 L688 1327.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M680 1327.5 L696 1327.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M683 1331 L693 1331" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M686 1334.5 L690 1334.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M152 727.5 L152 716.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M143 716.5 L161 716.5" fill="none" stroke="#FB7185" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M152 903.5 L152 911.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M144 911.5 L160 911.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M147 915 L157 915" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M150 918.5 L154 918.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="936" y="319.6" width="448" height="96" rx="4" fill="#18202B" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M936 367.6 L912 367.6" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M936 391.6 L912 391.6" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M464 1375.5 L464 1388.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M464 1410.5 L464 1423.5" fill="none" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M459 1388.5 L459 1410.5 L469 1410.5 L469 1388.5 Z" fill="#151C26" stroke="#E8EDF3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M500 299.6 L508 291.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M500 291.6 L508 299.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M700 299.6 L708 291.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M700 291.6 L708 299.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M748 299.6 L756 291.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M748 291.6 L756 299.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 355.6 L828 347.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 347.6 L828 355.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 379.6 L828 371.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 371.6 L828 379.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 403.6 L828 395.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 395.6 L828 403.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 427.6 L828 419.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 419.6 L828 427.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 451.6 L828 443.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 443.6 L828 451.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 475.6 L828 467.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 467.6 L828 475.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 499.6 L828 491.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 491.6 L828 499.6" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 523.5 L828 515.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 515.5 L828 523.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 547.5 L828 539.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 539.5 L828 547.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 571.5 L828 563.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 563.5 L828 571.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 595.5 L828 587.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 587.5 L828 595.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 619.5 L828 611.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 611.5 L828 619.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 643.5 L828 635.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 635.5 L828 643.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 691.5 L828 683.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 683.5 L828 691.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 715.5 L828 707.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 707.5 L828 715.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 739.5 L828 731.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 731.5 L828 739.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 763.5 L828 755.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 755.5 L828 763.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 787.5 L828 779.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 779.5 L828 787.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 811.5 L828 803.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 803.5 L828 811.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 835.5 L828 827.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 827.5 L828 835.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 859.5 L828 851.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 851.5 L828 859.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 883.5 L828 875.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 875.5 L828 883.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 907.5 L828 899.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 899.5 L828 907.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 931.5 L828 923.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 923.5 L828 931.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 955.5 L828 947.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 947.5 L828 955.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 979.5 L828 971.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 971.5 L828 979.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1003.5 L828 995.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 995.5 L828 1003.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1027.5 L828 1019.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1019.5 L828 1027.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1051.5 L828 1043.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1043.5 L828 1051.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1075.5 L828 1067.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1067.5 L828 1075.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1099.5 L828 1091.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1091.5 L828 1099.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1123.5 L828 1115.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1115.5 L828 1123.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1147.5 L828 1139.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1139.5 L828 1147.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1171.5 L828 1163.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1163.5 L828 1171.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1195.5 L828 1187.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1187.5 L828 1195.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1219.5 L828 1211.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1211.5 L828 1219.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1243.5 L828 1235.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1235.5 L828 1243.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1267.5 L828 1259.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M820 1259.5 L828 1267.5" fill="none" stroke="#9AA6B5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="470" y="804" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">DIAG1_SWP</text>
+<text x="460" y="795.5" font-size="11" text-anchor="end" fill="#9AA6B5">27</text>
+<text x="470" y="828" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">DRV_ENN</text>
+<text x="460" y="819.5" font-size="11" text-anchor="end" fill="#9AA6B5">28</text>
+<text x="794" y="356.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">HB1</text>
+<text x="804" y="347.6" font-size="11" fill="#9AA6B5">1</text>
+<text x="794" y="380.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CB1</text>
+<text x="804" y="371.6" font-size="11" fill="#9AA6B5">2</text>
+<text x="794" y="404.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">12VOUT</text>
+<text x="804" y="395.6" font-size="11" fill="#9AA6B5">3</text>
+<text x="794" y="428.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">5VOUT</text>
+<text x="804" y="419.6" font-size="11" fill="#9AA6B5">5</text>
+<text x="794" y="452.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRAL</text>
+<text x="804" y="443.6" font-size="11" fill="#9AA6B5">7</text>
+<text x="794" y="476.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRAH</text>
+<text x="804" y="467.6" font-size="11" fill="#9AA6B5">8</text>
+<text x="794" y="500.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRBH</text>
+<text x="804" y="491.6" font-size="11" fill="#9AA6B5">9</text>
+<text x="794" y="524" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRBL</text>
+<text x="804" y="515.5" font-size="11" fill="#9AA6B5">10</text>
+<text x="794" y="548" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">TST_MODE</text>
+<text x="804" y="539.5" font-size="11" fill="#9AA6B5">11</text>
+<text x="794" y="572" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CLK</text>
+<text x="804" y="563.5" font-size="11" fill="#9AA6B5">12</text>
+<text x="794" y="596" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CSN_CFG3</text>
+<text x="804" y="587.5" font-size="11" fill="#9AA6B5">13</text>
+<text x="794" y="620" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SCK_CFG2</text>
+<text x="804" y="611.5" font-size="11" fill="#9AA6B5">14</text>
+<text x="794" y="644" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SDI_CFG1</text>
+<text x="804" y="635.5" font-size="11" fill="#9AA6B5">15</text>
+<text x="794" y="668" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SDO_CFG0</text>
+<text x="804" y="659.5" font-size="11" fill="#9AA6B5">16</text>
+<text x="794" y="692" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">REFL_STEP</text>
+<text x="804" y="683.5" font-size="11" fill="#9AA6B5">17</text>
+<text x="794" y="716" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">REFR_DIR</text>
+<text x="804" y="707.5" font-size="11" fill="#9AA6B5">18</text>
+<text x="794" y="740" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SD_MODE</text>
+<text x="804" y="731.5" font-size="11" fill="#9AA6B5">21</text>
+<text x="794" y="764" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SPI_MODE</text>
+<text x="804" y="755.5" font-size="11" fill="#9AA6B5">22</text>
+<text x="794" y="788" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">ENCB_DCEN_CFG4</text>
+<text x="804" y="779.5" font-size="11" fill="#9AA6B5">23</text>
+<text x="794" y="812" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">ENCA_DCIN_CFG5</text>
+<text x="804" y="803.5" font-size="11" fill="#9AA6B5">24</text>
+<text x="794" y="836" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">ENCN_DCO_CFG6</text>
+<text x="804" y="827.5" font-size="11" fill="#9AA6B5">25</text>
+<text x="794" y="860" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">DIAG0_SWN</text>
+<text x="804" y="851.5" font-size="11" fill="#9AA6B5">26</text>
+<text x="794" y="884" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CPO</text>
+<text x="804" y="875.5" font-size="11" fill="#9AA6B5">31</text>
+<text x="794" y="908" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CPI</text>
+<text x="804" y="899.5" font-size="11" fill="#9AA6B5">32</text>
+<text x="794" y="932" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">VCP</text>
+<text x="804" y="923.5" font-size="11" fill="#9AA6B5">34</text>
+<text x="794" y="956" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CA2</text>
+<text x="804" y="947.5" font-size="11" fill="#9AA6B5">35</text>
+<text x="794" y="980" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">HA2</text>
+<text x="804" y="971.5" font-size="11" fill="#9AA6B5">36</text>
+<text x="794" y="1004" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">BMA2</text>
+<text x="804" y="995.5" font-size="11" fill="#9AA6B5">37</text>
+<text x="794" y="1028" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">LA2</text>
+<text x="804" y="1019.5" font-size="11" fill="#9AA6B5">38</text>
+<text x="794" y="1052" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">LA1</text>
+<text x="804" y="1043.5" font-size="11" fill="#9AA6B5">39</text>
+<text x="794" y="1076" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">BMA1</text>
+<text x="804" y="1067.5" font-size="11" fill="#9AA6B5">40</text>
+<text x="794" y="1100" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">HA1</text>
+<text x="804" y="1091.5" font-size="11" fill="#9AA6B5">41</text>
+<text x="794" y="1124" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CA1</text>
+<text x="804" y="1115.5" font-size="11" fill="#9AA6B5">42</text>
+<text x="794" y="1148" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CB2</text>
+<text x="804" y="1139.5" font-size="11" fill="#9AA6B5">43</text>
+<text x="794" y="1172" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">HB2</text>
+<text x="804" y="1163.5" font-size="11" fill="#9AA6B5">44</text>
+<text x="794" y="1196" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">BMB2</text>
+<text x="804" y="1187.5" font-size="11" fill="#9AA6B5">45</text>
+<text x="794" y="1220" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">LB2</text>
+<text x="804" y="1211.5" font-size="11" fill="#9AA6B5">46</text>
+<text x="794" y="1244" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">LB1</text>
+<text x="804" y="1235.5" font-size="11" fill="#9AA6B5">47</text>
+<text x="794" y="1268" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">BMB1</text>
+<text x="804" y="1259.5" font-size="11" fill="#9AA6B5">48</text>
+<text x="504" y="335.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">VSA</text>
+<text x="508" y="313.6" font-size="11" fill="#9AA6B5">4</text>
+<text x="560" y="335.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">VCC_IO</text>
+<text x="564" y="313.6" font-size="11" fill="#9AA6B5">20</text>
+<text x="704" y="335.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">VCC</text>
+<text x="708" y="313.6" font-size="11" fill="#9AA6B5">29</text>
+<text x="752" y="335.6" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">VS</text>
+<text x="756" y="313.6" font-size="11" fill="#9AA6B5">33</text>
+<text x="568" y="1288.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">GNDA</text>
+<text x="572" y="1310.3" font-size="11" fill="#9AA6B5">6</text>
+<text x="616" y="1288.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">GNDD</text>
+<text x="620" y="1310.3" font-size="11" fill="#9AA6B5">19, 30</text>
+<text x="688" y="1288.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">EP</text>
+<text x="692" y="1310.3" font-size="11" fill="#9AA6B5">EP</text>
+<text x="632" y="804.5" font-size="15" font-weight="700" text-anchor="middle" fill="#F8D27A">TMC5160A</text>
+<text x="632" y="822.5" font-size="12" text-anchor="middle" fill="#9AA6B5">U1</text>
+<text x="170" y="804" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">UART RX</text>
+<text x="170" y="828" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">GPIO</text>
+<text x="170" y="852" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">UART TX</text>
+<text x="152" y="767.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">VIO</text>
+<text x="152" y="872.5" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="middle" fill="#E8EDF3">GND</text>
+<text x="44" y="773.5" font-size="15" font-weight="700" fill="#E8EDF3">MCU</text>
+<text x="44" y="791.5" font-size="12" fill="#9AA6B5">U2</text>
+<text x="560" y="190.6" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">VCC_IO</text>
+<text x="623" y="252.6" font-size="12" font-weight="700" fill="#E8EDF3">C1</text>
+<text x="623" y="267" font-size="12" fill="#9AA6B5">100 nF</text>
+<text x="152" y="710.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">VCC_IO</text>
+<text x="208" y="793.5" font-size="12" font-weight="500" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#FDE68A">GpioGet(InputPin::Diag1)</text>
+<text x="208" y="817.5" font-size="12" font-weight="500" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#A7F3E6">GpioSet(CtrlPin::DrvEnn)</text>
+<text x="942" y="372.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">NAI</text>
+<text x="942" y="396.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">SWP</text>
+<text x="948" y="341.6" font-size="15" font-weight="700" fill="#E8EDF3">TMC5160 node 2 (supply and ground as node 1)</text>
+<text x="948" y="359.6" font-size="12" fill="#9AA6B5">U3</text>
+<text x="474" y="1396.5" font-size="12" font-weight="700" fill="#E8EDF3">R1</text>
+<text x="474" y="1411" font-size="12" fill="#9AA6B5">1 kΩ *</text>
+<circle cx="432" cy="799.5" r="3.2" fill="#D2DAE4"/>
+<circle cx="432" cy="1343.5" r="3.2" fill="#D2DAE4"/>
+<circle cx="560" cy="231.6" r="3.2" fill="#D2DAE4"/>
+<text x="32" y="1445.5" font-size="12.5" fill="#9AA6B5">* Not confirmed in the datasheet: R1 1 kΩ: the series value is a choice; the datasheet shows the wiring only.</text>
+<rect x="32" y="1464.7" width="14" height="14" rx="4" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<text x="54" y="1476.3" font-size="12.5" fill="#9AA6B5">GPIO output hook</text>
+<rect x="188.9" y="1464.7" width="14" height="14" rx="4" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
+<text x="210.9" y="1476.3" font-size="12.5" fill="#9AA6B5">GPIO input hook</text>
+</svg>
