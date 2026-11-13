@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="984" height="731" viewBox="0 0 984 731" role="img" aria-labelledby="chip-outline-title chip-outline-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-outline-title">TMC5160A package, TQFP-48</title>
+<desc id="chip-outline-desc">Outline of the TMC5160A in TQFP-48 drawn to scale from above: body 7.0 x 7.0 x 1.2 mm, pitch 0.5 mm, 48 pins and an exposed pad.</desc>
+<rect x="0.5" y="0.5" width="983" height="730" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#7A360E">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#0E1726">TMC5160A package, TQFP-48</text>
+<text x="32" y="103.8" font-size="15" fill="#566070">Package body from above, to scale, pin 1 marked; arrows give the datasheet's dimensions. The pads are centred on each</text>
+<text x="32" y="125.5" font-size="15" fill="#566070">side at the stated pitch: the land pattern is in the datasheet. Datasheet: 30.1 Dimensional Drawings TQFP48-EP, p. 128.</text>
+<rect x="32" y="141.6" width="920" height="1" fill="#E2E7EE"/>
+<path d="M534.8 177.6 L575.6 177.6" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M534.8 513.5 L575.6 513.5" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M194.8 517.5 L194.8 558.4" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M530.8 517.5 L530.8 558.4" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M174 213.6 L148 213.6" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M174 237.6 L148 237.6" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M170.8 664 L554.8 664" fill="none" stroke="#8893A2" stroke-width="1.2"/>
+<path d="M534.8 606.4 L566.8 606.4" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M534.8 664 L566.8 664" fill="none" stroke="#8893A2" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="194.8" y="177.6" width="336" height="336" rx="8" fill="#F5F7FA" stroke="#2B3442" stroke-width="2"/>
+<rect x="295.6" y="296.4" width="134.4" height="134.4" rx="6" fill="#FFFFFF" stroke="#64748B" stroke-width="1.4" stroke-dasharray="5 4"/>
+<rect x="178" y="207" width="16.8" height="13.2" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="178" y="231" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="178" y="255" width="16.8" height="13.2" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="178" y="279" width="16.8" height="13.2" rx="2" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="178" y="303" width="16.8" height="13.2" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="178" y="327" width="16.8" height="13.2" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="178" y="351" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="178" y="375" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="178" y="399" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="178" y="422.9" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="178" y="446.9" width="16.8" height="13.2" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="178" y="470.9" width="16.8" height="13.2" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="224.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="248.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="272.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="296.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="320.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="344.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="368.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="392.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="416.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="440.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="464.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="488.2" y="513.5" width="13.2" height="16.8" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="530.8" y="207" width="16.8" height="13.2" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="530.8" y="231" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="530.8" y="255" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="530.8" y="279" width="16.8" height="13.2" rx="2" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="530.8" y="303" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="530.8" y="327" width="16.8" height="13.2" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="530.8" y="351" width="16.8" height="13.2" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="530.8" y="375" width="16.8" height="13.2" rx="2" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<rect x="530.8" y="399" width="16.8" height="13.2" rx="2" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="530.8" y="422.9" width="16.8" height="13.2" rx="2" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<rect x="530.8" y="446.9" width="16.8" height="13.2" rx="2" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<rect x="530.8" y="470.9" width="16.8" height="13.2" rx="2" fill="#F3EEFF" stroke="#7C3AED" stroke-width="1.4"/>
+<rect x="224.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="248.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="272.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="296.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="320.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="344.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="368.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="392.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="416.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="440.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="464.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<rect x="488.2" y="160.8" width="13.2" height="16.8" rx="2" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<circle cx="208.8" cy="191.6" r="6" fill="#2B3442"/>
+<path d="M569.6 177.6 L569.6 513.5" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M569.6 177.6 L572.6 184.6 L566.6 184.6 Z" fill="#2B3442"/>
+<path d="M569.6 513.5 L566.6 506.6 L572.6 506.6 Z" fill="#2B3442"/>
+<path d="M194.8 552.4 L530.8 552.4" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M194.8 552.4 L201.8 549.4 L201.8 555.4 Z" fill="#2B3442"/>
+<path d="M530.8 552.4 L523.8 555.4 L523.8 549.4 Z" fill="#2B3442"/>
+<path d="M142 213.6 L142 237.6" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M142 213.6 L145 220.6 L139 220.6 Z" fill="#2B3442"/>
+<path d="M142 237.6 L139 230.6 L145 230.6 Z" fill="#2B3442"/>
+<rect x="194.8" y="606.4" width="336" height="57.6" rx="2" fill="#F5F7FA" stroke="#2B3442" stroke-width="2"/>
+<path d="M560.8 606.4 L560.8 664" fill="none" stroke="#2B3442" stroke-width="1.2"/>
+<path d="M560.8 606.4 L563.8 613.4 L557.8 613.4 Z" fill="#2B3442"/>
+<path d="M560.8 664 L557.8 657 L563.8 657 Z" fill="#2B3442"/>
+<text x="362.8" y="337.6" font-size="20" font-weight="700" text-anchor="middle" fill="#0E1726">TMC5160A</text>
+<text x="362.8" y="359.6" font-size="13" text-anchor="middle" fill="#566070">TQFP-48</text>
+<text x="579.6" y="350.1" font-size="12.5" font-weight="600" fill="#2B3442">7.0 mm</text>
+<text x="362.8" y="570.4" font-size="12.5" font-weight="600" text-anchor="middle" fill="#2B3442">7.0 mm</text>
+<text x="132" y="230.1" font-size="12.5" font-weight="600" text-anchor="end" fill="#2B3442">pitch 0.5 mm</text>
+<text x="570.8" y="639.7" font-size="12.5" font-weight="600" fill="#2B3442">1.2 mm</text>
+<text x="180.8" y="639.7" font-size="12.5" text-anchor="end" fill="#566070">Side view</text>
+<text x="689.4" y="199.6" font-size="22" font-weight="700" fill="#0E1726">7.0 x 7.0 x 1.2 mm</text>
+<text x="689.4" y="227.6" font-size="13.5" fill="#566070">TQFP-48, 48 pins and an exposed pad</text>
+<text x="689.4" y="249.6" font-size="13.5" fill="#566070">Leads reach out of the body</text>
+<text x="689.4" y="271.6" font-size="13.5" fill="#566070">Pitch 0.5 mm</text>
+<text x="689.4" y="293.6" font-size="13.5" fill="#566070">1 other package: QFN-WA</text>
+<rect x="32" y="685.3" width="14" height="14" rx="4" fill="#FFEEF2" stroke="#DB2752" stroke-width="1.4"/>
+<text x="54" y="697" font-size="12.5" fill="#566070">power</text>
+<rect x="117.6" y="685.3" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="139.6" y="697" font-size="12.5" fill="#566070">ground</text>
+<rect x="208.5" y="685.3" width="14" height="14" rx="4" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<text x="230.5" y="697" font-size="12.5" fill="#566070">bus</text>
+<rect x="277.4" y="685.3" width="14" height="14" rx="4" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<text x="299.4" y="697" font-size="12.5" fill="#566070">digital in</text>
+<rect x="375.8" y="685.3" width="14" height="14" rx="4" fill="#F3EEFF" stroke="#7C3AED" stroke-width="1.4"/>
+<text x="397.8" y="697" font-size="12.5" fill="#566070">digital in/out</text>
+<rect x="499.1" y="685.3" width="14" height="14" rx="4" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<text x="521.1" y="697" font-size="12.5" fill="#566070">open drain</text>
+<rect x="612" y="685.3" width="14" height="14" rx="4" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<text x="634" y="697" font-size="12.5" fill="#566070">analog</text>
+<rect x="700" y="685.3" width="14" height="14" rx="4" fill="#F8F1EA" stroke="#7C4A1E" stroke-width="1.4"/>
+<text x="722" y="697" font-size="12.5" fill="#566070">power output</text>
+</svg>

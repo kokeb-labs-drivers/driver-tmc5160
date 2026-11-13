@@ -1,0 +1,84 @@
+{
+  "chip-blocks": {
+    "title": "Inside the TMC5160A",
+    "alt": "Block diagram of the TMC5160A: its function blocks, how they connect and which package pins reach each block.",
+    "description": "The TMC5160A's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.",
+    "profile": "detail",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-circuit-spi-typical": {
+    "title": "TMC5160A: SPI application",
+    "alt": "Schematic of the TMC5160A spi application: the chip with U2 MCU, U3 Power bridge and sense resistors, C1 capacitor 22 nF, C2 capacitor 100 nF, C3 capacitor 2.2 µF, C4 capacitor 2.2 µF, C5 capacitor 470 nF, C6 capacitor 100 nF, C7 capacitor 100 nF, R1 resistor 2.2 Ω, R2 resistor 4.7 kΩ; the MCU wires carry the port hooks GpioGet(InputPin::Diag0), GpioSet(CtrlPin::DrvEnn), Transfer().",
+    "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
+    "profile": "detail",
+    "width": 1664,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-circuit-uart-chain": {
+    "title": "TMC5160A: UART chain of two nodes",
+    "alt": "Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().",
+    "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
+    "profile": "detail",
+    "width": 1432,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-outline": {
+    "title": "TMC5160A package, TQFP-48",
+    "alt": "Outline of the TMC5160A in TQFP-48 drawn to scale from above: body 7.0 x 7.0 x 1.2 mm, pitch 0.5 mm, 48 pins and an exposed pad.",
+    "description": "The TMC5160A package seen from the top and, when the height is known, from the side, drawn to scale: 7.0 x 7.0 x 1.2 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side at the stated pitch; the datasheet's land pattern is the reference for a board.",
+    "profile": "detail",
+    "width": 984,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-pinout": {
+    "title": "TMC5160A pinout, TQFP-48",
+    "alt": "Pinout of the TMC5160A in TQFP-48, top view: 48 pins and an exposed pad, each with its name, its electrical type as a colour and the driver hook that uses it.",
+    "description": "The TMC5160A seen from the top, in its TQFP-48 package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver. The dashed square is the exposed pad.",
+    "profile": "detail",
+    "width": 1324,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "driver-layers": {
+    "title": "The layers, one of them yours",
+    "alt": "Layer diagram: your application calls the TMC5160 core, which sends register reads and writes through the SPI port contract to the port class you write, which drives the chip; the core and the contract are the same on every MCU.",
+    "description": "Top to bottom, each arrow is a call. Your application calls one object, whose public calls are listed from the umbrella header in inc/. The core turns each call into register reads and writes and hands them to the port contract (the CRTP base in inc/*_interface.hpp), which forwards them, at compile time, to the hooks of the port class you write; your port moves the bytes on the bus. The notes on the right say which layers stay the same on every MCU and which one you write. A library without a port contract has only the first two layers.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/diagrams/figures/driver-layers.py",
+    "sources": [
+      "inc/tmc5160.hpp:public calls",
+      "inc/tmc5160_spi_interface.hpp:SpiInterface"
+    ]
+  }
+}

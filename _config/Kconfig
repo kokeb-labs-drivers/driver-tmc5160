@@ -1,0 +1,87 @@
+# Kconfig for the TMC5160 driver. The root CMakeLists.txt registers it with ESP-IDF
+# (idf_component_register(... KCONFIG _config/Kconfig)), so `idf.py menuconfig` shows
+# "TMC5160 stepper driver". The values reach the code only through
+# inc/tmc5160_kconfig.hpp; no public driver signature uses them.
+menuconfig TMC5160
+    bool "TMC5160 stepper driver"
+    default y
+    help
+      Declares the motor and the power stage for tmc5160::KconfigDefaults().
+      The driver itself does not need Kconfig. Without these values
+      KconfigDefaults() equals Config{}, which is invalid on purpose: the
+      motor and the sense resistor must be declared.
+
+if TMC5160
+
+config TMC5160_MOTOR_RATED_MA
+    int "Motor rated coil current, RMS (mA)"
+    range 1 100000
+    default 1000
+    help
+      The current the motor is rated for. The driver never sets a higher
+      current, whatever the application asks for.
+
+config TMC5160_MOTOR_MAX_MA
+    int "Hard ceiling for the coil current, RMS (mA, 0 = rated current)"
+    range 0 100000
+    default 0
+
+config TMC5160_RSENSE_MOHM
+    int "Sense resistor per coil (mOhm)"
+    range 1 10000
+    default 100
+    help
+      Section 9 of the datasheet. The full-scale current follows from it.
+
+config TMC5160_SUPPLY_MV
+    int "Motor supply VS (mV)"
+    range 10000 55000
+    default 24000
+
+config TMC5160_RUN_MA
+    int "Run current (mA, 0 = 85 percent of the ceiling)"
+    range 0 100000
+    default 0
+
+config TMC5160_HOLD_MA
+    int "Hold current (mA, 0 = 30 percent of the run current)"
+    range 0 100000
+    default 0
+
+config TMC5160_MRES
+    int "Microstep resolution code (0 = 256 microsteps ... 8 = full steps)"
+    range 0 8
+    default 0
+
+config TMC5160_STEALTHCHOP
+    bool "StealthChop on at start-up"
+    default n
+    help
+      Needs the coil resistance to be declared in the application, and a run
+      current above the StealthChop lower limit (section 7.3).
+
+config TMC5160_UART_BAUD
+    int "UART baud rate"
+    range 9000 750000
+    default 115200
+
+config TMC5160_UART_NODE
+    int "UART node address"
+    range 0 253
+    default 0
+
+config TMC5160_SPI_CHAIN_LENGTH
+    int "Chips in the SPI daisy chain"
+    range 1 8
+    default 1
+
+config TMC5160_SPI_CHAIN_INDEX
+    int "Position of this chip in the chain (0 = SDI on MOSI)"
+    range 0 7
+    default 0
+
+config TMC5160_VERIFY_STARTUP
+    bool "Read back the start-up writes where the chip allows it"
+    default n
+
+endif
