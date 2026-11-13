@@ -1,0 +1,330 @@
+---
+# The vendor documents this driver was written against (handbook ADR-0019), and where the driver relies on them.
+# Never commit a PDF: `sha256` identifies the exact file that was used, so a reader can confirm they hold the same
+# revision. `pdf` is a stable direct link when the vendor publishes one; otherwise readers download from `url`.
+#
+# The README card, docs/datasheet.md and the "Datasheet" box on each page are generated from this file by
+# tools/docs/generators/datasheet.py (`kokeb-docs gen`). Section names and printed page numbers are the
+# datasheet's own.
+documents:
+  - id: ds
+    vendor: Analog Devices (Trinamic)
+    title: TMC5160 / TMC5160A Datasheet
+    kind: Datasheet
+    number: TMC5160A-DS
+    revision: "1.18"
+    date: 2023-03-01
+    url: https://www.analog.com/media/en/technical-documentation/data-sheets/TMC5160A_datasheet_rev1.18.pdf
+    pdf: null
+    page_offset: 0
+    sha256: "3c3edc4fbd694f3afd95ff8f5922a777fdc56d91660c3c0fbdccc016f1bd0be1"
+
+# One row per thing the driver takes from a document: the datasheet's own section names and printed page
+# numbers, the driver API that implements it, and the docs pages that explain it (file names in docs/).
+topics:
+  - topic: Features, control interfaces and key concepts
+    doc: ds
+    section: 1 Principles of Operation
+    page: 5
+    driver: "`TMC5160`, `Mode`"
+    docs: [index, architecture]
+  - topic: Package, pins and signal descriptions
+    doc: ds
+    section: 2 Pin Assignments
+    page: 11
+    driver: "`CtrlPin`, `InputPin`, `Config::mode`"
+    docs: [hardware, quickstart]
+  - topic: Sample circuits and gate drive
+    doc: ds
+    section: 3 Sample Circuits
+    page: 15
+    driver: "`Bridge`, `SetBridge()`"
+    docs: [hardware, guards]
+  - topic: SPI datagram, status byte and timing
+    doc: ds
+    section: 4 SPI Interface
+    page: 23
+    driver: "`SpiInterface`, `Transfer()`, `Verify::Echo`, `kSpiMode`"
+    docs: [spi-protocol, porting]
+  - topic: SPI daisy chain
+    doc: ds
+    section: 4.1 SPI Datagram Structure
+    page: 23
+    driver: "`SpiOptions::chain_length`, `chain_index`"
+    docs: [spi-protocol]
+  - topic: UART datagram, node address and SENDDELAY
+    doc: ds
+    section: 5.1 Datagram Structure
+    page: 26
+    driver: "`UartInterface`, `Exchange()`, `UartOptions`"
+    docs: [uart-protocol, porting]
+  - topic: UART CRC-8
+    doc: ds
+    section: 5.2 CRC Calculation
+    page: 28
+    driver: "`detail::Crc8()`, `Error::Crc`"
+    docs: [uart-protocol, testing]
+  - topic: Addressing multiple UART nodes
+    doc: ds
+    section: 5.4 Addressing Multiple Nodes
+    page: 29
+    driver: "`ProgramNode()`"
+    docs: [uart-protocol, examples]
+  - topic: Register map and reset values
+    doc: ds
+    section: 6 Register Mapping
+    page: 31
+    driver: "`inc/tmc5160_registers.hpp`, `ReadRegister()`"
+    docs: [registers, configuration]
+  - topic: General configuration registers
+    doc: ds
+    section: 6.1 General Configuration Registers
+    page: 32
+    driver: "`SetFlags()`, `SetDiag()`, `Config::flags`"
+    docs: [registers, configuration]
+  - topic: Global status and interface counter
+    doc: ds
+    section: 6.1 General Configuration Registers
+    page: 33
+    driver: "`ReadGlobalStatus()`, `ClearGlobalStatus()`, `Error::UnexpectedReset`"
+    docs: [diag-and-status, troubleshooting]
+  - topic: Standstill current and power-down
+    doc: ds
+    section: 6.1 General Configuration Registers
+    page: 36
+    driver: "`SetStandstill()`, `Standstill`"
+    docs: [current-and-limits]
+  - topic: Velocity dependent control
+    doc: ds
+    section: 6.2 Velocity Dependent Driver Feature Control Register Set
+    page: 38
+    driver: "`SetThresholds()`, `Thresholds`"
+    docs: [motion, chopper]
+  - topic: Ramp generator registers
+    doc: ds
+    section: 6.3 Ramp Generator Registers
+    page: 40
+    driver: "`SetRamp()`, `RampProfile`, `MoveTo()`, `RunVelocity()`"
+    docs: [motion]
+  - topic: Reference switches and SW_MODE
+    doc: ds
+    section: 6.3 Ramp Generator Registers
+    page: 43
+    driver: "`SetSwitches()`, `Switches`, `SetStopOnStall()`"
+    docs: [motion, stallguard-and-coolstep]
+  - topic: Ramp status and events
+    doc: ds
+    section: 6.3 Ramp Generator Registers
+    page: 44
+    driver: "`ReadRampStatus()`, `ClearRampEvents()`, `ReleaseStall()`"
+    docs: [diag-and-status, motion]
+  - topic: Encoder registers
+    doc: ds
+    section: 6.4 Encoder Registers
+    page: 45
+    driver: "`SetEncoder()`, `Encoder`, `ReadEncoderPosition()`"
+    docs: [special-modes]
+  - topic: Motor driver registers
+    doc: ds
+    section: 6.5 Motor Driver Registers
+    page: 47
+    driver: "`SetChopper()`, `ReadMicrostepCounter()`, `ReadDriverStatus()`"
+    docs: [registers, chopper]
+  - topic: Chopper configuration
+    doc: ds
+    section: 6.5 Motor Driver Registers
+    page: 51
+    driver: "`SetChopper()`, `Chopper`"
+    docs: [chopper]
+  - topic: CoolStep and StallGuard2 registers
+    doc: ds
+    section: 6.5 Motor Driver Registers
+    page: 53
+    driver: "`SetCoolStep()`, `SetStallGuard()`"
+    docs: [stallguard-and-coolstep]
+  - topic: Driver status
+    doc: ds
+    section: 6.5 Motor Driver Registers
+    page: 55
+    driver: "`ReadDriverStatus()`, `DriverStatus`"
+    docs: [diag-and-status]
+  - topic: StealthChop2 and automatic tuning
+    doc: ds
+    section: 7 StealthChop
+    page: 57
+    driver: "`SetStealthChop()`, `StealthChop`, `ReadStealthChopState()`"
+    docs: [chopper]
+  - topic: StealthChop and SpreadCycle combined
+    doc: ds
+    section: 7.5 Combine StealthChop and SpreadCycle
+    page: 64
+    driver: "`SetThresholds()`, `Thresholds::pwm`"
+    docs: [chopper]
+  - topic: Freewheeling and passive braking
+    doc: ds
+    section: 7.7 Freewheeling and Passive Braking
+    page: 66
+    driver: "`Freewheel`, `StealthChop::freewheel`"
+    docs: [chopper]
+  - topic: SpreadCycle and classic chopper
+    doc: ds
+    section: 8 SpreadCycle and Classic Chopper
+    page: 68
+    driver: "`Chopper`, `ChopperMode`"
+    docs: [chopper]
+  - topic: Selecting sense resistors and the current scale
+    doc: ds
+    section: 9 Selecting Sense Resistors
+    page: 74
+    driver: "`MakeConfig()`, `units::PlanCurrent()`, `SetCurrent()`"
+    docs: [current-and-limits, guards]
+  - topic: Velocity based mode control
+    doc: ds
+    section: 10 Velocity Based Mode Control
+    page: 76
+    driver: "`Thresholds`"
+    docs: [chopper]
+  - topic: Temperature sensors and short protection
+    doc: ds
+    section: 11 Diagnostics and Protection
+    page: 78
+    driver: "`SetProtection()`, `Protection`, `Ack::ShortProtectionOff`, `Ack::LowOtLevel`"
+    docs: [guards, diag-and-status]
+  - topic: Open load diagnostics
+    doc: ds
+    section: 11.3 Open Load Diagnostics
+    page: 80
+    driver: "`DriverStatus::open_load_a`"
+    docs: [diag-and-status]
+  - topic: Real world unit conversion
+    doc: ds
+    section: 12.1 Real World Unit Conversion
+    page: 81
+    driver: "`units::VelocityRegFromHz()`, `units::AccelRegFromHzPerS()`"
+    docs: [motion]
+  - topic: Motion profiles and early ramp termination
+    doc: ds
+    section: 12.2 Motion Profiles
+    page: 82
+    driver: "`MoveTo()`, `Stop()`, `Hold()`, `StopKind`"
+    docs: [motion]
+  - topic: Velocity thresholds
+    doc: ds
+    section: 12.3 Velocity Thresholds
+    page: 84
+    driver: "`Thresholds`"
+    docs: [motion]
+  - topic: Reference switches
+    doc: ds
+    section: 12.4 Reference Switches
+    page: 85
+    driver: "`Switches`, `ReadInputs()`"
+    docs: [motion]
+  - topic: StallGuard2
+    doc: ds
+    section: 13 StallGuard2 Load Measurement
+    page: 87
+    driver: "`SetStallGuard()`, `ReadStallGuard()`"
+    docs: [stallguard-and-coolstep]
+  - topic: Homing with StallGuard
+    doc: ds
+    section: 13.4 Homing with StallGuard
+    page: 90
+    driver: "`SetStopOnStall()`, `ReleaseStall()`, examples/host/homing_stall.cpp"
+    docs: [stallguard-and-coolstep, examples]
+  - topic: CoolStep
+    doc: ds
+    section: 14 CoolStep Operation
+    page: 91
+    driver: "`SetCoolStep()`, `CoolStep`"
+    docs: [stallguard-and-coolstep]
+  - topic: STEP/DIR interface and MicroPlyer
+    doc: ds
+    section: 15 STEP/DIR Interface
+    page: 94
+    driver: "`Mode::StepDir`, `Config::mode`"
+    docs: [motion, special-modes]
+  - topic: DIAG outputs
+    doc: ds
+    section: 16 DIAG Outputs
+    page: 97
+    driver: "`SetDiag()`, `Diag`, `Diag0Active()`, `Diag1Active()`"
+    docs: [diag-and-status]
+  - topic: DcStep
+    doc: ds
+    section: 17 DcStep
+    page: 99
+    driver: "`SetDcStep()`, `DcStep`, `ReadLostSteps()`"
+    docs: [special-modes]
+  - topic: Sine-wave look-up table
+    doc: ds
+    section: 18 Sine-Wave Look-up Table
+    page: 105
+    driver: "`SetMicrostepTable()`, `MicrostepTable`"
+    docs: [microstep-table]
+  - topic: Emergency stop
+    doc: ds
+    section: 19 Emergency Stop
+    page: 106
+    driver: "`Stop()`, `StopKind::Emergency`"
+    docs: [motion]
+  - topic: ABN incremental encoder interface
+    doc: ds
+    section: 20 ABN Incremental Encoder Interface
+    page: 107
+    driver: "`SetEncoder()`, `units::EncoderScaleFor()`"
+    docs: [special-modes]
+  - topic: DC motor and direct mode
+    doc: ds
+    section: 21 DC Motor or Solenoid
+    page: 110
+    driver: "`EnterDirectMode()`, `SetDirectCurrents()`, `Ack::DirectMode`"
+    docs: [special-modes, guards]
+  - topic: Quick configuration guide
+    doc: ds
+    section: 22 Quick Configuration Guide
+    page: 111
+    driver: "`MakeConfig()`, `Config`"
+    docs: [configuration, quickstart]
+  - topic: Initialization examples
+    doc: ds
+    section: 23.1 Initialization Examples
+    page: 116
+    driver: "`EnsureInitialized()`"
+    docs: [quickstart, architecture]
+  - topic: Power-up reset
+    doc: ds
+    section: 25 Power-Up Reset
+    page: 119
+    driver: "`EnsureInitialized()`, `Error::UnexpectedReset`"
+    docs: [contract, troubleshooting]
+  - topic: Clock oscillator and input
+    doc: ds
+    section: 26 Clock Oscillator and Input
+    page: 119
+    driver: "`Clock`, `kInternalClockHz`"
+    docs: [configuration, motion]
+  - topic: Absolute maximum ratings and operational range
+    doc: ds
+    section: 28.1 Operational Range
+    page: 120
+    driver: "`Board::supply_mv`, `kVsMinMv`, `kVsMaxMv`"
+    docs: [hardware, guards]
+  - topic: DC and timing characteristics
+    doc: ds
+    section: 28.2 DC and Timing Characteristics
+    page: 121
+    driver: "`kVfsMv`, `kCurrentTolerancePercent`"
+    docs: [current-and-limits, hardware]
+  - topic: Thermal characteristics
+    doc: ds
+    section: 28.3 Thermal Characteristics
+    page: 124
+    driver: "`Ack::LowOtLevel`"
+    docs: [hardware]
+  - topic: Package mechanical data and codes
+    doc: ds
+    section: 30 Package Mechanical Data
+    page: 128
+    driver: "-"
+    docs: [hardware]

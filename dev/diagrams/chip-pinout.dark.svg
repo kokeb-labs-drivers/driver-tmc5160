@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1324" height="1411" viewBox="0 0 1324 1411" role="img" aria-labelledby="chip-pinout-title chip-pinout-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-pinout-title">TMC5160A pinout, TQFP-48</title>
+<desc id="chip-pinout-desc">Pinout of the TMC5160A in TQFP-48, top view: 48 pins and an exposed pad, each with its name, its electrical type as a colour and the driver hook that uses it.</desc>
+<rect x="0.5" y="0.5" width="1323" height="1410" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#F8D27A">HARDWARE</text>
+<text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">TMC5160A pinout, TQFP-48</text>
+<text x="32" y="103.8" font-size="15" fill="#9AA6B5">Top view, pin 1 marked. Colour is the pin's electrical type; the mono text outside is the port hook the driver uses for it. Datasheet: 2.1 Package Outline, p. 11.</text>
+<rect x="32" y="119.8" width="1260" height="1" fill="#252F3C"/>
+<rect x="436" y="517.6" width="452" height="452" rx="8" fill="#18202B" stroke="#D2DAE4" stroke-width="2"/>
+<circle cx="456" cy="537.6" r="6" fill="#D2DAE4"/>
+<rect x="567.1" y="773.6" width="189.8" height="94.9" rx="6" fill="#151C26" stroke="#94A3B8" stroke-width="1.4" stroke-dasharray="5 4"/>
+<rect x="406" y="546.6" width="30" height="20" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="406" y="580.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="406" y="614.6" width="30" height="20" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="406" y="648.6" width="30" height="20" rx="3" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<rect x="406" y="682.6" width="30" height="20" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="406" y="716.6" width="30" height="20" rx="3" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="406" y="750.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="406" y="784.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="406" y="818.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="406" y="852.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="406" y="886.6" width="30" height="20" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="406" y="920.6" width="30" height="20" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="465" y="969.6" width="20" height="30" rx="3" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="499" y="969.6" width="20" height="30" rx="3" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="533" y="969.6" width="20" height="30" rx="3" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="567" y="969.6" width="20" height="30" rx="3" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="601" y="969.6" width="20" height="30" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="635" y="969.6" width="20" height="30" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="669" y="969.6" width="20" height="30" rx="3" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="703" y="969.6" width="20" height="30" rx="3" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<rect x="737" y="969.6" width="20" height="30" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="771" y="969.6" width="20" height="30" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="805" y="969.6" width="20" height="30" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="839" y="969.6" width="20" height="30" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="888" y="546.6" width="30" height="20" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="888" y="580.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="888" y="614.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="888" y="648.6" width="30" height="20" rx="3" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<rect x="888" y="682.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="888" y="716.6" width="30" height="20" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="888" y="750.6" width="30" height="20" rx="3" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<rect x="888" y="784.6" width="30" height="20" rx="3" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<rect x="888" y="818.6" width="30" height="20" rx="3" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="888" y="852.6" width="30" height="20" rx="3" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
+<rect x="888" y="886.6" width="30" height="20" rx="3" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
+<rect x="888" y="920.6" width="30" height="20" rx="3" fill="#221A3A" stroke="#A78BFA" stroke-width="1.4"/>
+<rect x="465" y="487.6" width="20" height="30" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="499" y="487.6" width="20" height="30" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="533" y="487.6" width="20" height="30" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="567" y="487.6" width="20" height="30" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="601" y="487.6" width="20" height="30" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="635" y="487.6" width="20" height="30" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="669" y="487.6" width="20" height="30" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="703" y="487.6" width="20" height="30" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="737" y="487.6" width="20" height="30" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<rect x="771" y="487.6" width="20" height="30" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="805" y="487.6" width="20" height="30" rx="3" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<rect x="839" y="487.6" width="20" height="30" rx="3" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<text x="662" y="733.6" font-size="20" font-weight="700" text-anchor="middle" fill="#E8EDF3">TMC5160A</text>
+<text x="662" y="757.6" font-size="13" text-anchor="middle" fill="#9AA6B5">TQFP-48, top view</text>
+<text x="662" y="826.1" font-size="12.5" font-weight="700" text-anchor="middle" fill="#E2E8F0">EP: EP</text>
+<text x="421" y="560.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F1D5B5">1</text>
+<text x="396" y="561.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">HB1</text>
+<text x="421" y="594.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">2</text>
+<text x="396" y="595.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CB1</text>
+<text x="421" y="628.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F1D5B5">3</text>
+<text x="396" y="629.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">12VOUT</text>
+<text x="421" y="662.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#FECDD3">4</text>
+<text x="396" y="663.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">VSA</text>
+<text x="421" y="696.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F1D5B5">5</text>
+<text x="396" y="697.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">5VOUT</text>
+<text x="421" y="730.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#E2E8F0">6</text>
+<text x="396" y="731.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">GNDA</text>
+<text x="421" y="764.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">7</text>
+<text x="396" y="765.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRAL</text>
+<text x="421" y="798.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">8</text>
+<text x="396" y="799.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRAH</text>
+<text x="421" y="832.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">9</text>
+<text x="396" y="833.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRBH</text>
+<text x="421" y="866.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">10</text>
+<text x="396" y="867.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">SRBL</text>
+<text x="421" y="900.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#A7F3E6">11</text>
+<text x="396" y="901.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">TST_MODE</text>
+<text x="421" y="934.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#A7F3E6">12</text>
+<text x="396" y="935.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" fill="#E8EDF3">CLK</text>
+<text x="479.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 479.1 984.6)" fill="#BFDBFE">13</text>
+<text x="480" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 480 1009.6)" fill="#E8EDF3">CSN_CFG3</text>
+<text x="479.3" y="1152.3" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 479.3 1152.3)" fill="#9AA6B5">Transfer()</text>
+<text x="513.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 513.1 984.6)" fill="#BFDBFE">14</text>
+<text x="514" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 514 1009.6)" fill="#E8EDF3">SCK_CFG2</text>
+<text x="513.3" y="1152.3" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 513.3 1152.3)" fill="#9AA6B5">Transfer()</text>
+<text x="547.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 547.1 984.6)" fill="#BFDBFE">15</text>
+<text x="548" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 548 1009.6)" fill="#E8EDF3">SDI_CFG1</text>
+<text x="547.3" y="1152.3" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 547.3 1152.3)" fill="#9AA6B5">Transfer()</text>
+<text x="581.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 581.1 984.6)" fill="#BFDBFE">16</text>
+<text x="582" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 582 1009.6)" fill="#E8EDF3">SDO_CFG0</text>
+<text x="581.3" y="1152.3" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 581.3 1152.3)" fill="#9AA6B5">Transfer()</text>
+<text x="615.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 615.1 984.6)" fill="#A7F3E6">17</text>
+<text x="616" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 616 1009.6)" fill="#E8EDF3">REFL_STEP</text>
+<text x="649.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 649.1 984.6)" fill="#A7F3E6">18</text>
+<text x="650" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 650 1009.6)" fill="#E8EDF3">REFR_DIR</text>
+<text x="683.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 683.1 984.6)" fill="#E2E8F0">19</text>
+<text x="684" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 684 1009.6)" fill="#E8EDF3">GNDD</text>
+<text x="717.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 717.1 984.6)" fill="#FECDD3">20</text>
+<text x="718" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 718 1009.6)" fill="#E8EDF3">VCC_IO</text>
+<text x="751.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 751.1 984.6)" fill="#A7F3E6">21</text>
+<text x="752" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 752 1009.6)" fill="#E8EDF3">SD_MODE</text>
+<text x="785.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 785.1 984.6)" fill="#A7F3E6">22</text>
+<text x="786" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 786 1009.6)" fill="#E8EDF3">SPI_MODE</text>
+<text x="819.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 819.1 984.6)" fill="#A7F3E6">23</text>
+<text x="820" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 820 1009.6)" fill="#E8EDF3">ENCB_DCEN_CFG4</text>
+<text x="853.1" y="984.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 853.1 984.6)" fill="#A7F3E6">24</text>
+<text x="854" y="1009.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" text-anchor="end" transform="rotate(-90 854 1009.6)" fill="#E8EDF3">ENCA_DCIN_CFG5</text>
+<text x="903" y="560.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F1D5B5">36</text>
+<text x="928" y="561.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">HA2</text>
+<text x="903" y="594.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">35</text>
+<text x="928" y="595.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">CA2</text>
+<text x="903" y="628.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">34</text>
+<text x="928" y="629.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">VCP</text>
+<text x="903" y="662.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#FECDD3">33</text>
+<text x="928" y="663.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">VS</text>
+<text x="903" y="696.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">32</text>
+<text x="928" y="697.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">CPI</text>
+<text x="903" y="730.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#F5D0FE">31</text>
+<text x="928" y="731.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">CPO</text>
+<text x="903" y="764.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#E2E8F0">30</text>
+<text x="928" y="765.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">GNDD</text>
+<text x="903" y="798.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#FECDD3">29</text>
+<text x="928" y="799.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">VCC</text>
+<text x="903" y="832.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#A7F3E6">28</text>
+<text x="928" y="833.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">DRV_ENN</text>
+<text x="1070.7" y="832.9" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#9AA6B5">GpioSet(CtrlPin::DrvEnn)</text>
+<text x="903" y="866.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#FDE68A">27</text>
+<text x="928" y="867.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">DIAG1_SWP</text>
+<text x="1070.7" y="866.9" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#9AA6B5">GpioGet(InputPin::Diag1)</text>
+<text x="903" y="900.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#FDE68A">26</text>
+<text x="928" y="901.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">DIAG0_SWN</text>
+<text x="1070.7" y="900.9" font-size="12" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#9AA6B5">GpioGet(InputPin::Diag0)</text>
+<text x="903" y="934.8" font-size="11.5" font-weight="700" text-anchor="middle" fill="#DDD6FE">25</text>
+<text x="928" y="935.7" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">ENCN_DCO_CFG6</text>
+<text x="479.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 479.1 502.6)" fill="#F5D0FE">48</text>
+<text x="480" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 480 477.6)" fill="#E8EDF3">BMB1</text>
+<text x="513.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 513.1 502.6)" fill="#F1D5B5">47</text>
+<text x="514" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 514 477.6)" fill="#E8EDF3">LB1</text>
+<text x="547.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 547.1 502.6)" fill="#F1D5B5">46</text>
+<text x="548" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 548 477.6)" fill="#E8EDF3">LB2</text>
+<text x="581.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 581.1 502.6)" fill="#F5D0FE">45</text>
+<text x="582" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 582 477.6)" fill="#E8EDF3">BMB2</text>
+<text x="615.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 615.1 502.6)" fill="#F1D5B5">44</text>
+<text x="616" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 616 477.6)" fill="#E8EDF3">HB2</text>
+<text x="649.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 649.1 502.6)" fill="#F5D0FE">43</text>
+<text x="650" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 650 477.6)" fill="#E8EDF3">CB2</text>
+<text x="683.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 683.1 502.6)" fill="#F5D0FE">42</text>
+<text x="684" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 684 477.6)" fill="#E8EDF3">CA1</text>
+<text x="717.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 717.1 502.6)" fill="#F1D5B5">41</text>
+<text x="718" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 718 477.6)" fill="#E8EDF3">HA1</text>
+<text x="751.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 751.1 502.6)" fill="#F5D0FE">40</text>
+<text x="752" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 752 477.6)" fill="#E8EDF3">BMA1</text>
+<text x="785.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 785.1 502.6)" fill="#F1D5B5">39</text>
+<text x="786" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 786 477.6)" fill="#E8EDF3">LA1</text>
+<text x="819.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 819.1 502.6)" fill="#F1D5B5">38</text>
+<text x="820" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 820 477.6)" fill="#E8EDF3">LA2</text>
+<text x="853.1" y="502.6" font-size="11.5" font-weight="700" text-anchor="middle" transform="rotate(-90 853.1 502.6)" fill="#F5D0FE">37</text>
+<text x="854" y="477.6" font-size="14" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" transform="rotate(-90 854 477.6)" fill="#E8EDF3">BMA2</text>
+<rect x="32" y="1364.8" width="14" height="14" rx="4" fill="#321820" stroke="#FB7185" stroke-width="1.4"/>
+<text x="54" y="1376.4" font-size="12.5" fill="#9AA6B5">power</text>
+<rect x="117.6" y="1364.8" width="14" height="14" rx="4" fill="#1B232E" stroke="#94A3B8" stroke-width="1.4"/>
+<text x="139.6" y="1376.4" font-size="12.5" fill="#9AA6B5">ground</text>
+<rect x="208.5" y="1364.8" width="14" height="14" rx="4" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<text x="230.5" y="1376.4" font-size="12.5" fill="#9AA6B5">bus</text>
+<rect x="277.4" y="1364.8" width="14" height="14" rx="4" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<text x="299.4" y="1376.4" font-size="12.5" fill="#9AA6B5">digital in</text>
+<rect x="375.8" y="1364.8" width="14" height="14" rx="4" fill="#221A3A" stroke="#A78BFA" stroke-width="1.4"/>
+<text x="397.8" y="1376.4" font-size="12.5" fill="#9AA6B5">digital in/out</text>
+<rect x="499.1" y="1364.8" width="14" height="14" rx="4" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
+<text x="521.1" y="1376.4" font-size="12.5" fill="#9AA6B5">open drain</text>
+<rect x="612" y="1364.8" width="14" height="14" rx="4" fill="#2E1533" stroke="#F0ABFC" stroke-width="1.4"/>
+<text x="634" y="1376.4" font-size="12.5" fill="#9AA6B5">analog</text>
+<rect x="700" y="1364.8" width="14" height="14" rx="4" fill="#2A1F14" stroke="#D6A26B" stroke-width="1.4"/>
+<text x="722" y="1376.4" font-size="12.5" fill="#9AA6B5">power output</text>
+</svg>
