@@ -37,3 +37,17 @@ foreach(name ${TMC5160_HOST_EXAMPLES})
   target_compile_options(tmc5160_host_${name} PRIVATE -fno-exceptions -fno-rtti -Wall -Wextra -Wpedantic
     -pedantic-errors)
 endforeach()
+
+# `tmc5160_host_example`: the name the CI host-tests job runs after building this folder on its own (the template's
+# workflow); it is the quickstart under that name. Only in the standalone build: the host tests already run the
+# quickstart as tmc5160_host_quickstart.
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+  add_executable(tmc5160_host_example quickstart.cpp)
+  target_link_libraries(tmc5160_host_example PRIVATE tmc5160::tmc5160)
+  target_include_directories(tmc5160_host_example PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}/../../tests)
+  target_compile_features(tmc5160_host_example PRIVATE cxx_std_20)
+  target_compile_options(tmc5160_host_example PRIVATE -fno-exceptions -fno-rtti -Wall -Wextra -Wpedantic
+    -pedantic-errors)
+endif()

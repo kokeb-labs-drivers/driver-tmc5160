@@ -28,4 +28,5 @@ cmake --build build-example
 ./build-example/tmc5160_host_quickstart
 ```
 
-The host tests build this folder as well and run every program as the CTest `tmc5160_host_<name>`.
+The host tests build this folder as well and run every program as the CTest `tmc5160_host_<name>`. Built on its own,
+the folder also makes `tmc5160_host_example`, the quickstart under the name the CI job runs.

@@ -803,7 +803,13 @@ private:
   /// `Bus` when `value` and the status byte are 0 and IOIN.VERSION is wrong too (SPI only).
   [[nodiscard]] Error lineCheck(uint32_t value) noexcept;
   Result<void> writeChopconf(Verify verify) noexcept;
+  /// CHOPCONF with the bridge marked off (TOFF 0), without the intact check of `pushConfig()`.
+  Result<void> writeOff(Verify verify) noexcept;
+  /// `pushConfig()` checks the chip before a write that switches the bridge on, then sends.
   Result<void> pushConfig(const Config& next, std::span<const uint8_t> which,
+                          Verify verify) noexcept;
+  /// The registers of `which` from `next`, written and taken into `config_` on success.
+  Result<void> sendConfig(const Config& next, std::span<const uint8_t> which,
                           Verify verify) noexcept;
   Result<void> setField(Config next, std::span<const uint8_t> which, Verify verify) noexcept;
   Result<void> clearEvents(const Events& ev) noexcept;

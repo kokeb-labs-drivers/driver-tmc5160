@@ -379,6 +379,15 @@ Result<void> TMC5160<Port>::pushConfig(const Config& next, std::span<const uint8
       }
     }
   }
+  return sendConfig(next, which, verify);
+}
+
+template <AnyPort Port>
+Result<void> TMC5160<Port>::sendConfig(const Config& next, std::span<const uint8_t> which,
+                                       Verify verify) noexcept {
+  if (which.size() > detail::kMaxWrites) {
+    return Result<void>::Failure(Error::InvalidArgument); // nothing is truncated silently
+  }
   std::array<detail::Write, detail::kMaxWrites> writes{};
   const detail::WordContext x{next, plan_, direct_mode_, enabled_, hold_at_run_};
   const std::size_t count = which.size();
@@ -527,6 +536,15 @@ Result<void> TMC5160<Port>::writeChopconf(Verify verify) noexcept {
 }
 
 template <AnyPort Port>
+Result<void> TMC5160<Port>::writeOff(Verify verify) noexcept {
+  // The switch-off write (TOFF 0, `enabled_` already false): it never needs the intact check of
+  // a switch-on, and `checkIntact()` itself switches off through it, so it goes straight to the
+  // bus (no call path back into `pushConfig()`, MISRA C++:2023 Rule 8.2.10).
+  const std::array<uint8_t, 1> which{reg::kChopconf};
+  return sendConfig(config_, which, verify);
+}
+
+template <AnyPort Port>
 constexpr Verify TMC5160<Port>::offVerify(Verify verify) noexcept {
   // A UART write has no reply: the interface counter is the only proof that TOFF = 0 arrived. A
   // switching-off write is never refused for the verification the caller named: a mode the bus
@@ -571,7 +589,7 @@ Result<void> TMC5160<Port>::quiesce(Verify verify) noexcept {
       setPin(CtrlPin::DrvEnn, false); // DRV_ENN first: the hardware switch (page 106)
   enabled_ = false;
   off_pending_ = true;
-  const Result<void> off = writeChopconf(offVerify(verify));
+  const Result<void> off = writeOff(offVerify(verify));
   off_pending_ = !off || !pin;
   // The ramp generator keeps running with the bridge off: a later `Enable()` must not find it
   // moving (pages 83, 106). Best effort after the switch-off; the caller learns of a failure.
@@ -656,7 +674,7 @@ Result<void> TMC5160<Port>::initialize() noexcept {
   }
   if constexpr (detail::HasSckHz<Port>) {
     const uint32_t limit =
-        config.clock.external ? ((config.clock.hz / 2U) / 10U) * 9U : kMaxSckInternalHz;
+        config.clock.external ? (((config.clock.hz / 2U) / 10U) * 9U) : kMaxSckInternalHz;
     if (port_.SckHz() > limit) {
       return fail(Error::Unsupported, "tmc5160: the SPI clock is above the chip's limit");
     }

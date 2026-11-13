@@ -309,7 +309,7 @@ namespace detail {
  * @return Microseconds.
  */
 [[nodiscard]] constexpr uint64_t PowerDownUs(uint32_t tpowerdown, uint32_t fclk_hz) noexcept {
-  return (fclk_hz == 0U) ? 0U : ((uint64_t{tpowerdown & 255U} << 18U) * 1'000'000U) / fclk_hz;
+  return (fclk_hz == 0U) ? 0U : (((uint64_t{tpowerdown & 255U} << 18U) * 1'000'000U) / fclk_hz);
 }
 
 /**
@@ -319,7 +319,7 @@ namespace detail {
  * @return Microseconds.
  */
 [[nodiscard]] constexpr uint64_t HoldDelayUs(uint32_t hold_delay, uint32_t fclk_hz) noexcept {
-  return (fclk_hz == 0U) ? 0U : ((uint64_t{hold_delay & 15U} << 18U) * 1'000'000U) / fclk_hz;
+  return (fclk_hz == 0U) ? 0U : (((uint64_t{hold_delay & 15U} << 18U) * 1'000'000U) / fclk_hz);
 }
 
 /**
@@ -329,7 +329,7 @@ namespace detail {
  * @return Microseconds.
  */
 [[nodiscard]] constexpr uint64_t ZeroWaitUs(uint32_t zero_wait, uint32_t fclk_hz) noexcept {
-  return (fclk_hz == 0U) ? 0U : (uint64_t{zero_wait & 0xFFFFU} * 512U * 1'000'000U) / fclk_hz;
+  return (fclk_hz == 0U) ? 0U : ((uint64_t{zero_wait & 0xFFFFU} * 512U * 1'000'000U) / fclk_hz);
 }
 
 /**
@@ -386,7 +386,7 @@ namespace detail {
   if (scale.decimal) {
     const uint32_t frac = (scale.fraction == 0U) ? 0U : (10'000U - scale.fraction);
     const int32_t whole = (scale.fraction == 0U) ? -static_cast<int32_t>(scale.integer)
-                                                 : -static_cast<int32_t>(scale.integer) - 1;
+                                                 : (-static_cast<int32_t>(scale.integer) - 1);
     return (static_cast<uint32_t>(static_cast<uint16_t>(static_cast<int16_t>(whole))) << 16U) |
            frac;
   }
