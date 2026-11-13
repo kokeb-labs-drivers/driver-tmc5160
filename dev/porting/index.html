@@ -1461,8 +1461,8 @@
 <!-- /generated -->
 
 <p>The driver never calls your SDK. It calls hooks on a class you derive from <code>tmc5160::SpiInterface&lt;Self&gt;</code> or
-<code>tmc5160::UartInterface&lt;Self&gt;</code> (in <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a> and
-<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>). The base uses CRTP and declares no hook itself;
+<code>tmc5160::UartInterface&lt;Self&gt;</code> (in <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a> and
+<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>). The base uses CRTP and declares no hook itself;
 the driver template is constrained by the <code>SpiPort</code> or <code>UartPort</code> concept, which checks each hook's exact signature and
 <code>noexcept</code>, so calls are resolved at compile time (no virtual functions, nothing to allocate) and a missing or
 misdeclared hook is a compile error at the point of use. A port is one bus or the other, never both.</p>
@@ -1792,14 +1792,14 @@ compile errors: the driver must see a failed pin write. The <a href="../testing/
 <p>Every port lives with its example, in <code>examples/&lt;platform&gt;/</code>; the driver has none. <a href="../platforms/">Platforms</a> lists
 them and how to add one.</p>
 <ul>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/examples/host/host_tmc5160_port.hpp"><code>examples/host/host_tmc5160_port.hpp</code></a>: any PC, against a simulated chip, SPI
+<li><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/examples/host/host_tmc5160_port.hpp"><code>examples/host/host_tmc5160_port.hpp</code></a>: any PC, against a simulated chip, SPI
   and UART. Start from it for a host build or a test bench; it is also the smallest complete port.</li>
-<li><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/examples/esp32/main/esp32_tmc5160_port.hpp"><code>examples/esp32/main/esp32_tmc5160_port.hpp</code></a>: ESP-IDF, SPI and UART,
+<li><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/examples/esp32/main/esp32_tmc5160_port.hpp"><code>examples/esp32/main/esp32_tmc5160_port.hpp</code></a>: ESP-IDF, SPI and UART,
   with every hook. Start from it for any ESP-IDF target.</li>
 </ul>
 <h2 id="check-your-port">Check your port<a class="headerlink" href="#check-your-port" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Build it: the ports on this page are compiled by the host CI from <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, with the
+<li>Build it: the ports on this page are compiled by the host CI from <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, with the
    driver instantiated over them.</li>
 <li>Call <code>EnsureInitialized()</code>: <code>Ok</code> proves that writes and reads work and that IOIN.VERSION read <code>0x30</code> with the strap
    you expect.</li>

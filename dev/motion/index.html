@@ -1510,7 +1510,7 @@ leaves the chopper on, which only the error tells. Writing XACTUAL in position m
 <h2 id="reference-switches-and-homing">Reference switches and homing<a class="headerlink" href="#reference-switches-and-homing" title="Permanent link">&para;</a></h2>
 <p><code>SetSwitches()</code> programs SW_MODE: stop on the left or right switch, polarity, swap, and the latches. The latched
 position is <code>ReadLatchedPosition()</code>. Homing is not a driver call: the right speed, back-off and sequence depend on the
-machine. <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/examples/host/homing_switch.cpp"><code>examples/host/homing_switch.cpp</code></a> and <code>homing_stall.cpp</code> show both
+machine. <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/examples/host/homing_switch.cpp"><code>examples/host/homing_switch.cpp</code></a> and <code>homing_stall.cpp</code> show both
 procedures with the driver's primitives. They home in velocity mode. A position move that a switch or a stall stops
 has not reached its target, so <code>SetHomePosition()</code> answers <code>Busy</code> for it until <code>Stop()</code> (any kind) or <code>Hold()</code> ends
 the move: a homing loop that polls <code>SetHomePosition()</code> after a position move must stop it first, or it waits forever.

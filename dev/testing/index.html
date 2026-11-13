@@ -1431,67 +1431,67 @@ flags, <code>-fno-exceptions -fno-rtti</code>, and warnings as errors, on GCC an
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_lifecycle.cpp"><code>tests/test_lifecycle.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_lifecycle.cpp"><code>tests/test_lifecycle.cpp</code></a></td>
 <td>Construction, <code>EnsureInitialized()</code>, strap and version checks, <code>Enable()</code>, <code>Disable()</code>, <code>ClearFaults()</code> and the fault paths</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_bus.cpp"><code>tests/test_bus.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_bus.cpp"><code>tests/test_bus.cpp</code></a></td>
 <td>SPI framing and chain, UART framing, CRC, IFCNT, recovery, node programming, write verification, the datasheet vectors</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_current.cpp"><code>tests/test_current.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_current.cpp"><code>tests/test_current.cpp</code></a></td>
 <td>The current plan, the ceiling, the sense-resistor bound, the write order of <code>SetCurrent()</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_motion.cpp"><code>tests/test_motion.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_motion.cpp"><code>tests/test_motion.cpp</code></a></td>
 <td>The ramp registers, moves, stops, switches, homing primitives, StealthChop sequencing, StallGuard2, CoolStep, DcStep, encoder, direct mode</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_core.cpp"><code>tests/test_core.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_core.cpp"><code>tests/test_core.cpp</code></a></td>
 <td><code>Validate()</code> as a mutation table of invalid and valid configurations, the units, the microstep table, the registers</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_stops.cpp"><code>tests/test_stops.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_stops.cpp"><code>tests/test_stops.cpp</code></a></td>
 <td>How motion ends and when the bridge may be energised again: the stop after a failed start-up, the switch-off ramp stop, the TZEROWAIT pause, and the read order of the standstill check against a chip that runs on while each transfer is on the line (<code>Wire::xfer_us</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_scenarios.cpp"><code>tests/test_scenarios.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_scenarios.cpp"><code>tests/test_scenarios.cpp</code></a></td>
 <td>Whole sessions over both buses: start-up, motion, fault, brown-out, recovery</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_knobs.cpp"><code>tests/test_knobs.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_knobs.cpp"><code>tests/test_knobs.cpp</code></a></td>
 <td>One test per ambiguity knob (<a href="../ambiguities/">Ambiguities</a>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_kconfig.cpp"><code>tests/test_kconfig.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_kconfig.cpp"><code>tests/test_kconfig.cpp</code></a></td>
 <td><code>KconfigDefaults()</code> with and without <code>CONFIG_</code> values</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/test_version.cpp"><code>tests/test_version.cpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/test_version.cpp"><code>tests/test_version.cpp</code></a></td>
 <td>The version getters follow the generated header</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/fuzz/fuzz_tmc5160.cpp"><code>tests/fuzz/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/fuzz/fuzz_tmc5160.cpp"><code>tests/fuzz/</code></a></td>
 <td>The fuzz target; CTest replays its corpus (<code>tmc5160_fuzz_tmc5160_corpus</code>), see below</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/compile_fail/port_without_delay.cpp"><code>tests/compile_fail/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/compile_fail/port_without_delay.cpp"><code>tests/compile_fail/</code></a></td>
 <td>Code that must not compile, each for its <code>EXPECT:</code> diagnostic: a port without <code>DelayUs()</code>, a <code>void GpioSet()</code>, a wrong <code>GpioGet()</code> level type, a <code>DelayUs(uint16_t)</code>, an <code>SckHz()</code> that is not <code>const</code>, an <code>Exchange()</code> with a narrowed parameter, a port with both buses, a hook without <code>noexcept</code>, an invalid <code>CheckedConfig</code>, a class that is not a port</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/docs/my_port.hpp"><code>tests/docs/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/docs/my_port.hpp"><code>tests/docs/</code></a></td>
 <td>Every code block of this site, compiled</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/examples/host/README.md"><code>examples/host/</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/examples/host/README.md"><code>examples/host/</code></a></td>
 <td>Eleven host examples, built with the test flags and run (<code>tmc5160_host_&lt;name&gt;</code>)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/check_install.cmake"><code>tests/check_install.cmake</code></a></td>
-<td>Installs into a scratch prefix and builds <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/install_consumer/CMakeLists.txt"><code>tests/install_consumer/</code></a> with <code>find_package(tmc5160)</code></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/check_install.cmake"><code>tests/check_install.cmake</code></a></td>
+<td>Installs into a scratch prefix and builds <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/install_consumer/CMakeLists.txt"><code>tests/install_consumer/</code></a> with <code>find_package(tmc5160)</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/check_doxygen.cmake"><code>tests/check_doxygen.cmake</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/check_doxygen.cmake"><code>tests/check_doxygen.cmake</code></a></td>
 <td>Doxygen with <code>_config/Doxyfile</code> and warnings as errors, when <code>doxygen</code> is installed</td>
 </tr>
 </tbody>
@@ -1506,7 +1506,7 @@ example of page 24, the microstep table formula of page 49 and the encoder const
 runs the driver against each reading. The model is behavioural: it does not claim a bit-exact trajectory (A22).</p>
 <h2 id="fuzz-tests">Fuzz tests<a class="headerlink" href="#fuzz-tests" title="Permanent link">&para;</a></h2>
 <p>Everything the driver reads comes from the chip over the bus, so the data read is what a noisy cable, a wrong part or a
-broken chip controls. <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/fuzz/fuzz_tmc5160.cpp"><code>tests/fuzz/fuzz_tmc5160.cpp</code></a> lets libFuzzer choose the bus (SPI
+broken chip controls. <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/fuzz/fuzz_tmc5160.cpp"><code>tests/fuzz/fuzz_tmc5160.cpp</code></a> lets libFuzzer choose the bus (SPI
 or UART), then up to 30 driver operations, and on every transfer what the bus does: pass it to the model, fail it, flip
 bits, replace the reply or corrupt the request. Between calls it changes the chip: the version, the strap, a short, an
 overtemperature, a stall, the reference switches, a brown-out. After every call it checks sixteen invariants and aborts,
@@ -1530,7 +1530,7 @@ naming the line, when one breaks. Among them:</p>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>./build-fuzz/tests/fuzz/fuzz_tmc5160<span class="w"> </span>-max_total_time<span class="o">=</span><span class="m">120</span><span class="w"> </span>tests/fuzz/corpus/fuzz_tmc5160
 </span></code></pre></div>
 <p>The same file also builds without libFuzzer, and CTest replays every input in
-<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/tree/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/fuzz/corpus/fuzz_tmc5160"><code>tests/fuzz/corpus/fuzz_tmc5160/</code></a> on GCC and Clang
+<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/tree/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/fuzz/corpus/fuzz_tmc5160"><code>tests/fuzz/corpus/fuzz_tmc5160/</code></a> on GCC and Clang
 (<code>tmc5160_fuzz_tmc5160_corpus</code>): the seeds, and every input that ever broke a promise (name it <code>regress-*</code>), so a fixed
 bug stays fixed. The fuzzer found three real hazards during development (a brown-out followed by <code>Enable()</code>, lost UART
 writes, and a failure between the two current writes); each is now a test.</p>
@@ -1568,7 +1568,7 @@ part of CI.</p>
 <h2 id="quality-gates">Quality gates<a class="headerlink" href="#quality-gates" title="Permanent link">&para;</a></h2>
 <p>The <code>Host quality</code> job measures the library code, <code>inc/</code> and <code>src/</code> only (tests and examples are left out), and
 fails when a value is over the limits of this repository's assurance level, <code>high</code> (set in
-<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/.kokeb/handbook.yml"><code>.kokeb/handbook.yml</code></a>, defined by the handbook's ADR-0020):</p>
+<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/.kokeb/handbook.yml"><code>.kokeb/handbook.yml</code></a>, defined by the handbook's ADR-0020):</p>
 <table>
 <thead>
 <tr>
@@ -1634,10 +1634,10 @@ fails when a value is over the limits of this repository's assurance level, <cod
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build-san<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ctest<span class="w"> </span>--test-dir<span class="w"> </span>build-san<span class="w"> </span>--output-on-failure
 </span></code></pre></div>
 <p>The fuzz gate runs locally as shown in <a href="#fuzz-tests">Fuzz tests</a>.</p>
-<p>clang-tidy 20 (<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/_config/.clang-tidy"><code>_config/.clang-tidy</code></a>: bugprone, CERT, clang-analyzer,
+<p>clang-tidy 20 (<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/_config/.clang-tidy"><code>_config/.clang-tidy</code></a>: bugprone, CERT, clang-analyzer,
 cppcoreguidelines, modernize, performance, portability and readability, each disabled check with its reason) and
 cppcheck (strict) run in the <code>C++ lint</code> and <code>Repository checks</code> jobs and fail on any finding.</p>
-<p>The <code>MISRA</code> job (<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/.github/workflows/ci-misra.yml"><code>ci-misra.yml</code></a>) runs the shared <code>ru-misra</code> workflow of
+<p>The <code>MISRA</code> job (<a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/.github/workflows/ci-misra.yml"><code>ci-misra.yml</code></a>) runs the shared <code>ru-misra</code> workflow of
 ci-tools at level <code>high</code>: it traces a host build and the Cortex-M build (<code>tmc5160_optimised_build</code>) of every
 translation unit, checks them against MISRA C++:2023 and the handbook's C++20 profile (the CodeQL coding-standards
 and profile packs, plus the validated clang-tidy and cppcheck checks), and reports each finding against the
@@ -1646,12 +1646,12 @@ its deviation on the line before it (<code>// codeql::misra_deviation_next_line(
 of <code>inc/tmc5160.hpp</code>). Until the repository is public the job runs with <code>open_source_prerelease: true</code>, the
 declaration that the code is released under the licence in <code>LICENSE</code> and is to be published.</p>
 <h2 id="documentation-snippets">Documentation snippets<a class="headerlink" href="#documentation-snippets" title="Permanent link">&para;</a></h2>
-<p>Every C++ block on this site is included from <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, which the host build compiles
+<p>Every C++ block on this site is included from <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/tests/docs/my_port.hpp"><code>tests/docs/</code></a>, which the host build compiles
 (target <code>tmc5160_doc_snippets</code>) with the driver instantiated over the documented port. A change to the API that breaks a
 page breaks the build first. The README's example is a generated copy of the same file; <code>kokeb-docs check</code> fails when it
 drifts.</p>
 <h2 id="ci-workflows">CI workflows<a class="headerlink" href="#ci-workflows" title="Permanent link">&para;</a></h2>
-<p>Everything runs from <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/1b763cca0d549b9a2713b7ed68d95c15cf04805f/.github/workflows/ci.yml"><code>ci.yml</code></a>, which calls one workflow file per check and ends in
+<p>Everything runs from <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/9ef0483e64ffe1bb1d6744a063c7577b992a4e51/.github/workflows/ci.yml"><code>ci.yml</code></a>, which calls one workflow file per check and ends in
 the <code>CI gate</code> job, the single required check (<code>CI gate / gate</code>).</p>
 <table>
 <thead>
