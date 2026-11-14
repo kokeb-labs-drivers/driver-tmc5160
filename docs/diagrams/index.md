@@ -219,9 +219,8 @@ Drawn from:
   <source media="(prefers-color-scheme: dark)" srcset="chip-wiring-uart-chain.dark.svg">
   <img src="chip-wiring-uart-chain.svg"
     alt="Wiring of the TMC5160A for the UART chain of two nodes: MCU UART RX to DIAG1_SWP (Exchange()); MCU
-    UART TX to DIAG1_SWP through R1 1 kΩ (Exchange()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn));
-    SDO_CFG0 to TMC5160 node 2 (supply and ground as node 1) NAI. Supplies, grounds and the support
-    parts are listed under the drawing.">
+    GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); SDO_CFG0 to TMC5160 node 2 (supply and ground as node 1)
+    NAI. Supplies, grounds and the support parts are listed under the drawing.">
 </picture>
 <!-- /figure -->
 

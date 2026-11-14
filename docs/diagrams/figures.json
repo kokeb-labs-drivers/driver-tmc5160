@@ -114,7 +114,7 @@
   "chip-wiring-spi-typical": {
     "title": "Wiring: SPI application",
     "alt": "Wiring of the TMC5160A for the SPI application: MCU SPI SCK to SCK_CFG2 (Transfer()); MCU SPI MOSI to SDI_CFG1 (Transfer()); MCU SPI MISO to SDO_CFG0 (Transfer()); MCU GPIO / CS to CSN_CFG3 (Transfer()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); MCU GPIO (IRQ) to DIAG0_SWN (GpioGet(InputPin::Diag0)); SRAH to Power bridge and sense resistors SRAH; SRAL to Power bridge and sense resistors SRAL; SRBH to Power bridge and sense resistors SRBH; SRBL to Power bridge and sense resistors SRBL. Supplies, grounds and the support parts are listed under the drawing.",
-    "description": "The MCU on the left, the TMC5160A in the middle, the blocks it drives on the right. Each wire is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hook that uses it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "description": "The MCU on the left, the TMC5160A in the middle, the blocks it drives on the right. Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
     "profile": "overview",
     "width": 1200,
     "source": "docs/hardware.yml",
@@ -127,8 +127,8 @@
   },
   "chip-wiring-uart-chain": {
     "title": "Wiring: UART chain of two nodes",
-    "alt": "Wiring of the TMC5160A for the UART chain of two nodes: MCU UART RX to DIAG1_SWP (Exchange()); MCU UART TX to DIAG1_SWP through R1 1 kΩ (Exchange()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); SDO_CFG0 to TMC5160 node 2 (supply and ground as node 1) NAI. Supplies, grounds and the support parts are listed under the drawing.",
-    "description": "The MCU on the left, the TMC5160A in the middle, the blocks it drives on the right. Each wire is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hook that uses it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "alt": "Wiring of the TMC5160A for the UART chain of two nodes: MCU UART RX to DIAG1_SWP (Exchange()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); SDO_CFG0 to TMC5160 node 2 (supply and ground as node 1) NAI. Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU on the left, the TMC5160A in the middle, the blocks it drives on the right. Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
     "profile": "overview",
     "width": 1200,
     "source": "docs/hardware.yml",
