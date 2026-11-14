@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="817" viewBox="0 0 1200 817" role="img" aria-labelledby="chip-hero-title chip-hero-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-hero-title">TMC5160A</title>
+<desc id="chip-hero-desc">Overview of the TMC5160A, a controller and driver for two-phase bipolar stepper motors: it runs the motion profile itself and drives an external MOSFET bridge for coil currents from 1 A to several 10 A. A MCU talks to it over SPI or UART; it drives MOSFET bridge, then Stepper motor; it reads back Coil current, ABN encoder, Reference switches. Headline figures: 10 to 55 V motor and bridge supply; 256 microsteps per full step; 8 gates for an external MOSFET bridge (two full bridges); 4 MHz SPI clock on the internal oscillator; 7 x 7 mm TQFP48 body; also an 8 x 8 mm QFN.</desc>
+<defs><marker id="fk-arrow-amber-strong" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#C26A05"/></marker><marker id="fk-arrow-blue-strong" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563EB"/></marker><marker id="fk-arrow-teal-strong" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0B7A72"/></marker></defs>
+<rect x="0.5" y="0.5" width="1199" height="816" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#7A360E">STEPPER MOTOR CONTROLLER AND DRIVER</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#0E1726">TMC5160A</text>
+<text x="32" y="115.4" font-size="18" fill="#566070">What talks to it, what it drives and what it reads back, with its headline numbers. Datasheet: Title page, p. 1.</text>
+<rect x="32" y="131.4" width="1136" height="1" fill="#E2E7EE"/>
+<path d="M246 262.4 L393 262.4" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-blue-strong)" marker-start="url(#fk-arrow-blue-strong)"/>
+<path d="M655 262.4 L707 262.4" fill="none" stroke="#0B7A72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-teal-strong)"/>
+<path d="M913 262.4 L965 262.4" fill="none" stroke="#0B7A72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-teal-strong)"/>
+<path d="M524 427.4 L524 383.4" fill="none" stroke="#C26A05" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-amber-strong)"/>
+<rect x="397" y="183.3" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="202.2" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="221.1" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="240" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="258.9" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="277.8" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="296.7" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="315.6" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="397" y="334.5" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="183.3" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="202.2" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="221.1" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="240" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="258.9" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="277.8" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="296.7" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="315.6" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="639" y="334.5" width="12" height="7" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="436.1" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="457.2" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="478.3" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="499.4" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="520.5" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="541.6" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="562.7" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="583.8" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="604.9" y="145.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="436.1" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="457.2" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="478.3" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="499.4" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="520.5" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="541.6" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="562.7" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="583.8" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="604.9" y="367.4" width="7" height="12" rx="2" fill="#F1F4F8" stroke="#64748B" stroke-width="1.2"/>
+<rect x="409" y="157.4" width="230" height="210" rx="10" fill="#F5F7FA" stroke="#2B3442" stroke-width="2.2"/>
+<circle cx="429" cy="177.4" r="6" fill="#2B3442"/>
+<rect x="32" y="205.4" width="210" height="114" rx="12" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="32" y="213.4" width="4" height="98" rx="2" fill="#2563EB"/>
+<rect x="711" y="180.4" width="198" height="164" rx="12" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="711" y="188.4" width="4" height="148" rx="2" fill="#0B7A72"/>
+<rect x="969" y="217.9" width="198" height="89" rx="12" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="969" y="225.9" width="4" height="73" rx="2" fill="#0B7A72"/>
+<rect x="344" y="431.4" width="360" height="138" rx="12" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<rect x="344" y="439.4" width="4" height="122" rx="2" fill="#C26A05"/>
+<rect x="32" y="609.4" width="214.4" height="176.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="262.4" y="609.4" width="214.4" height="176.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="492.8" y="609.4" width="214.4" height="176.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="723.2" y="609.4" width="214.4" height="176.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="953.6" y="609.4" width="214.4" height="176.9" rx="12" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<text x="524" y="256.4" font-size="30" font-weight="700" text-anchor="middle" fill="#0E1726">TMC5160A</text>
+<text x="524" y="286.4" font-size="17" text-anchor="middle" fill="#566070">TQFP-48</text>
+<text x="524" y="310.4" font-size="16" text-anchor="middle" fill="#566070">48 pins + pad</text>
+<text x="56" y="240.4" font-size="20" font-weight="700" fill="#1E429F">MCU</text>
+<text x="56" y="271" font-size="17" fill="#2B3442">your firmware and</text>
+<text x="56" y="295.7" font-size="17" fill="#2B3442">this driver</text>
+<rect x="264" y="250.4" width="110.9" height="24" rx="12" fill="#FFFFFF"/>
+<text x="319.5" y="268.2" font-size="16" font-weight="500" text-anchor="middle" fill="#566070">SPI or UART</text>
+<text x="735" y="215.4" font-size="20" font-weight="700" fill="#0B5F59">MOSFET</text>
+<text x="735" y="241.4" font-size="20" font-weight="700" fill="#0B5F59">bridge</text>
+<text x="735" y="272" font-size="17" fill="#2B3442">8 MOSFETs, two</text>
+<text x="735" y="296.7" font-size="17" fill="#2B3442">full bridges, gates</text>
+<text x="735" y="321.4" font-size="17" fill="#2B3442">driven by the chip</text>
+<text x="993" y="252.9" font-size="20" font-weight="700" fill="#0B5F59">Stepper motor</text>
+<text x="993" y="283.5" font-size="17" fill="#2B3442">two-phase bipolar</text>
+<text x="368" y="466.4" font-size="20" font-weight="700" fill="#8A3C0B">Reads back</text>
+<text x="368" y="497" font-size="17" fill="#2B3442">Coil current (sense resistors)</text>
+<text x="368" y="521.7" font-size="17" fill="#2B3442">ABN encoder</text>
+<text x="368" y="546.3" font-size="17" fill="#2B3442">Reference switches</text>
+<text x="48" y="657.4" font-size="30" font-weight="700" fill="#0E1726">10 to 55 V</text>
+<text x="48" y="687" font-size="17" fill="#2B3442">motor and bridge</text>
+<text x="48" y="710" font-size="17" fill="#2B3442">supply</text>
+<text x="48" y="768.2" font-size="16" fill="#566070">28.1, p. 120</text>
+<text x="278.4" y="657.4" font-size="30" font-weight="700" fill="#0E1726">256</text>
+<text x="278.4" y="687" font-size="17" fill="#2B3442">microsteps per full</text>
+<text x="278.4" y="710" font-size="17" fill="#2B3442">step</text>
+<text x="278.4" y="768.2" font-size="16" fill="#566070">1.4, p. 8</text>
+<text x="508.8" y="657.4" font-size="30" font-weight="700" fill="#0E1726">8 gates</text>
+<text x="508.8" y="687" font-size="17" fill="#2B3442">for an external</text>
+<text x="508.8" y="710" font-size="17" fill="#2B3442">MOSFET bridge (two</text>
+<text x="508.8" y="732.9" font-size="17" fill="#2B3442">full bridges)</text>
+<text x="508.8" y="768.2" font-size="16" fill="#566070">2.2, p. 12</text>
+<text x="739.2" y="657.4" font-size="30" font-weight="700" fill="#0E1726">4 MHz</text>
+<text x="739.2" y="687" font-size="17" fill="#2B3442">SPI clock on the</text>
+<text x="739.2" y="710" font-size="17" fill="#2B3442">internal oscillator</text>
+<text x="739.2" y="768.2" font-size="16" fill="#566070">4.3, p. 25</text>
+<text x="969.6" y="657.4" font-size="30" font-weight="700" fill="#0E1726">7 x 7 mm</text>
+<text x="969.6" y="687" font-size="17" fill="#2B3442">TQFP48 body; also</text>
+<text x="969.6" y="710" font-size="17" fill="#2B3442">an 8 x 8 mm QFN</text>
+<text x="969.6" y="768.2" font-size="16" fill="#566070">30.1, p. 128</text>
+</svg>

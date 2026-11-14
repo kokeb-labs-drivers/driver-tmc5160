@@ -5,7 +5,7 @@ hide:
 ---
 
 <div class="kb-hero" markdown>
-<span class="kb-kicker">Driver</span>
+<span class="kb-kicker">Stepper motor controller and driver</span>
 
 # TMC5160 Driver
 
@@ -18,33 +18,147 @@ over SPI or UART.</p>
 [Source on GitHub](https://github.com/kokeb-labs-drivers/driver-tmc5160){ .md-button }
 </div>
 
+<!-- generated: chip-summary -->
+The **TMC5160A** is a controller and driver for two-phase bipolar stepper motors: it runs the motion profile itself and
+drives an external MOSFET bridge for coil currents from 1 A to several 10 A (Title page, p. 1).
+<!-- /generated -->
+
+<!-- figure: chip-hero -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-hero.dark.svg">
+  <img src="diagrams/chip-hero.svg"
+    alt="Overview of the TMC5160A, a controller and driver for two-phase bipolar stepper motors: it runs the
+    motion profile itself and drives an external MOSFET bridge for coil currents from 1 A to several 10
+    A. A MCU talks to it over SPI or UART; it drives MOSFET bridge, then Stepper motor; it reads back
+    Coil current, ABN encoder, Reference switches. Headline figures: 10 to 55 V motor and bridge supply;
+    256 microsteps per full step; 8 gates for an external MOSFET bridge (two full bridges); 4 MHz SPI
+    clock on the internal oscillator; 7 x 7 mm TQFP48 body; also an 8 x 8 mm QFN.">
+</picture>
+<!-- /figure -->
+
+## What it does
+
+<!-- figure: chip-capabilities -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-capabilities.dark.svg">
+  <img src="diagrams/chip-capabilities.svg"
+    alt="Capability map of the TMC5160A: Motion controller and homing (supported): Moves to a target or runs
+    at a velocity on its own ramp; stops and latches the position at switches; STEP/DIR input
+    (supported): Takes step pulses from your MCU instead, interpolated to 256 microsteps by MicroPlyer;
+    Motor current (supported): Sets run and hold current from the motor rating and the sense resistor,
+    and powers down at standstill; StealthChop2 and SpreadCycle (supported): Silent voltage-mode
+    chopping at low speed, cycle-by-cycle current chopping at high speed; StallGuard2, CoolStep and
+    DcStep (supported): Senses the load without a sensor: detects a stall, saves current at light load,
+    slows under overload; Encoder input (supported): Counts an ABN incremental encoder and flags a
+    deviation from the commanded position; Bridge and protection (guarded): Short, overtemperature and
+    gate-drive settings; a wrong value can destroy the bridge; SPI chain and UART nodes (supported):
+    Several chips on one SPI daisy chain or one single wire UART, each with its own address; OTP
+    programming (not covered): One-time programmable defaults in the chip; the driver reads them and
+    never programs them.">
+</picture>
+<!-- /figure -->
+
+## Where it is used
+
+<!-- generated: chip-uses -->
+- Robotics and industrial drives
+- Textile and sewing machines
+- Packing machines
+- Factory and lab automation
+- High-speed 3D printers
+- Liquid handling and medical equipment
+- Office automation, CCTV, ATMs and cash recyclers
+- Pumps and valves
+
+Uses named by the datasheet (Title page, p. 1).
+<!-- /generated -->
+
+## Inside the chip
+
+<!-- figure: chip-blocks -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-blocks.dark.svg">
+  <img src="diagrams/chip-blocks.svg"
+    alt="Block diagram of the TMC5160A: its function blocks, how they connect and which package pins reach
+    each block.">
+</picture>
+<!-- /figure -->
+
+## Pins and wiring
+
+<!-- figure: chip-pinout -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-pinout.dark.svg">
+  <img src="diagrams/chip-pinout.svg"
+    alt="Pinout of the TMC5160A in TQFP-48, top view: 48 pins and an exposed pad, each with its name, its
+    electrical type as a colour and the driver hook that uses it.">
+</picture>
+<!-- /figure -->
+
+<!-- figure: chip-wiring-spi-typical -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-wiring-spi-typical.dark.svg">
+  <img src="diagrams/chip-wiring-spi-typical.svg"
+    alt="Wiring of the TMC5160A for the SPI application: MCU SPI SCK to SCK_CFG2 (Transfer()); MCU SPI MOSI
+    to SDI_CFG1 (Transfer()); MCU SPI MISO to SDO_CFG0 (Transfer()); MCU GPIO / CS to CSN_CFG3
+    (Transfer()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); MCU GPIO (IRQ) to DIAG0_SWN
+    (GpioGet(InputPin::Diag0)); SRAH to Power bridge and sense resistors SRAH; SRAL to Power bridge and
+    sense resistors SRAL; SRBH to Power bridge and sense resistors SRBH; SRBL to Power bridge and sense
+    resistors SRBL. Supplies, grounds and the support parts are listed under the drawing.">
+</picture>
+<!-- /figure -->
+
+<!-- figure: chip-frame-spi -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/chip-frame-spi.dark.svg">
+  <img src="diagrams/chip-frame-spi.svg"
+    alt="SPI datagram of the TMC5160A, 40 bits, most significant bit first. Write: W (bit 39), address (bits
+    38 to 32), data (bits 31 to 0); Read: W (bit 39), address (bits 38 to 32), any value (ignored) (bits
+    31 to 0); Reply: SPI_STATUS (bits 39 to 32), data of the previous read (or the previous write) (bits
+    31 to 0). The SPI_STATUS field of the Reply row: bit 7 status_stop_r, bit 6 status_stop_l, bit 5
+    position_reached, bit 4 velocity_reached, bit 3 standstill, bit 2 sg2, bit 1 driver_error, bit 0
+    reset_flag. Below, the SPI mode 3 waveform of one transfer in the same bit grid.">
+</picture>
+<!-- /figure -->
+
+Every pin, the sample circuits, the bus settings, the timing and the power: [Hardware](hardware.md).
+
+## Quick start
+
+Wire the chip as above, write the port ([Porting](porting.md)), then declare the motor and move it:
+
+```cpp
+--8<-- "tests/docs/quickstart.cpp:quickstart"
+```
+
+The steps explained: [Quickstart](quickstart.md).
+
+## Driver coverage
+
+<!-- generated: chip-coverage -->
+| Capability | What the chip does | Driver API | Registers | Status | Datasheet |
+| --- | --- | --- | --- | --- | --- |
+| [Motion controller and homing](motion.md) | Moves to a target or runs at a velocity on its own ramp; stops and latches the position at switches | `SetRamp`, `MoveTo`, `MoveBy`, `RunVelocity`, `Stop`, `SetSwitches`, `ReadLatchedPosition` | `RAMPMODE`, `XTARGET`, `VMAX`, `AMAX`, `XACTUAL`, `SW_MODE`, `XLATCH`, `RAMP_STAT` | Supported | 12, p. 81 |
+| [STEP/DIR input](special-modes.md) | Takes step pulses from your MCU instead, interpolated to 256 microsteps by MicroPlyer | `Mode::StepDir` | `CHOPCONF` | Supported | 15, p. 94 |
+| [Motor current](current-and-limits.md) | Sets run and hold current from the motor rating and the sense resistor, and powers down at standstill | `SetCurrent`, `SetStandstill` | `GLOBALSCALER`, `IHOLD_IRUN`, `TPOWERDOWN` | Supported | 1.4, p. 8 |
+| [StealthChop2 and SpreadCycle](chopper.md) | Silent voltage-mode chopping at low speed, cycle-by-cycle current chopping at high speed | `SetStealthChop`, `ReadStealthChopState`, `SetChopper`, `SetThresholds` | `PWMCONF`, `CHOPCONF`, `TPWMTHRS`, `THIGH`, `PWM_SCALE`, `PWM_AUTO` | Supported | 7, p. 57 |
+| [StallGuard2, CoolStep and DcStep](stallguard-and-coolstep.md) | Senses the load without a sensor: detects a stall, saves current at light load, slows under overload | `SetStallGuard`, `SetCoolStep`, `ReadStallGuard`, `SetStopOnStall`, `SetDcStep`, `ReadLostSteps` | `COOLCONF`, `TCOOLTHRS`, `DRV_STATUS`, `DCCTRL`, `VDCMIN`, `LOST_STEPS` | Supported | 13, p. 87 |
+| [Encoder input](special-modes.md) | Counts an ABN incremental encoder and flags a deviation from the commanded position | `SetEncoder`, `ReadEncoderPosition`, `ReadEncoderStatus` | `ENCMODE`, `X_ENC`, `ENC_CONST`, `ENC_DEVIATION` | Supported | 20, p. 107 |
+| [Bridge and protection](guards.md) | Short, overtemperature and gate-drive settings; a wrong value can destroy the bridge | `SetBridge`, `SetProtection`, `ReadDriverStatus`, `ReadGlobalStatus` | `DRV_CONF`, `SHORT_CONF`, `GSTAT`, `DRV_STATUS` | Guarded | 11, p. 78 |
+| [SPI chain and UART nodes](uart-protocol.md) | Several chips on one SPI daisy chain or one single wire UART, each with its own address | `ProgramNode`, `ReadInterfaceCounter` | `NODECONF`, `IFCNT` | Supported | 5.4, p. 29 |
+| [OTP programming](coverage.md) | One-time programmable defaults in the chip; the driver reads them and never programs them | `ReadOtp` | `OTP_PROG`, `OTP_READ` | Not covered | 6.1, p. 32 |
+
+**Supported**: the driver covers it and a host test checks it; **Guarded**: covered, behind an explicit acknowledgement
+because a wrong value can do harm; **Not covered**: the chip has it and the driver leaves it alone.
+
+From [`docs/hardware.yml`](hardware.yml); `kokeb-docs hardware --check` confirms that every API name is in
+`inc/tmc5160.hpp`, `inc/tmc5160_types.hpp` and every register in `inc/tmc5160_registers.hpp`.
+<!-- /generated -->
+
 The driver has no platform code. You give it a small class that brings the bus up and moves bytes; it does the rest:
 the start-up sequence, the datagram framing and CRC, the current arithmetic, the ramp registers, the guards and the
 timeouts. Nothing here has run on a chip yet: it is tested against an independent model of the TMC5160 (see
 [Testing and CI](testing.md)).
-
-<div class="kb-chip" markdown>
-<div class="kb-chip__head">
-<span class="kb-chip__kicker">Stepper motor controller and driver</span>
-<span class="kb-chip__name">TMC5160 / TMC5160A</span>
-<span class="kb-chip__vendor">Analog Devices (Trinamic)</span>
-</div>
-
-Function
-:   Ramp generator, sequencer with a 256-entry microstep table, StealthChop2, SpreadCycle, StallGuard2, CoolStep,
-    DcStep, encoder input, gate drivers for two external MOSFET bridges
-
-Interface
-:   SPI mode 3 (also a daisy chain), or single wire UART with CRC-8 (also several nodes); STEP/DIR mode
-
-Power
-:   Motor supply 10 V to 55 V, I/O supply 3.0 V to 5.25 V, sense threshold 325 mV
-
-Package
-:   TQFP-48 with exposed pad (7 x 7 mm); QFN-WA variant
-</div>
-
-## What you get
 
 - **One object per chip.** `TMC5160<YourPort>` takes a reference to your port and does no I/O until
   `EnsureInitialized()`. See [API guide](api-guide.md).

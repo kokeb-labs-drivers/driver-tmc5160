@@ -26,6 +26,37 @@ Drawn from:
 - [`inc/tmc5160_types.hpp`](../../inc/tmc5160_types.hpp)
 - [`inc/tmc5160_uart_interface.hpp`](../../inc/tmc5160_uart_interface.hpp)
 
+## What the TMC5160A does
+
+<!-- figure: chip-capabilities -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-capabilities.dark.svg">
+  <img src="chip-capabilities.svg"
+    alt="Capability map of the TMC5160A: Motion controller and homing (supported): Moves to a target or runs
+    at a velocity on its own ramp; stops and latches the position at switches; STEP/DIR input
+    (supported): Takes step pulses from your MCU instead, interpolated to 256 microsteps by MicroPlyer;
+    Motor current (supported): Sets run and hold current from the motor rating and the sense resistor,
+    and powers down at standstill; StealthChop2 and SpreadCycle (supported): Silent voltage-mode
+    chopping at low speed, cycle-by-cycle current chopping at high speed; StallGuard2, CoolStep and
+    DcStep (supported): Senses the load without a sensor: detects a stall, saves current at light load,
+    slows under overload; Encoder input (supported): Counts an ABN incremental encoder and flags a
+    deviation from the commanded position; Bridge and protection (guarded): Short, overtemperature and
+    gate-drive settings; a wrong value can destroy the bridge; SPI chain and UART nodes (supported):
+    Several chips on one SPI daisy chain or one single wire UART, each with its own address; OTP
+    programming (not covered): One-time programmable defaults in the chip; the driver reads them and
+    never programs them.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/tmc5160_spi_interface.hpp`](../../inc/tmc5160_spi_interface.hpp)
+- [`inc/tmc5160_types.hpp`](../../inc/tmc5160_types.hpp)
+- [`inc/tmc5160_uart_interface.hpp`](../../inc/tmc5160_uart_interface.hpp)
+
 ## TMC5160A: SPI application
 
 <!-- figure: chip-circuit-spi-typical -->
@@ -56,7 +87,55 @@ Drawn from:
   <img src="chip-circuit-uart-chain.svg"
     alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply
     and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks
-    GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().">
+    Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer().">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/tmc5160_spi_interface.hpp`](../../inc/tmc5160_spi_interface.hpp)
+- [`inc/tmc5160_types.hpp`](../../inc/tmc5160_types.hpp)
+- [`inc/tmc5160_uart_interface.hpp`](../../inc/tmc5160_uart_interface.hpp)
+
+## TMC5160A: SPI datagram
+
+<!-- figure: chip-frame-spi -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-frame-spi.dark.svg">
+  <img src="chip-frame-spi.svg"
+    alt="SPI datagram of the TMC5160A, 40 bits, most significant bit first. Write: W (bit 39), address (bits
+    38 to 32), data (bits 31 to 0); Read: W (bit 39), address (bits 38 to 32), any value (ignored) (bits
+    31 to 0); Reply: SPI_STATUS (bits 39 to 32), data of the previous read (or the previous write) (bits
+    31 to 0). The SPI_STATUS field of the Reply row: bit 7 status_stop_r, bit 6 status_stop_l, bit 5
+    position_reached, bit 4 velocity_reached, bit 3 standstill, bit 2 sg2, bit 1 driver_error, bit 0
+    reset_flag. Below, the SPI mode 3 waveform of one transfer in the same bit grid.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/tmc5160_spi_interface.hpp`](../../inc/tmc5160_spi_interface.hpp)
+- [`inc/tmc5160_types.hpp`](../../inc/tmc5160_types.hpp)
+- [`inc/tmc5160_uart_interface.hpp`](../../inc/tmc5160_uart_interface.hpp)
+
+## TMC5160A
+
+<!-- figure: chip-hero -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-hero.dark.svg">
+  <img src="chip-hero.svg"
+    alt="Overview of the TMC5160A, a controller and driver for two-phase bipolar stepper motors: it runs the
+    motion profile itself and drives an external MOSFET bridge for coil currents from 1 A to several 10
+    A. A MCU talks to it over SPI or UART; it drives MOSFET bridge, then Stepper motor; it reads back
+    Coil current, ABN encoder, Reference switches. Headline figures: 10 to 55 V motor and bridge supply;
+    256 microsteps per full step; 8 gates for an external MOSFET bridge (two full bridges); 4 MHz SPI
+    clock on the internal oscillator; 7 x 7 mm TQFP48 body; also an 8 x 8 mm QFN.">
 </picture>
 <!-- /figure -->
 
@@ -97,6 +176,52 @@ Drawn from:
   <img src="chip-pinout.svg"
     alt="Pinout of the TMC5160A in TQFP-48, top view: 48 pins and an exposed pad, each with its name, its
     electrical type as a colour and the driver hook that uses it.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/tmc5160_spi_interface.hpp`](../../inc/tmc5160_spi_interface.hpp)
+- [`inc/tmc5160_types.hpp`](../../inc/tmc5160_types.hpp)
+- [`inc/tmc5160_uart_interface.hpp`](../../inc/tmc5160_uart_interface.hpp)
+
+## Wiring: SPI application
+
+<!-- figure: chip-wiring-spi-typical -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-wiring-spi-typical.dark.svg">
+  <img src="chip-wiring-spi-typical.svg"
+    alt="Wiring of the TMC5160A for the SPI application: MCU SPI SCK to SCK_CFG2 (Transfer()); MCU SPI MOSI
+    to SDI_CFG1 (Transfer()); MCU SPI MISO to SDO_CFG0 (Transfer()); MCU GPIO / CS to CSN_CFG3
+    (Transfer()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); MCU GPIO (IRQ) to DIAG0_SWN
+    (GpioGet(InputPin::Diag0)); SRAH to Power bridge and sense resistors SRAH; SRAL to Power bridge and
+    sense resistors SRAL; SRBH to Power bridge and sense resistors SRBH; SRBL to Power bridge and sense
+    resistors SRBL. Supplies, grounds and the support parts are listed under the drawing.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/hardware.yml`](../hardware.yml)
+
+Drawn from:
+
+- [`docs/hardware.yml`](../hardware.yml)
+- [`inc/tmc5160_spi_interface.hpp`](../../inc/tmc5160_spi_interface.hpp)
+- [`inc/tmc5160_types.hpp`](../../inc/tmc5160_types.hpp)
+- [`inc/tmc5160_uart_interface.hpp`](../../inc/tmc5160_uart_interface.hpp)
+
+## Wiring: UART chain of two nodes
+
+<!-- figure: chip-wiring-uart-chain -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="chip-wiring-uart-chain.dark.svg">
+  <img src="chip-wiring-uart-chain.svg"
+    alt="Wiring of the TMC5160A for the UART chain of two nodes: MCU UART RX to DIAG1_SWP (Exchange()); MCU
+    UART TX to DIAG1_SWP through R1 1 kΩ (Exchange()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn));
+    SDO_CFG0 to TMC5160 node 2 (supply and ground as node 1) NAI. Supplies, grounds and the support
+    parts are listed under the drawing.">
 </picture>
 <!-- /figure -->
 

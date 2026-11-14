@@ -134,7 +134,7 @@ marked.
   <img src="diagrams/chip-circuit-uart-chain.svg"
     alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply
     and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks
-    GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().">
+    Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer().">
 </picture>
 <!-- /figure -->
 
