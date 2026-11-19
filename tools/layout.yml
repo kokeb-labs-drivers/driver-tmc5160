@@ -1,0 +1,3 @@
+header_only:
+  tmc5160_status: constants and inline or constexpr functions only: nothing to compile separately
+  tmc5160_units: constants and inline or constexpr functions only: nothing to compile separately
