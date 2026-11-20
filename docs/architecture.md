@@ -37,20 +37,14 @@ How the driver is built: three layers, one of them yours, and what happens in ea
 
 ## One call through the layers
 
-```mermaid
-sequenceDiagram
-    participant App as Your code
-    participant Core as TMC5160<Port>
-    participant Port as Your port
-    App->>Core: SetCurrent(800, 240)
-    Note over Core: PlanCurrent: ceiling, sense bound, scaler
-    Core->>Port: Transfer(write GLOBALSCALER)
-    Port-->>Core: true, status byte
-    Note over Core: reset flag? return UnexpectedReset
-    Core->>Port: Transfer(write IHOLD_IRUN)
-    Port-->>Core: true, status byte
-    Core-->>App: Result<CurrentPlan>
-```
+<!-- figure: one-call-through-the-layers -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/one-call-through-the-layers.dark.svg">
+  <img src="diagrams/one-call-through-the-layers.svg"
+    alt="One call through the layers: your code calls SetCurrent(800, 240), the core exchanges frames with
+    the chip through your port and returns the result to your code.">
+</picture>
+<!-- /figure -->
 
 ## Design choices
 
