@@ -1,0 +1,26 @@
+---
+# Model of the figure 'one-call-through-the-layers'. Edit this file; `kokeb-docs figures` draws it. Never edit the SVGs.
+kind: seq
+id: one-call-through-the-layers
+title: "One call through the layers"
+alt: >-
+  One call through the layers: your code calls SetCurrent(800, 240), the core exchanges frames with the chip
+  through your port and returns the result to your code.
+reads: >-
+  Participants, left to right: Your code, TMC5160<Port> and Your port. The steps run from top to bottom. Your code sends SetCurrent(800, 240) to TMC5160<Port>. A note over TMC5160<Port> says: PlanCurrent: ceiling, sense bound, scaler. TMC5160<Port> sends Transfer(write GLOBALSCALER) to Your port. Your port returns true, status byte to TMC5160<Port>. A note over TMC5160<Port> says: reset flag? return UnexpectedReset. TMC5160<Port> sends Transfer(write IHOLD_IRUN) to Your port. Your port returns true, status byte to TMC5160<Port>. TMC5160<Port> returns Result<CurrentPlan> to Your code.
+print: landscape
+sources:
+  - docs/model/one-call-through-the-layers.seq.yml
+participants:
+  - {id: app, label: "Your code", tone: magenta}
+  - {id: core, label: "TMC5160<Port>", tone: green}
+  - {id: port, label: "Your port", tone: teal}
+steps:
+  - {from: app, to: core, label: "SetCurrent(800, 240)"}
+  - {note: "PlanCurrent: ceiling, sense bound, scaler", over: [core, port]}
+  - {from: core, to: port, label: "Transfer(write GLOBALSCALER)"}
+  - {from: port, to: core, label: "true, status byte", return: true}
+  - {note: "reset flag? return UnexpectedReset", over: [core, port]}
+  - {from: core, to: port, label: "Transfer(write IHOLD_IRUN)"}
+  - {from: port, to: core, label: "true, status byte", return: true}
+  - {from: core, to: app, label: "Result<CurrentPlan>", return: true}

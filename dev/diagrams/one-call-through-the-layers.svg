@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="604" height="535" viewBox="0 0 604 535" role="img" aria-labelledby="one-call-through-the-layers-title one-call-through-the-layers-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="one-call-through-the-layers-title">One call through the layers</title>
+<desc id="one-call-through-the-layers-desc">One call through the layers: your code calls SetCurrent(800, 240), the core exchanges frames with the chip through your port and returns the result to your code.</desc>
+<defs><marker id="one-call-through-the-layers-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7C8798"/></marker></defs>
+<rect x="0.5" y="0.5" width="603" height="534" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="54.8" font-size="26" font-weight="700" fill="#0E1726">One call through the layers</text>
+<rect x="32" y="70.8" width="540" height="1" fill="#E2E7EE"/>
+<path d="M105 144.8 L105 538.8" fill="none" stroke="#738093" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M275 144.8 L275 538.8" fill="none" stroke="#738093" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M499 144.8 L499 538.8" fill="none" stroke="#738093" stroke-width="1.2" stroke-dasharray="5 5"/>
+<path d="M109 180.8 L271 180.8" fill="none" stroke="#7C8798" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M279 276.8 L495 276.8" fill="none" stroke="#7C8798" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M495 320.8 L279 320.8" fill="none" stroke="#7C8798" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M279 416.8 L495 416.8" fill="none" stroke="#7C8798" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M495 460.8 L279 460.8" fill="none" stroke="#7C8798" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<path d="M271 504.8 L109 504.8" fill="none" stroke="#7C8798" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#one-call-through-the-layers-arrow-rail)"/>
+<rect x="40" y="88.8" width="130" height="52" rx="10" fill="#FDF0FF" stroke="#A21CAF" stroke-width="1.4"/>
+<rect x="40" y="96.8" width="4" height="36" rx="2" fill="#A21CAF"/>
+<rect x="189.5" y="88.8" width="170.9" height="52" rx="10" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<rect x="189.5" y="96.8" width="4" height="36" rx="2" fill="#15803D"/>
+<rect x="434" y="88.8" width="130" height="52" rx="10" fill="#E6F6F4" stroke="#0B7A72" stroke-width="1.4"/>
+<rect x="434" y="96.8" width="4" height="36" rx="2" fill="#0B7A72"/>
+<rect x="205" y="208.8" width="364.1" height="41" rx="10" fill="#FFF5E3" stroke="#F1CF93" stroke-width="1"/>
+<rect x="205" y="348.8" width="364.1" height="41" rx="10" fill="#FFF5E3" stroke="#F1CF93" stroke-width="1"/>
+<text x="108" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#86198F">Your code</text>
+<text x="278" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#14532D">TMC5160&lt;Port&gt;</text>
+<text x="502" y="119.3" font-size="15" font-weight="700" text-anchor="middle" fill="#0B5F59">Your port</text>
+<rect x="118.1" y="156.8" width="143.7" height="20" rx="10" fill="#FFFFFF"/>
+<text x="190" y="171.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">SetCurrent(800, 240)</text>
+<text x="219" y="233.9" font-size="13" fill="#8A3C0B">PlanCurrent: ceiling, sense bound, scaler</text>
+<rect x="283" y="252.8" width="208.1" height="20" rx="10" fill="#FFFFFF"/>
+<text x="387" y="267.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">Transfer(write GLOBALSCALER)</text>
+<rect x="331.4" y="296.8" width="111.2" height="20" rx="10" fill="#FFFFFF"/>
+<text x="387" y="311.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">true, status byte</text>
+<text x="219" y="373.9" font-size="13" fill="#8A3C0B">reset flag? return UnexpectedReset</text>
+<rect x="295.5" y="392.8" width="183.1" height="20" rx="10" fill="#FFFFFF"/>
+<text x="387" y="407.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">Transfer(write IHOLD_IRUN)</text>
+<rect x="331.4" y="436.8" width="111.2" height="20" rx="10" fill="#FFFFFF"/>
+<text x="387" y="451.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">true, status byte</text>
+<rect x="120.3" y="480.8" width="139.2" height="20" rx="10" fill="#FFFFFF"/>
+<text x="190" y="495.1" font-size="12" font-weight="500" text-anchor="middle" fill="#566070">Result&lt;CurrentPlan&gt;</text>
+</svg>
