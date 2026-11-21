@@ -1,0 +1,22 @@
+---
+kind: topology
+id: spi-chain
+title: SPI daisy chain
+kicker: Several drivers
+alt: >-
+  Daisy chain of TMC5160 drivers on one SPI bus: the MCU feeds SDI of the first, each SDO feeds the next SDI and the
+  last SDO returns to the MCU, with SCK and CSN shared.
+reads: >-
+  The MCU drives MOSI into SDI of TMC5160 1; its SDO feeds the next driver and so on to TMC5160 N, whose SDO returns
+  to MISO. SCK and CSN are rails every device shares, so one select frames the datagrams of every driver.
+style: chain
+host: {label: MCU, detail: SPI controller}
+nodes:
+  - {label: TMC5160 1, detail: first}
+  - {more: true, label: "…"}
+  - {label: TMC5160 N, detail: last}
+chain: {in: SDI, out: SDO, host_out: MOSI, host_in: MISO}
+shared: [SCK, CSN]
+facts:
+  - {text: "Each driver delays the data by 40 clocks; send 40 bits per driver in one CSN low phase", ref: spi_signals}
+  - {text: "Each driver takes the last 40 bits it holds when CSN rises", ref: spi_signals}

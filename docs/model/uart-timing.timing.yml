@@ -1,0 +1,38 @@
+---
+kind: timing
+id: uart-timing
+title: UART single wire bytes
+kicker: On the bus
+alt: >-
+  UART timing of the TMC5160 on its single wire SWP: the first byte carries the sync nibble the chip measures its baud
+  rate from, and the start bits of two bytes must follow within the pause the datasheet allows.
+reads: >-
+  The lane is SWP, left to right in time. The line idles high; the start bit pulls it low, the sync nibble 1, 0, 1, 0
+  follows least significant bit first, then four reserved bits and the stop bit; the next byte starts with its own
+  start bit and carries NODEADDR. The table gives the baud rate and the pause and
+  recovery times in bit times.
+bus: uart
+refs:
+  uart_write: {doc: ds, section: "5.1 Datagram Structure", page: 26}
+signals:
+  - {id: swp, label: SWP, wave: "101010x...10=.......1", data: [NODEADDR]}
+groups:
+  - {from: 1, to: 2, label: start}
+  - {from: 2, to: 6, label: sync nibble, ref: uart_write}
+  - {from: 6, to: 10, label: reserved}
+  - {from: 10, to: 11, label: stop}
+  - {from: 12, to: 20, label: node address byte, ref: uart_write}
+params:
+  - {id: baud, symbol: baud, label: "Baud rate (minimum assuming a 20 MHz clock)", min: 9000, max: "fCLK / 16",
+     unit: bit/s, ref: uart}
+  - {id: tbyte, symbol: tPAUSE, label: Start bit to the next start bit within a datagram (longer resets the link),
+     max: 63, unit: bit times, ref: uart}
+  - {id: trec, symbol: tIDLE, label: Bus idle time before a new datagram after a reset or an error, min: 12,
+     unit: bit times, ref: uart}
+marks:
+  - {param: tbyte, signal: swp, from: 1, to: 11}
+notes:
+  - {text: "The chip measures the bit time from the falling edge of the start bit to the falling edge between sync
+      bits 2 and 3, on every datagram.", ref: uart}
+  - {text: "Each byte is sent least significant bit first; the bytes of a datagram go highest byte first.",
+     ref: uart_write}

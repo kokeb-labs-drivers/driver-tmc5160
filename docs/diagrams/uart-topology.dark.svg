@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="821" viewBox="0 0 640 821" role="img" aria-labelledby="uart-topology-title uart-topology-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="uart-topology-title">UART nodes on one wire</title>
+<desc id="uart-topology-desc">Several TMC5160 drivers on one single wire UART: the MCU and every driver share SWP, an idle resistor holds the line high, and each NAO output enables the next driver's NAI while the node addresses are programmed.</desc>
+<rect x="0.5" y="0.5" width="639" height="820" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" fill="#F8D27A">SEVERAL DRIVERS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" fill="#E8EDF3">UART nodes on one wire</text>
+<text x="32" y="102.7" font-size="15" fill="#9AA6B5">Datasheet: 5.4 Addressing Multiple Nodes, p. 29; 5.1.2 Read Access, p. 27.</text>
+<rect x="32" y="118.7" width="576" height="1" fill="#252F3C"/>
+<path d="M584.6 170.9 L584.6 608.9" fill="none" stroke="#D2DAE4" stroke-width="2.2"/>
+<path d="M535.3 238.9 L584.6 238.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M535.3 330.9 L584.6 330.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M535.3 444.9 L584.6 444.9" fill="none" stroke="#D2DAE4" stroke-width="1.8" stroke-dasharray="5 4"/>
+<path d="M535.3 536.9 L584.6 536.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M574.6 160.9 L594.6 160.9" fill="none" stroke="#D2DAE4" stroke-width="2"/>
+<path d="M584.6 160.9 L584.6 170.9" fill="none" stroke="#D2DAE4" stroke-width="1.6"/>
+<rect x="32" y="222.9" width="503.3" height="74" rx="10" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="32" y="230.9" width="4" height="58" rx="2" fill="#60A5FA"/>
+<rect x="32" y="314.9" width="503.3" height="96" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="32" y="322.9" width="4" height="80" rx="2" fill="#2BB3A3"/>
+<rect x="32" y="428.9" width="503.3" height="74" rx="10" fill="#151C26" stroke="#6C7889" stroke-width="1" stroke-dasharray="6 4"/>
+<rect x="32" y="520.9" width="503.3" height="96" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="32" y="528.9" width="4" height="80" rx="2" fill="#2BB3A3"/>
+<rect x="32" y="638.9" width="576" height="152.1" rx="10" fill="#1B232E" stroke="#3A4656" stroke-width="1"/>
+<text x="52" y="251.3" font-size="17" font-weight="700" fill="#BFDBFE">MCU</text>
+<text x="52" y="279.1" font-size="15" fill="#D2DAE4">UART, TXD released to receive</text>
+<text x="52" y="343.3" font-size="17" font-weight="700" fill="#A7F3E6">TMC5160 1</text>
+<text x="52" y="371.1" font-size="15" fill="#D2DAE4">address 254</text>
+<text x="52" y="392.8" font-size="15" fill="#D2DAE4">NAI to GND</text>
+<text x="52" y="457.3" font-size="17" font-weight="700" fill="#E8EDF3">…</text>
+<text x="52" y="485.1" font-size="15" fill="#D2DAE4">NAI from the NAO before</text>
+<text x="52" y="549.3" font-size="17" font-weight="700" fill="#A7F3E6">TMC5160 N</text>
+<text x="52" y="577.1" font-size="15" fill="#D2DAE4">address 255 - N</text>
+<text x="52" y="598.8" font-size="15" fill="#D2DAE4">NAI from the NAO before</text>
+<text x="584.6" y="144.9" font-size="14" font-weight="700" text-anchor="middle" fill="#E8EDF3">SWP</text>
+<circle cx="584.6" cy="238.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="584.6" cy="330.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="584.6" cy="444.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="584.6" cy="536.9" r="3.6" fill="#D2DAE4"/>
+<rect x="580.6" y="176.9" width="8" height="22" rx="2" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
+<text x="547.3" y="158.9" font-size="14" font-weight="600" text-anchor="end" fill="#FDE68A">RIDLE to +VIO, 3.3 kΩ for 14 nodes</text>
+<text x="46" y="667.4" font-size="17" font-weight="700" fill="#E2E8F0">Limits</text>
+<text x="46" y="687.8" font-size="15" fill="#E2E8F0">Up to 255 nodes: each programmed driver sets NAO low and the next</text>
+<text x="46" y="709.5" font-size="15" fill="#E2E8F0">one answers at address 0 (5.4, p. 29). Two nodes: tie their NAI pins to</text>
+<text x="46" y="731.2" font-size="15" fill="#E2E8F0">different levels (5.4, p. 29). Address 255 is reserved for replies to the</text>
+<text x="46" y="753" font-size="15" fill="#E2E8F0">master (5.1.2, p. 27). With several nodes set SENDDELAY to 2 or more</text>
+<text x="46" y="774.8" font-size="15" fill="#E2E8F0">(5.1.2, p. 27).</text>
+</svg>

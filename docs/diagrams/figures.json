@@ -167,5 +167,90 @@
     "adaptive": true,
     "twin": false,
     "font": ""
+  },
+  "spi-chain": {
+    "title": "SPI daisy chain",
+    "alt": "Daisy chain of TMC5160 drivers on one SPI bus: the MCU feeds SDI of the first, each SDO feeds the next SDI and the last SDO returns to the MCU, with SCK and CSN shared.",
+    "description": "The MCU drives MOSI into SDI of TMC5160 1; its SDO feeds the next driver and so on to TMC5160 N, whose SDO returns to MISO. SCK and CSN are rails every device shares, so one select frames the datagrams of every driver.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/spi-chain.topology.yml",
+    "sources": [
+      "docs/model/spi-chain.topology.yml"
+    ],
+    "kind": "topology",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
+  },
+  "spi-timing": {
+    "title": "SPI bus timing",
+    "alt": "SPI timing of the TMC5160 in mode 3: CSN low frames a 40-bit datagram, SDI is read on each rising SCK edge and SDO changes after each falling edge, with the setup, hold and select times the datasheet gives.",
+    "description": "The four lanes are CSN, SCK, SDI and SDO, left to right in time. CSN goes low, SCK idles high and clocks the 40 bits, the chip reads SDI on the rising edge and drives SDO after the falling edge; bits 37 to 1 are left out. The table gives each interval with its datasheet value, tCLK being one period of the chip's clock.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/spi-timing.timing.yml",
+    "sources": [
+      "docs/model/spi-timing.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "uart-read": {
+    "title": "UART register read",
+    "alt": "One UART register read of the TMC5160: the host sends a four-byte request, the chip waits SENDDELAY and answers on the same wire with an eight-byte reply, then releases the line.",
+    "description": "Two lanes share the single wire SWP: Host and Chip (the TMC5160), left to right in time. The host sends sync, node address, register address and CRC, then releases the line; after the send delay the Chip sends sync, the master address 0xFF, the register address, the four data bytes (left out) and the CRC, holds the line for four bit times and releases it. The table gives the delays.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-read.timing.yml",
+    "sources": [
+      "docs/model/uart-read.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "uart-timing": {
+    "title": "UART single wire bytes",
+    "alt": "UART timing of the TMC5160 on its single wire SWP: the first byte carries the sync nibble the chip measures its baud rate from, and the start bits of two bytes must follow within the pause the datasheet allows.",
+    "description": "The lane is SWP, left to right in time. The line idles high; the start bit pulls it low, the sync nibble 1, 0, 1, 0 follows least significant bit first, then four reserved bits and the stop bit; the next byte starts with its own start bit and carries NODEADDR. The table gives the baud rate and the pause and recovery times in bit times.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-timing.timing.yml",
+    "sources": [
+      "docs/model/uart-timing.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "uart-topology": {
+    "title": "UART nodes on one wire",
+    "alt": "Several TMC5160 drivers on one single wire UART: the MCU and every driver share SWP, an idle resistor holds the line high, and each NAO output enables the next driver's NAI while the node addresses are programmed.",
+    "description": "The MCU, a UART whose TXD goes to high impedance to receive, shares the SWP line with TMC5160 1, the drivers left out and TMC5160 N. TMC5160 1 has NAI tied to ground and answers at address 0 first; each driver that has its address sets NAO low and so lets the next driver answer at address 0.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-topology.topology.yml",
+    "sources": [
+      "docs/model/uart-topology.topology.yml"
+    ],
+    "kind": "topology",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
   }
 }

@@ -1,0 +1,47 @@
+---
+kind: timing
+id: spi-timing
+title: SPI bus timing
+kicker: On the bus
+alt: >-
+  SPI timing of the TMC5160 in mode 3: CSN low frames a 40-bit datagram, SDI is read on each rising SCK edge and SDO
+  changes after each falling edge, with the setup, hold and select times the datasheet gives.
+reads: >-
+  The four lanes are CSN, SCK, SDI and SDO, left to right in time. CSN goes low, SCK idles high and clocks the 40
+  bits, the chip reads SDI on the rising edge and drives SDO after the falling edge; bits 37 to 1 are left out. The
+  table gives each interval with its datasheet value, tCLK being one period of the chip's clock.
+bus: spi
+mode: {cpol: 1, cpha: 1}
+signals:
+  - {id: csn, label: CSN, wave: "10........1."}
+  - {id: sck, label: SCK, wave: "1.nnn|nnn1..", clock: true}
+  - {id: sdi, label: SDI, wave: "x.===|===x..", data: [b39, b38, b37, b2, b1, b0]}
+  - {id: sdo, label: SDO, wave: "z.===|===z..", data: [b39, b38, b37, b2, b1, b0], tone: teal}
+groups:
+  - {from: 2, to: 9, label: "40 bits, MSB first", ref: spi_signals}
+params:
+  - {id: tcc, symbol: tCC, label: SCK valid before or after a change of CSN, min: 10, unit: ns, ref: spi_timing}
+  - {id: tcsh, symbol: tCSH, label: "CSN high time (min tCLK with a synchronous clock only)", typ: "> 2 tCLK + 10",
+     unit: ns, ref: spi_timing}
+  - {id: tcl, symbol: tCL, label: "SCK low time (min tCLK with a synchronous clock only)", typ: "> tCLK + 10",
+     unit: ns, ref: spi_timing}
+  - {id: tch, symbol: tCH, label: "SCK high time (min tCLK with a synchronous clock only)", typ: "> tCLK + 10",
+     unit: ns, ref: spi_timing}
+  - {id: tdu, symbol: tDU, label: SDI setup time before the rising edge of SCK, min: 10, unit: ns, ref: spi_timing}
+  - {id: tdh, symbol: tDH, label: SDI hold time after the rising edge of SCK, min: 10, unit: ns, ref: spi_timing}
+  - {id: tdo, symbol: tDO, label: SDO valid after the falling edge of SCK (no load on SDO), max: "tFILT + 5", unit: ns,
+     ref: spi_timing}
+  - {id: tfilt, symbol: tFILT, label: "SDI, SCK and CSN filter delay", min: 12, typ: 20, max: 30, unit: ns,
+     ref: spi_timing}
+  - {id: fsck, symbol: fSCK, label: SCK frequency with an external 16 MHz clock, max: 8, unit: MHz, ref: spi_timing}
+  - {id: fsck-int, symbol: fSCK, label: SCK frequency with the internal clock, max: 4, unit: MHz, ref: spi_timing}
+marks:
+  - {param: tcc, signal: csn, from: 1, to: 2}
+  - {param: tcc, signal: csn, from: 8.5, to: 10}
+  - {param: tcsh, signal: csn, from: 10, to: 12}
+  - {param: tcl, signal: sck, from: 3, to: 3.5}
+  - {param: tch, signal: sck, from: 3.5, to: 4}
+  - {param: tdu, signal: sdi, from: 2, to: 2.5}
+  - {param: tdh, signal: sdi, from: 2.5, to: 3}
+notes:
+  - {text: "Inputs are filtered: pulses shorter than 20 ns are ignored.", ref: spi_timing}

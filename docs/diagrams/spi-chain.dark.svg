@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="769" viewBox="0 0 640 769" role="img" aria-labelledby="spi-chain-title spi-chain-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="spi-chain-title">SPI daisy chain</title>
+<desc id="spi-chain-desc">Daisy chain of TMC5160 drivers on one SPI bus: the MCU feeds SDI of the first, each SDO feeds the next SDI and the last SDO returns to the MCU, with SCK and CSN shared.</desc>
+<defs><marker id="spi-chain-arrow-brand-strong" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#F4B942"/></marker></defs>
+<rect x="0.5" y="0.5" width="639" height="768" rx="16" fill="#0E131A" stroke="#283241"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" fill="#F8D27A">SEVERAL DRIVERS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" fill="#E8EDF3">SPI daisy chain</text>
+<text x="32" y="102.7" font-size="15" fill="#9AA6B5">Datasheet: 4.2 SPI Signals, p. 24.</text>
+<rect x="32" y="118.7" width="576" height="1" fill="#252F3C"/>
+<path d="M106 241.9 L106 282.9" fill="none" stroke="#F4B942" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#spi-chain-arrow-brand-strong)"/>
+<path d="M106 362.9 L106 403.9" fill="none" stroke="#F4B942" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#spi-chain-arrow-brand-strong)"/>
+<path d="M106 456.9 L106 497.9" fill="none" stroke="#F4B942" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#spi-chain-arrow-brand-strong)"/>
+<path d="M106 577.9 L106 585.4 Q106 592.9 98.5 592.9 L48 592.9 Q40 592.9 40 584.9 L40 209.9 Q40 201.9 48 201.9 L59 201.9" fill="none" stroke="#F4B942" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#spi-chain-arrow-brand-strong)"/>
+<path d="M542 172.9 L542 566.9" fill="none" stroke="#D2DAE4" stroke-width="2.2"/>
+<path d="M494 180.9 L542 180.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M494 301.9 L542 301.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M494 430.4 L542 430.4" fill="none" stroke="#D2DAE4" stroke-width="1.8" stroke-dasharray="5 4"/>
+<path d="M494 516.9 L542 516.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M586 172.9 L586 566.9" fill="none" stroke="#D2DAE4" stroke-width="2.2"/>
+<path d="M494 190.9 L586 190.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M494 311.9 L586 311.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<path d="M494 430.4 L586 430.4" fill="none" stroke="#D2DAE4" stroke-width="1.8" stroke-dasharray="5 4"/>
+<path d="M494 526.9 L586 526.9" fill="none" stroke="#D2DAE4" stroke-width="1.8"/>
+<rect x="62" y="164.9" width="432" height="74" rx="10" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<rect x="62" y="172.9" width="4" height="58" rx="2" fill="#60A5FA"/>
+<rect x="62" y="285.9" width="432" height="74" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="62" y="293.9" width="4" height="58" rx="2" fill="#2BB3A3"/>
+<rect x="62" y="406.9" width="432" height="47" rx="10" fill="#151C26" stroke="#6C7889" stroke-width="1" stroke-dasharray="6 4"/>
+<rect x="62" y="500.9" width="432" height="74" rx="10" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<rect x="62" y="508.9" width="4" height="58" rx="2" fill="#2BB3A3"/>
+<rect x="32" y="629.9" width="576" height="108.6" rx="10" fill="#1B232E" stroke="#3A4656" stroke-width="1"/>
+<text x="82" y="193.3" font-size="17" font-weight="700" fill="#BFDBFE">MCU</text>
+<text x="82" y="221.1" font-size="15" fill="#D2DAE4">SPI controller</text>
+<text x="82" y="314.3" font-size="17" font-weight="700" fill="#A7F3E6">TMC5160 1</text>
+<text x="82" y="342.1" font-size="15" fill="#D2DAE4">first</text>
+<text x="82" y="435.3" font-size="17" font-weight="700" fill="#E8EDF3">…</text>
+<text x="82" y="529.3" font-size="17" font-weight="700" fill="#A7F3E6">TMC5160 N</text>
+<text x="82" y="557.1" font-size="15" fill="#D2DAE4">last</text>
+<text x="118" y="267.8" font-size="15" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#D2DAE4">MOSI → SDI</text>
+<text x="118" y="598.3" font-size="15" font-weight="600" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#D2DAE4">SDO → MISO</text>
+<text x="542" y="164.9" font-size="14" font-weight="700" text-anchor="middle" fill="#E8EDF3">SCK</text>
+<circle cx="542" cy="180.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="542" cy="301.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="542" cy="430.4" r="3.6" fill="#D2DAE4"/>
+<circle cx="542" cy="516.9" r="3.6" fill="#D2DAE4"/>
+<text x="586" y="164.9" font-size="14" font-weight="700" text-anchor="middle" fill="#E8EDF3">CSN</text>
+<circle cx="586" cy="190.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="586" cy="311.9" r="3.6" fill="#D2DAE4"/>
+<circle cx="586" cy="430.4" r="3.6" fill="#D2DAE4"/>
+<circle cx="586" cy="526.9" r="3.6" fill="#D2DAE4"/>
+<text x="46" y="658.3" font-size="17" font-weight="700" fill="#E2E8F0">Limits</text>
+<text x="46" y="678.8" font-size="15" fill="#E2E8F0">Each driver delays the data by 40 clocks; send 40 bits per driver in one</text>
+<text x="46" y="700.5" font-size="15" fill="#E2E8F0">CSN low phase (4.2, p. 24). Each driver takes the last 40 bits it holds</text>
+<text x="46" y="722.2" font-size="15" fill="#E2E8F0">when CSN rises (4.2, p. 24).</text>
+</svg>

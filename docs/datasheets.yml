@@ -46,18 +46,36 @@ topics:
     page: 23
     driver: "`SpiInterface`, `Transfer()`, `Verify::Echo`, `kSpiMode`"
     docs: [spi-protocol, porting]
-  - topic: SPI daisy chain
+  - topic: SPI signals and daisy chain
     doc: ds
-    section: 4.1 SPI Datagram Structure
-    page: 23
+    section: 4.2 SPI Signals
+    page: 24
     driver: "`SpiOptions::chain_length`, `chain_index`"
-    docs: [spi-protocol]
+    docs: [spi-protocol, bus]
+  - topic: SPI timing and mode 3
+    doc: ds
+    section: 4.3 Timing
+    page: 25
+    driver: "`kSpiMode`"
+    docs: [bus, spi-protocol]
+  - topic: UART baud rate detection, pause and recovery times
+    doc: ds
+    section: 5 UART Single Wire Interface
+    page: 26
+    driver: "`UartOptions`"
+    docs: [bus, uart-protocol]
   - topic: UART datagram, node address and SENDDELAY
     doc: ds
     section: 5.1 Datagram Structure
     page: 26
     driver: "`UartInterface`, `Exchange()`, `UartOptions`"
-    docs: [uart-protocol, porting]
+    docs: [uart-protocol, porting, bus]
+  - topic: UART read request, reply delay and reply
+    doc: ds
+    section: 5.1.2 Read Access
+    page: 27
+    driver: "`UartOptions::send_delay`, `Exchange()`"
+    docs: [bus, uart-protocol]
   - topic: UART CRC-8
     doc: ds
     section: 5.2 CRC Calculation
@@ -69,7 +87,7 @@ topics:
     section: 5.4 Addressing Multiple Nodes
     page: 29
     driver: "`ProgramNode()`"
-    docs: [uart-protocol, examples]
+    docs: [uart-protocol, examples, bus]
   - topic: Register map and reset values
     doc: ds
     section: 6 Register Mapping
@@ -88,6 +106,12 @@ topics:
     page: 33
     driver: "`ReadGlobalStatus()`, `ClearGlobalStatus()`, `Error::UnexpectedReset`"
     docs: [diag-and-status, troubleshooting]
+  - topic: Node address and SENDDELAY register (NODECONF)
+    doc: ds
+    section: 6.1 General Configuration Registers
+    page: 34
+    driver: "`UartOptions::node`, `UartOptions::send_delay`, `ProgramNode()`"
+    docs: [bus, uart-protocol]
   - topic: Standstill current and power-down
     doc: ds
     section: 6.1 General Configuration Registers

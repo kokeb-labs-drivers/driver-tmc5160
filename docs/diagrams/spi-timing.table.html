@@ -1,0 +1,19 @@
+<details>
+<summary>Table form of this figure</summary>
+<table>
+<caption>SPI bus timing</caption>
+<thead><tr><th scope="col">Symbol</th><th scope="col">Parameter</th><th scope="col">Min</th><th scope="col">Typ</th><th scope="col">Max</th><th scope="col">Unit</th><th scope="col">Datasheet</th></tr></thead>
+<tbody>
+<tr><th scope="row">tCC</th><td>SCK valid before or after a change of CSN</td><td>10</td><td></td><td></td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tCSH</th><td>CSN high time (min tCLK with a synchronous clock only)</td><td></td><td>&gt; 2 tCLK + 10</td><td></td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tCL</th><td>SCK low time (min tCLK with a synchronous clock only)</td><td></td><td>&gt; tCLK + 10</td><td></td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tCH</th><td>SCK high time (min tCLK with a synchronous clock only)</td><td></td><td>&gt; tCLK + 10</td><td></td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tDU</th><td>SDI setup time before the rising edge of SCK</td><td>10</td><td></td><td></td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tDH</th><td>SDI hold time after the rising edge of SCK</td><td>10</td><td></td><td></td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tDO</th><td>SDO valid after the falling edge of SCK (no load on SDO)</td><td></td><td></td><td>tFILT + 5</td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">tFILT</th><td>SDI, SCK and CSN filter delay</td><td>12</td><td>20</td><td>30</td><td>ns</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">fSCK</th><td>SCK frequency with an external 16 MHz clock</td><td></td><td></td><td>8</td><td>MHz</td><td>4.3 Timing, p. 25</td></tr>
+<tr><th scope="row">fSCK</th><td>SCK frequency with the internal clock</td><td></td><td></td><td>4</td><td>MHz</td><td>4.3 Timing, p. 25</td></tr>
+</tbody>
+</table>
+</details>

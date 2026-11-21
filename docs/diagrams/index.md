@@ -268,3 +268,91 @@ Hardware description: [`docs/model/one-call-through-the-layers.seq.yml`](../mode
 Drawn from:
 
 - [`docs/model/one-call-through-the-layers.seq.yml`](../model/one-call-through-the-layers.seq.yml)
+
+## SPI daisy chain
+
+<!-- figure: spi-chain -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="spi-chain.dark.svg">
+  <img src="spi-chain.svg"
+    alt="Daisy chain of TMC5160 drivers on one SPI bus: the MCU feeds SDI of the first, each SDO feeds the
+    next SDI and the last SDO returns to the MCU, with SCK and CSN shared.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/spi-chain.topology.yml`](../model/spi-chain.topology.yml)
+
+Drawn from:
+
+- [`docs/model/spi-chain.topology.yml`](../model/spi-chain.topology.yml)
+
+## SPI bus timing
+
+<!-- figure: spi-timing -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="spi-timing.dark.svg">
+  <img src="spi-timing.svg"
+    alt="SPI timing of the TMC5160 in mode 3: CSN low frames a 40-bit datagram, SDI is read on each rising
+    SCK edge and SDO changes after each falling edge, with the setup, hold and select times the
+    datasheet gives.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/spi-timing.timing.yml`](../model/spi-timing.timing.yml)
+
+Drawn from:
+
+- [`docs/model/spi-timing.timing.yml`](../model/spi-timing.timing.yml)
+
+## UART register read
+
+<!-- figure: uart-read -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="uart-read.dark.svg">
+  <img src="uart-read.svg"
+    alt="One UART register read of the TMC5160: the host sends a four-byte request, the chip waits SENDDELAY
+    and answers on the same wire with an eight-byte reply, then releases the line.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/uart-read.timing.yml`](../model/uart-read.timing.yml)
+
+Drawn from:
+
+- [`docs/model/uart-read.timing.yml`](../model/uart-read.timing.yml)
+
+## UART single wire bytes
+
+<!-- figure: uart-timing -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="uart-timing.dark.svg">
+  <img src="uart-timing.svg"
+    alt="UART timing of the TMC5160 on its single wire SWP: the first byte carries the sync nibble the chip
+    measures its baud rate from, and the start bits of two bytes must follow within the pause the
+    datasheet allows.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/uart-timing.timing.yml`](../model/uart-timing.timing.yml)
+
+Drawn from:
+
+- [`docs/model/uart-timing.timing.yml`](../model/uart-timing.timing.yml)
+
+## UART nodes on one wire
+
+<!-- figure: uart-topology -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="uart-topology.dark.svg">
+  <img src="uart-topology.svg"
+    alt="Several TMC5160 drivers on one single wire UART: the MCU and every driver share SWP, an idle
+    resistor holds the line high, and each NAO output enables the next driver's NAI while the node
+    addresses are programmed.">
+</picture>
+<!-- /figure -->
+
+Hardware description: [`docs/model/uart-topology.topology.yml`](../model/uart-topology.topology.yml)
+
+Drawn from:
+
+- [`docs/model/uart-topology.topology.yml`](../model/uart-topology.topology.yml)
