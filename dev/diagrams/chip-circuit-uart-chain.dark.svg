@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1432" height="1511" viewBox="0 0 1432 1511" role="img" aria-labelledby="chip-circuit-uart-chain-title chip-circuit-uart-chain-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
 <title id="chip-circuit-uart-chain-title">TMC5160A: UART chain of two nodes</title>
-<desc id="chip-circuit-uart-chain-desc">Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().</desc>
+<desc id="chip-circuit-uart-chain-desc">Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer().</desc>
 <rect x="0.5" y="0.5" width="1431" height="1510" rx="16" fill="#0E131A" stroke="#283241"/>
 <text x="32" y="44" font-size="12.5" font-weight="700" letter-spacing="1.2" fill="#F8D27A">HARDWARE</text>
 <text x="32" y="77.3" font-size="26" font-weight="700" fill="#E8EDF3">TMC5160A: UART chain of two nodes</text>
@@ -70,7 +70,7 @@
 <path d="M616 1295.5 L616 1319.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M688 1295.5 L688 1319.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
 <rect x="32" y="751.5" width="144" height="128" rx="4" fill="#18202B" stroke="#D2DAE4" stroke-width="1.8"/>
-<path d="M176 799.5 L200 799.5" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M176 799.5 L200 799.5" fill="none" stroke="#60A5FA" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M176 823.5 L200 823.5" fill="none" stroke="#2BB3A3" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M176 847.5 L200 847.5" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
 <path d="M152 751.5 L152 727.5" fill="none" stroke="#FB7185" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="round"/>
@@ -300,7 +300,7 @@
 <text x="623" y="252.6" font-size="12" font-weight="700" fill="#E8EDF3">C1</text>
 <text x="623" y="267" font-size="12" fill="#9AA6B5">100 nF</text>
 <text x="152" y="710.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FECDD3">VCC_IO</text>
-<text x="208" y="793.5" font-size="12" font-weight="500" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#FDE68A">GpioGet(InputPin::Diag1)</text>
+<text x="208" y="793.5" font-size="12" font-weight="500" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#BFDBFE">Exchange()</text>
 <text x="208" y="817.5" font-size="12" font-weight="500" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#A7F3E6">GpioSet(CtrlPin::DrvEnn)</text>
 <text x="942" y="372.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">NAI</text>
 <text x="942" y="396.1" font-size="12.5" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#E8EDF3">SWP</text>
@@ -312,8 +312,8 @@
 <circle cx="432" cy="1343.5" r="3.2" fill="#D2DAE4"/>
 <circle cx="560" cy="231.6" r="3.2" fill="#D2DAE4"/>
 <text x="32" y="1445.5" font-size="12.5" fill="#9AA6B5">* Not confirmed in the datasheet: R1 1 kΩ: the series value is a choice; the datasheet shows the wiring only.</text>
-<rect x="32" y="1464.7" width="14" height="14" rx="4" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
-<text x="54" y="1476.3" font-size="12.5" fill="#9AA6B5">GPIO output hook</text>
-<rect x="188.9" y="1464.7" width="14" height="14" rx="4" fill="#2C2310" stroke="#FBBF24" stroke-width="1.4"/>
-<text x="210.9" y="1476.3" font-size="12.5" fill="#9AA6B5">GPIO input hook</text>
+<rect x="32" y="1464.7" width="14" height="14" rx="4" fill="#13233A" stroke="#60A5FA" stroke-width="1.4"/>
+<text x="54" y="1476.3" font-size="12.5" fill="#9AA6B5">bus hook (SPI, I2C, UART)</text>
+<rect x="242.1" y="1464.7" width="14" height="14" rx="4" fill="#0F2A28" stroke="#2BB3A3" stroke-width="1.4"/>
+<text x="264.1" y="1476.3" font-size="12.5" fill="#9AA6B5">GPIO output hook</text>
 </svg>

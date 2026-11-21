@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="737" viewBox="0 0 640 737" role="img" aria-labelledby="uart-read-title uart-read-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" class="fk">
+<title id="uart-read-title">UART register read</title>
+<desc id="uart-read-desc">One UART register read of the TMC5160: the host sends a four-byte request, the chip waits SENDDELAY and answers on the same wire with an eight-byte reply, then releases the line.</desc>
+<style>
+.fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-rail:#7C8798;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+@media (prefers-color-scheme:dark){.fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-rail:#6C7889;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}}
+:root[data-theme="dark"] .fk,[data-md-color-scheme="slate"] .fk{--fk-blue-strong:#60A5FA;--fk-blue-text:#BFDBFE;--fk-blue-tint:#13233A;--fk-brand-text:#F8D27A;--fk-canvas:#0E131A;--fk-frame:#283241;--fk-hair:#252F3C;--fk-ink:#E8EDF3;--fk-ink2:#D2DAE4;--fk-muted:#9AA6B5;--fk-rail:#6C7889;--fk-slate-soft:#3A4656;--fk-slate-strong:#94A3B8;--fk-slate-text:#E2E8F0;--fk-slate-tint:#1B232E;--fk-teal-strong:#2BB3A3;--fk-teal-text:#A7F3E6;--fk-teal-tint:#0F2A28;}
+:root[data-theme="light"] .fk,[data-md-color-scheme="default"] .fk{--fk-blue-strong:#2563EB;--fk-blue-text:#1E429F;--fk-blue-tint:#EAF2FF;--fk-brand-text:#7A360E;--fk-canvas:#FFFFFF;--fk-frame:#E2E7EE;--fk-hair:#E2E7EE;--fk-ink:#0E1726;--fk-ink2:#2B3442;--fk-muted:#566070;--fk-rail:#7C8798;--fk-slate-soft:#CBD5E1;--fk-slate-strong:#64748B;--fk-slate-text:#334155;--fk-slate-tint:#F1F4F8;--fk-teal-strong:#0B7A72;--fk-teal-text:#0B5F59;--fk-teal-tint:#E6F6F4;}
+.fk-f-blue-strong{fill:var(--fk-blue-strong)}.fk-s-blue-strong{stroke:var(--fk-blue-strong)}
+.fk-f-blue-text{fill:var(--fk-blue-text)}.fk-s-blue-text{stroke:var(--fk-blue-text)}
+.fk-f-blue-tint{fill:var(--fk-blue-tint)}.fk-s-blue-tint{stroke:var(--fk-blue-tint)}
+.fk-f-brand-text{fill:var(--fk-brand-text)}.fk-s-brand-text{stroke:var(--fk-brand-text)}
+.fk-f-canvas{fill:var(--fk-canvas)}.fk-s-canvas{stroke:var(--fk-canvas)}
+.fk-f-frame{fill:var(--fk-frame)}.fk-s-frame{stroke:var(--fk-frame)}
+.fk-f-hair{fill:var(--fk-hair)}.fk-s-hair{stroke:var(--fk-hair)}
+.fk-f-ink{fill:var(--fk-ink)}.fk-s-ink{stroke:var(--fk-ink)}
+.fk-f-ink2{fill:var(--fk-ink2)}.fk-s-ink2{stroke:var(--fk-ink2)}
+.fk-f-muted{fill:var(--fk-muted)}.fk-s-muted{stroke:var(--fk-muted)}
+.fk-f-rail{fill:var(--fk-rail)}.fk-s-rail{stroke:var(--fk-rail)}
+.fk-f-slate-soft{fill:var(--fk-slate-soft)}.fk-s-slate-soft{stroke:var(--fk-slate-soft)}
+.fk-f-slate-strong{fill:var(--fk-slate-strong)}.fk-s-slate-strong{stroke:var(--fk-slate-strong)}
+.fk-f-slate-text{fill:var(--fk-slate-text)}.fk-s-slate-text{stroke:var(--fk-slate-text)}
+.fk-f-slate-tint{fill:var(--fk-slate-tint)}.fk-s-slate-tint{stroke:var(--fk-slate-tint)}
+.fk-f-teal-strong{fill:var(--fk-teal-strong)}.fk-s-teal-strong{stroke:var(--fk-teal-strong)}
+.fk-f-teal-text{fill:var(--fk-teal-text)}.fk-s-teal-text{stroke:var(--fk-teal-text)}
+.fk-f-teal-tint{fill:var(--fk-teal-tint)}.fk-s-teal-tint{stroke:var(--fk-teal-tint)}
+@media (forced-colors:active){.fk text{fill:CanvasText}.fk rect,.fk circle{fill:Canvas;stroke:CanvasText}.fk path{stroke:CanvasText}.fk marker path{fill:CanvasText;stroke:none}}
+</style>
+<defs><marker id="uart-read-arrow-ink2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="fk-f-ink2"/></marker></defs>
+<rect x="0.5" y="0.5" width="639" height="736" rx="16" class="fk-f-canvas fk-s-frame"/>
+<text x="32" y="44.4" font-size="13" font-weight="700" letter-spacing="1.2" class="fk-f-brand-text">ON THE BUS</text>
+<text x="32" y="76.2" font-size="24" font-weight="700" class="fk-f-ink">UART register read</text>
+<text x="32" y="102.7" font-size="15" class="fk-f-muted">Datasheet: 6.1 General Configuration Registers, p. 34; 5.1.2 Read Access, p.</text>
+<text x="32" y="124.5" font-size="15" class="fk-f-muted">27; 5 UART Single Wire Interface, p. 26.</text>
+<rect x="32" y="140.4" width="576" height="1" class="fk-f-hair"/>
+<path d="M283.8 266.6 L283.8 318.8" fill="none" stroke-width="1" stroke-dasharray="3 3" class="fk-s-rail"/>
+<path d="M308.3 266.6 L308.3 318.8" fill="none" stroke-width="1" stroke-dasharray="3 3" class="fk-s-rail"/>
+<path d="M528.6 266.6 L528.6 318.8" fill="none" stroke-width="1" stroke-dasharray="3 3" class="fk-s-rail"/>
+<path d="M553 266.6 L553 318.8" fill="none" stroke-width="1" stroke-dasharray="3 3" class="fk-s-rail"/>
+<path d="M88 200.6 L88 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M112.5 200.6 L112.5 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M137 200.6 L137 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M161.4 200.6 L161.4 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M185.9 200.6 L185.9 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M210.4 200.6 L210.4 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M234.9 200.6 L234.9 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M259.3 200.6 L259.3 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M283.8 200.6 L283.8 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M308.3 200.6 L308.3 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M332.8 200.6 L332.8 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M357.2 200.6 L357.2 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M381.7 200.6 L381.7 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M406.2 200.6 L406.2 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M430.7 200.6 L430.7 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M455.1 200.6 L455.1 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M479.6 200.6 L479.6 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M504.1 200.6 L504.1 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M528.6 200.6 L528.6 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M553 200.6 L553 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M577.5 200.6 L577.5 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M602 200.6 L602 318.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 364.9 L608 364.9" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 437.8 L608 437.8" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 510.7 L608 510.7" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M32 583.5 L608 583.5" fill="none" stroke-width="1" class="fk-s-hair"/>
+<path d="M89 191.6 L89 186.6 L282.8 186.6 L282.8 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M309.3 191.6 L309.3 186.6 L527.6 186.6 L527.6 191.6" fill="none" stroke-width="1.4" class="fk-s-slate-strong"/>
+<path d="M283.8 218.6 L602 218.6" fill="none" stroke-width="2" class="fk-s-rail"/>
+<path d="M88 266.6 L308.3 266.6" fill="none" stroke-width="2" class="fk-s-rail"/>
+<path d="M455.1 253.6 L479.6 253.6" fill="none" stroke-width="1.6" class="fk-s-ink2"/>
+<path d="M455.1 279.6 L479.6 279.6" fill="none" stroke-width="1.6" class="fk-s-ink2"/>
+<path d="M528.6 253.6 L553 253.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M553 253.6 L553 266.6" fill="none" stroke-width="2" class="fk-s-ink2"/>
+<path d="M553 266.6 L602 266.6" fill="none" stroke-width="2" class="fk-s-rail"/>
+<path d="M284.8 314.8 L307.3 314.8" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#uart-read-arrow-ink2)" marker-start="url(#uart-read-arrow-ink2)" class="fk-s-ink2"/>
+<path d="M529.6 314.8 L552 314.8" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#uart-read-arrow-ink2)" marker-start="url(#uart-read-arrow-ink2)" class="fk-s-ink2"/>
+<path d="M88 218.6 L93 205.6 L132 205.6 L137 218.6 L132 231.6 L93 231.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M137 218.6 L142 205.6 L180.9 205.6 L185.9 218.6 L180.9 231.6 L142 231.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M185.9 218.6 L190.9 205.6 L229.9 205.6 L234.9 218.6 L229.9 231.6 L190.9 231.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M234.9 218.6 L239.9 205.6 L278.8 205.6 L283.8 218.6 L278.8 231.6 L239.9 231.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-blue-tint fk-s-blue-strong"/>
+<path d="M308.3 266.6 L313.3 253.6 L352.2 253.6 L357.2 266.6 L352.2 279.6 L313.3 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M357.2 266.6 L362.2 253.6 L401.2 253.6 L406.2 266.6 L401.2 279.6 L362.2 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M406.2 266.6 L411.2 253.6 L450.1 253.6 L455.1 266.6 L450.1 279.6 L411.2 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<path d="M479.6 266.6 L484.6 253.6 L523.6 253.6 L528.6 266.6 L523.6 279.6 L484.6 279.6 Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="fk-f-teal-tint fk-s-teal-strong"/>
+<rect x="32" y="597.5" width="576" height="108.6" rx="10" stroke-width="1" class="fk-f-slate-tint fk-s-slate-soft"/>
+<text x="185.9" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">request, 4 bytes</text>
+<text x="418.4" y="175.8" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-slate-text">reply, 8 bytes</text>
+<text x="32" y="224.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">Host</text>
+<text x="112.5" y="223.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">sync</text>
+<text x="161.4" y="223.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">node</text>
+<text x="210.4" y="223.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">reg</text>
+<text x="259.3" y="223.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-blue-text">CRC</text>
+<text x="32" y="272.1" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">Chip</text>
+<text x="332.8" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">sync</text>
+<text x="381.7" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">FF</text>
+<text x="430.7" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">reg</text>
+<text x="504.1" y="271.7" font-size="14" font-weight="600" text-anchor="middle" class="fk-f-teal-text">CRC</text>
+<rect x="463.4" y="249.6" width="8" height="34" rx="0" class="fk-f-canvas"/>
+<path d="M460.4 282.6 L466.4 250.6" fill="none" stroke-width="1.4" class="fk-s-ink2"/>
+<path d="M468.4 282.6 L474.4 250.6" fill="none" stroke-width="1.4" class="fk-s-ink2"/>
+<text x="314.3" y="319.9" font-size="14" font-weight="700" class="fk-f-ink">tSEND</text>
+<text x="559" y="319.9" font-size="14" font-weight="700" class="fk-f-ink">tOFF</text>
+<text x="32" y="349.3" font-size="17" font-weight="700" class="fk-f-ink">Values</text>
+<text x="32" y="385.7" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">tSEND</text>
+<text x="608" y="385.7" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 8 bit times</text>
+<text x="32" y="405.9" font-size="15" class="fk-f-ink2">Request to reply delay at SENDDELAY 0 or 1, the default</text>
+<text x="32" y="426.1" font-size="14" class="fk-f-muted">Datasheet 6.1 General Configuration Registers, p. 34</text>
+<text x="32" y="458.6" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">tSEND</text>
+<text x="608" y="458.6" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 120 bit times</text>
+<text x="32" y="478.8" font-size="15" class="fk-f-ink2">Request to reply delay at SENDDELAY 14 or 15</text>
+<text x="32" y="498.9" font-size="14" class="fk-f-muted">Datasheet 6.1 General Configuration Registers, p. 34</text>
+<text x="32" y="531.4" font-size="15" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" class="fk-f-ink">tOFF</text>
+<text x="608" y="531.4" font-size="15" font-weight="700" text-anchor="end" class="fk-f-ink">typ 4 bit times</text>
+<text x="32" y="551.7" font-size="15" class="fk-f-ink2">Reply transmitter released after its last bit</text>
+<text x="32" y="571.8" font-size="14" class="fk-f-muted">Datasheet 5.1.2 Read Access, p. 27</text>
+<text x="46" y="626" font-size="17" font-weight="700" class="fk-f-slate-text">Notes</text>
+<text x="46" y="646.4" font-size="15" class="fk-f-slate-text">With several nodes, set SENDDELAY to 2 or more (3 × 8 bit times) on</text>
+<text x="46" y="668.1" font-size="15" class="fk-f-slate-text">every node. The reply uses the baud rate of the request; a read does not</text>
+<text x="46" y="689.9" font-size="15" class="fk-f-slate-text">change IFCNT.</text>
+</svg>

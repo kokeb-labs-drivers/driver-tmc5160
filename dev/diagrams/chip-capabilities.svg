@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1134" viewBox="0 0 1200 1134" role="img" aria-labelledby="chip-capabilities-title chip-capabilities-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-capabilities-title">What the TMC5160A does</title>
+<desc id="chip-capabilities-desc">Capability map of the TMC5160A: Motion controller and homing (supported): Moves to a target or runs at a velocity on its own ramp; stops and latches the position at switches; STEP/DIR input (supported): Takes step pulses from your MCU instead, interpolated to 256 microsteps by MicroPlyer; Motor current (supported): Sets run and hold current from the motor rating and the sense resistor, and powers down at standstill; StealthChop2 and SpreadCycle (supported): Silent voltage-mode chopping at low speed, cycle-by-cycle current chopping at high speed; StallGuard2, CoolStep and DcStep (supported): Senses the load without a sensor: detects a stall, saves current at light load, slows under overload; Encoder input (supported): Counts an ABN incremental encoder and flags a deviation from the commanded position; Bridge and protection (guarded): Short, overtemperature and gate-drive settings; a wrong value can destroy the bridge; SPI chain and UART nodes (supported): Several chips on one SPI daisy chain or one single wire UART, each with its own address; OTP programming (not covered): One-time programmable defaults in the chip; the driver reads them and never programs them.</desc>
+<rect x="0.5" y="0.5" width="1199" height="1133" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#7A360E">CAPABILITIES</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#0E1726">What the TMC5160A does</text>
+<text x="32" y="115.4" font-size="18" fill="#566070">One card per function of the chip, with how this driver covers it and the registers behind it.</text>
+<rect x="32" y="131.4" width="1136" height="1" fill="#E2E7EE"/>
+<rect x="32" y="149.4" width="365.3" height="249.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="149.4" width="365.3" height="249.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="149.4" width="365.3" height="249.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="419.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="419.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="419.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="723.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="417.3" y="723.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="802.7" y="723.3" width="365.3" height="283.9" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<circle cx="78" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M65 183.8 L65 207 L91 207" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M67.9 204.1 L73.7 189.6 L82.3 189.6 L88.1 204.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="188.4" font-size="20" font-weight="700" fill="#0E1726">Motion controller and</text>
+<text x="120" y="214.4" font-size="20" font-weight="700" fill="#0E1726">homing</text>
+<text x="50" y="249.8" font-size="17" fill="#2B3442">Moves to a target or runs at a velocity</text>
+<text x="50" y="274.5" font-size="17" fill="#2B3442">on its own ramp; stops and latches the</text>
+<text x="50" y="299.1" font-size="17" fill="#2B3442">position at switches</text>
+<rect x="50" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="317.7" width="118" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="335.8" font-size="16" font-weight="700" fill="#334155">RAMPMODE</text>
+<rect x="50" y="351.7" width="98" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="369.8" font-size="16" font-weight="700" fill="#334155">XTARGET</text>
+<rect x="156" y="351.7" width="69.6" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="164" y="369.8" font-size="16" font-weight="700" fill="#334155">VMAX</text>
+<rect x="233.6" y="351.7" width="85" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="241.6" y="369.8" font-size="16" font-weight="700" fill="#334155">+5 more</text>
+<circle cx="463.3" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M450.3 207 L450.3 201.2 L457.5 201.2 L457.5 195.4 L464.8 195.4 L464.8 189.6 L472 189.6 L472 183.8 L476.4 183.8" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505.3" y="201.4" font-size="20" font-weight="700" fill="#0E1726">STEP/DIR input</text>
+<text x="435.3" y="249.8" font-size="17" fill="#2B3442">Takes step pulses from your MCU</text>
+<text x="435.3" y="274.5" font-size="17" fill="#2B3442">instead, interpolated to 256</text>
+<text x="435.3" y="299.1" font-size="17" fill="#2B3442">microsteps by MicroPlyer</text>
+<rect x="435.3" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="317.7" width="113.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="335.8" font-size="16" font-weight="700" fill="#334155">CHOPCONF</text>
+<circle cx="848.7" cy="195.4" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M835.6 195.4 L861.7 195.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M835.6 195.4 L836.7 193.2 L837.8 191.1 L838.9 189.3 L840 187.9 L841.1 187 L842.2 186.7 L843.2 187 L844.3 187.9 L845.4 189.3 L846.5 191.1 L847.6 193.2 L848.7 195.4 L849.8 197.6 L850.8 199.7 L851.9 201.5 L853 202.9 L854.1 203.8 L855.2 204.1 L856.3 203.8 L857.3 202.9 L858.4 201.5 L859.5 199.7 L860.6 197.6 L861.7 195.4" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="201.4" font-size="20" font-weight="700" fill="#0E1726">Motor current</text>
+<text x="820.7" y="249.8" font-size="17" fill="#2B3442">Sets run and hold current from the</text>
+<text x="820.7" y="274.5" font-size="17" fill="#2B3442">motor rating and the sense resistor,</text>
+<text x="820.7" y="299.1" font-size="17" fill="#2B3442">and powers down at standstill</text>
+<rect x="820.7" y="317.7" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="828.7" y="335.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="932" y="317.7" width="152.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="940" y="335.8" font-size="16" font-weight="700" fill="#334155">GLOBALSCALER</text>
+<rect x="820.7" y="351.7" width="117.7" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="828.7" y="369.8" font-size="16" font-weight="700" fill="#334155">IHOLD_IRUN</text>
+<rect x="946.3" y="351.7" width="146.3" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="954.3" y="369.8" font-size="16" font-weight="700" fill="#334155">TPOWERDOWN</text>
+<circle cx="78" cy="465.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M65 472.6 L65 458.1 L72.2 458.1 L72.2 472.6 L79.4 472.6 L79.4 458.1 L86.7 458.1 L86.7 472.6 L91 472.6" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="458.3" font-size="20" font-weight="700" fill="#0E1726">StealthChop2 and</text>
+<text x="120" y="484.3" font-size="20" font-weight="700" fill="#0E1726">SpreadCycle</text>
+<text x="50" y="519.8" font-size="17" fill="#2B3442">Silent voltage-mode chopping at low</text>
+<text x="50" y="544.4" font-size="17" fill="#2B3442">speed, cycle-by-cycle current</text>
+<text x="50" y="569.1" font-size="17" fill="#2B3442">chopping at high speed</text>
+<rect x="50" y="587.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="58" y="605.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="161.4" y="587.6" width="108.9" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="169.4" y="605.8" font-size="16" font-weight="700" fill="#334155">PWMCONF</text>
+<rect x="50" y="621.6" width="113.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="639.8" font-size="16" font-weight="700" fill="#334155">CHOPCONF</text>
+<rect x="171.8" y="621.6" width="117.9" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="179.8" y="639.8" font-size="16" font-weight="700" fill="#334155">TPWMTHRS</text>
+<rect x="50" y="655.6" width="85.4" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="673.8" font-size="16" font-weight="700" fill="#334155">+3 more</text>
+<circle cx="463.3" cy="465.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M451.8 471.1 A11.6 11.6 0 0 1 474.9 471.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M463.3 471.1 L469.8 462.5" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="463.3" cy="471.1" r="2.6" fill="#9A4A17"/>
+<path d="M450.3 476.2 L476.4 476.2" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505.3" y="458.3" font-size="20" font-weight="700" fill="#0E1726">StallGuard2, CoolStep</text>
+<text x="505.3" y="484.3" font-size="20" font-weight="700" fill="#0E1726">and DcStep</text>
+<text x="435.3" y="519.8" font-size="17" fill="#2B3442">Senses the load without a sensor:</text>
+<text x="435.3" y="544.4" font-size="17" fill="#2B3442">detects a stall, saves current at light</text>
+<text x="435.3" y="569.1" font-size="17" fill="#2B3442">load, slows under overload</text>
+<rect x="435.3" y="587.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="605.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="587.6" width="112.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="605.8" font-size="16" font-weight="700" fill="#334155">COOLCONF</text>
+<rect x="435.3" y="621.6" width="121.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="639.8" font-size="16" font-weight="700" fill="#334155">TCOOLTHRS</text>
+<rect x="565.2" y="621.6" width="130.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="573.2" y="639.8" font-size="16" font-weight="700" fill="#334155">DRV_STATUS</text>
+<rect x="435.3" y="655.6" width="85.4" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="443.3" y="673.8" font-size="16" font-weight="700" fill="#334155">+3 more</text>
+<circle cx="848.7" cy="465.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<circle cx="848.7" cy="465.3" r="12.3" fill="none" stroke="#9A4A17" stroke-width="2.5"/>
+<circle cx="848.7" cy="465.3" r="2.9" fill="#9A4A17"/>
+<path d="M856.6 465.3 L861 465.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854.3 471 L857.4 474" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.7 473.3 L848.7 477.6" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M843 471 L840 474" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M840.7 465.3 L836.4 465.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M843 459.7 L840 456.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M848.7 457.4 L848.7 453.1" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M854.3 459.7 L857.4 456.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="471.3" font-size="20" font-weight="700" fill="#0E1726">Encoder input</text>
+<text x="820.7" y="519.8" font-size="17" fill="#2B3442">Counts an ABN incremental encoder</text>
+<text x="820.7" y="544.4" font-size="17" fill="#2B3442">and flags a deviation from the</text>
+<text x="820.7" y="569.1" font-size="17" fill="#2B3442">commanded position</text>
+<rect x="820.7" y="587.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="828.7" y="605.8" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="932" y="587.6" width="103.2" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="940" y="605.8" font-size="16" font-weight="700" fill="#334155">ENCMODE</text>
+<rect x="1043.2" y="587.6" width="72.4" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="1051.2" y="605.8" font-size="16" font-weight="700" fill="#334155">X_ENC</text>
+<rect x="820.7" y="621.6" width="120.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="828.7" y="639.8" font-size="16" font-weight="700" fill="#334155">ENC_CONST</text>
+<rect x="949.5" y="621.6" width="154.6" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="957.5" y="639.8" font-size="16" font-weight="700" fill="#334155">ENC_DEVIATION</text>
+<circle cx="78" cy="769.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M78 756.3 L88.8 760.6 L88.8 769.3 L78 782.3 L67.2 769.3 L67.2 760.6 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72.9 769.3 L76.6 772.9 L83.1 765.7" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="775.3" font-size="20" font-weight="700" fill="#0E1726">Bridge and protection</text>
+<text x="50" y="823.8" font-size="17" fill="#2B3442">Short, overtemperature and gate-drive</text>
+<text x="50" y="848.4" font-size="17" fill="#2B3442">settings; a wrong value can destroy</text>
+<text x="50" y="873" font-size="17" fill="#2B3442">the bridge</text>
+<rect x="50" y="891.6" width="87.5" height="26" rx="13" fill="#8A3C0B"/>
+<text x="58" y="909.7" font-size="16" font-weight="700" fill="#FFFFFF">Guarded</text>
+<rect x="145.5" y="891.6" width="108.6" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="153.5" y="909.7" font-size="16" font-weight="700" fill="#334155">DRV_CONF</text>
+<rect x="50" y="925.6" width="131.9" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="943.7" font-size="16" font-weight="700" fill="#334155">SHORT_CONF</text>
+<rect x="189.9" y="925.6" width="75.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="197.9" y="943.7" font-size="16" font-weight="700" fill="#334155">GSTAT</text>
+<rect x="50" y="959.6" width="130.1" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="58" y="977.7" font-size="16" font-weight="700" fill="#334155">DRV_STATUS</text>
+<circle cx="463.3" cy="769.3" r="28" fill="#FBEFE6" stroke="#E9C3A6" stroke-width="1.2"/>
+<path d="M448.9 765 L456.1 765 L456.1 773.6 L448.9 773.6 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M459.7 765 L466.9 765 L466.9 773.6 L459.7 773.6 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M470.6 765 L477.8 765 L477.8 773.6 L470.6 773.6 Z" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M456.1 769.3 L459.7 769.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M466.9 769.3 L470.6 769.3" fill="none" stroke="#9A4A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505.3" y="762.3" font-size="20" font-weight="700" fill="#0E1726">SPI chain and UART</text>
+<text x="505.3" y="788.3" font-size="20" font-weight="700" fill="#0E1726">nodes</text>
+<text x="435.3" y="823.8" font-size="17" fill="#2B3442">Several chips on one SPI daisy chain</text>
+<text x="435.3" y="848.4" font-size="17" fill="#2B3442">or one single wire UART, each with its</text>
+<text x="435.3" y="873" font-size="17" fill="#2B3442">own address</text>
+<rect x="435.3" y="891.6" width="103.4" height="26" rx="13" fill="#14532D"/>
+<text x="443.3" y="909.7" font-size="16" font-weight="700" fill="#FFFFFF">Supported</text>
+<rect x="546.7" y="891.6" width="113" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="554.7" y="909.7" font-size="16" font-weight="700" fill="#334155">NODECONF</text>
+<rect x="667.7" y="891.6" width="67.5" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="675.7" y="909.7" font-size="16" font-weight="700" fill="#334155">IFCNT</text>
+<circle cx="848.7" cy="769.3" r="28" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1.2"/>
+<path d="M841.4 760.6 L855.9 760.6 L855.9 778 L841.4 778 Z" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M837.1 765 L841.4 765" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M837.1 769.3 L841.4 769.3" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M837.1 773.6 L841.4 773.6" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.9 765 L860.2 765" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.9 769.3 L860.2 769.3" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M855.9 773.6 L860.2 773.6" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="890.7" y="775.3" font-size="20" font-weight="700" fill="#0E1726">OTP programming</text>
+<text x="820.7" y="823.8" font-size="17" fill="#2B3442">One-time programmable defaults in</text>
+<text x="820.7" y="848.4" font-size="17" fill="#2B3442">the chip; the driver reads them and</text>
+<text x="820.7" y="873" font-size="17" fill="#2B3442">never programs them</text>
+<rect x="820.7" y="891.6" width="117.9" height="26" rx="13" fill="#334155"/>
+<text x="828.7" y="909.7" font-size="16" font-weight="700" fill="#FFFFFF">Not covered</text>
+<rect x="946.6" y="891.6" width="107.4" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="954.6" y="909.7" font-size="16" font-weight="700" fill="#334155">OTP_PROG</text>
+<rect x="820.7" y="925.6" width="105.8" height="26" rx="13" fill="#F1F4F8" stroke="#CBD5E1" stroke-width="1"/>
+<text x="828.7" y="943.7" font-size="16" font-weight="700" fill="#334155">OTP_READ</text>
+<rect x="32" y="1019.6" width="14" height="14" rx="4" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<text x="54" y="1034.2" font-size="16" fill="#566070">Supported: the driver covers it and a host test checks it</text>
+<rect x="32" y="1051.6" width="14" height="14" rx="4" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<text x="54" y="1066.2" font-size="16" fill="#566070">Guarded: covered, behind an explicit acknowledgement because a wrong value can do harm</text>
+<rect x="32" y="1083.6" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="54" y="1098.2" font-size="16" fill="#566070">Not covered: the chip has it and the driver leaves it alone</text>
+</svg>

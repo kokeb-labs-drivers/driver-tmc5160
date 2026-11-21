@@ -16,7 +16,7 @@
         <link rel="prev" href="../platforms/">
       
       
-        <link rel="next" href="../architecture/">
+        <link rel="next" href="../bus/">
       
       
         
@@ -102,72 +102,6 @@
   <meta property="og:description" content="C++20 driver for the Trinamic TMC5160 and TMC5160A stepper motor controller and driver with SPI and UART interfaces">
   <meta property="og:url" content="https://kokeb-labs-drivers.github.io/driver-tmc5160/latest/hardware/">
   <meta name="twitter:card" content="summary">
-  <script>
-(function () {
-  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
-  var SRC = "https://unpkg.com/mermaid@11.17.2/dist/mermaid.min.js",
-      SRI = "sha384-EOXBFmc3gx5mb+vn0vPvvGqACToJD24hhacX5Yx+8NUUQrHIle/Qi5Bg9o3zKwW2", config = {}, real, loading;
-  var waiting = [], io = null, ahead = false, ENGAGE = ["scroll", "keydown", "pointerdown", "touchstart"];
-  var stub = {
-    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
-    render: function (id, text) {
-      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-kb-mermaid])");
-      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
-      if (el) el.setAttribute("data-kb-mermaid", "");
-      return near(el).then(load).then(function (m) { return m.render(id, text); });
-    }
-  };
-  function load() {
-    return loading || (loading = new Promise(function (resolve, reject) {
-      var s = document.createElement("script");
-      s.src = SRC;
-      s.integrity = SRI;
-      s.crossOrigin = "anonymous";
-      s.onload = function () {
-        real = window.mermaid;
-        window.mermaid = stub;
-        real.initialize(config);
-        resolve(real);
-      };
-      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
-      document.head.appendChild(s);
-    }));
-  }
-  // One observer for the diagrams still waiting: on the screen only until the reader engages, then a screen ahead.
-  function watch() {
-    if (io) io.disconnect();
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) release(function (w) { return w.el === e.target; });
-      });
-    }, { rootMargin: ahead ? "100% 0px" : "0px" });
-    waiting.forEach(function (w) { io.observe(w.el); });
-  }
-  function release(which) {
-    waiting = waiting.filter(function (w) {
-      if (!which(w)) return true;
-      io.unobserve(w.el);
-      w.go();
-      return false;
-    });
-  }
-  function near(el) {
-    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
-    return new Promise(function (resolve) {
-      waiting.push({ el: el, go: resolve });
-      if (io) io.observe(el); else watch();
-    });
-  }
-  function engaged() {
-    ENGAGE.forEach(function (t) { window.removeEventListener(t, engaged, true); });
-    ahead = true;
-    if (io) watch();
-  }
-  ENGAGE.forEach(function (t) { window.addEventListener(t, engaged, { capture: true, passive: true }); });
-  window.addEventListener("beforeprint", function () { if (io) release(function () { return true; }); });
-  window.mermaid = stub;
-})();
-</script>
 
   </head>
   
@@ -516,6 +450,8 @@
       
         
       
+        
+      
     
     
     
@@ -841,6 +777,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On the bus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1275,7 +1239,7 @@ them, <code>InputPin::DcOut</code> likewise: no call of the driver sets or reads
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>The TMC5160A seen from the top, in its TQFP-48 package. Pin 1 is marked by the dot; the numbers run counter-clockwise from it. Each pad is coloured by the pin's electrical type (legend below). Next to it is the pin's name and, in mono, the hook of the driver's port that drives or reads it; a pin without a hook is not used by the driver. The dashed square is the exposed pad.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
 </details>
 <figure class="kb-figure">
 <img src="../diagrams/chip-outline.svg#only-light" alt="Outline of the TMC5160A in TQFP-48 drawn to scale from above: body 7.0 x 7.0 x 1.2 mm, pitch 0.5 mm, 48 pins and an exposed pad." width="984" height="731" loading="lazy"><img src="../diagrams/chip-outline.dark.svg#only-dark" alt="Outline of the TMC5160A in TQFP-48 drawn to scale from above: body 7.0 x 7.0 x 1.2 mm, pitch 0.5 mm, 48 pins and an exposed pad." width="984" height="731" loading="lazy">
@@ -1285,7 +1249,7 @@ them, <code>InputPin::DcOut</code> likewise: no call of the driver sets or reads
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>The TMC5160A package seen from the top and, when the height is known, from the side, drawn to scale: 7.0 x 7.0 x 1.2 mm. The arrows carry the datasheet's dimensions, the dot marks pin 1 and the pads are numbered counter-clockwise from it, coloured by the pin's electrical type (legend below). Pads sit centred on each side at the stated pitch; the datasheet's land pattern is the reference for a board.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
 </details>
 <!-- generated: chip-pins -->
 <p>TQFP-48, 48 pins and an exposed pad (2.1 Package Outline, p. 11).</p>
@@ -1757,7 +1721,7 @@ them, <code>InputPin::DcOut</code> likewise: no call of the driver sets or reads
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>The TMC5160A's function blocks inside its outline. Arrows between blocks carry signals or data in the direction they point (both ways where they have two heads). The package pins stand on the left and right edges with their numbers, each wired to the block it reaches.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
 </details>
 <h2 id="reference-circuits">Reference circuits<a class="headerlink" href="#reference-circuits" title="Permanent link">&para;</a></h2>
 <p>The circuits are drawn from <a href="../hardware.yml"><code>hardware.yml</code></a>; the part values are the datasheet's (Figure 3.1) except where
@@ -1770,17 +1734,17 @@ marked.</p>
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
 </details>
 <figure class="kb-figure">
-<img src="../diagrams/chip-circuit-uart-chain.svg#only-light" alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer()." width="1432" height="1511" loading="lazy"><img src="../diagrams/chip-circuit-uart-chain.dark.svg#only-dark" alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer()." width="1432" height="1511" loading="lazy">
+<img src="../diagrams/chip-circuit-uart-chain.svg#only-light" alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer()." width="1432" height="1511" loading="lazy"><img src="../diagrams/chip-circuit-uart-chain.dark.svg#only-dark" alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer()." width="1432" height="1511" loading="lazy">
 <figcaption>TMC5160A: UART chain of two nodes</figcaption>
 </figure>
 
 <details class="kb-figure-desc">
 <summary>Figure description and sources</summary>
 <p>A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.</p>
-<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
+<p>Drawn from: <a href="../hardware.yml"><code>docs/hardware.yml</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_spi_interface.hpp"><code>inc/tmc5160_spi_interface.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_types.hpp"><code>inc/tmc5160_types.hpp</code></a>; <a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_uart_interface.hpp"><code>inc/tmc5160_uart_interface.hpp</code></a>.</p>
 </details>
 <p>In UART mode the MCU's TX and RX wires to SWP are the <code>Exchange()</code> hook, and DIAG0 and DIAG1 are not available (their
 pins are the single wire interface, <a href="../uart-protocol/">UART protocol</a>). The figure still labels those pins with their
@@ -2015,7 +1979,7 @@ is accepted (10 to 16 MHz advised). Every time, velocity and acceleration value 
 </tr>
 <tr>
 <td>Clock</td>
-<td>Up to 4 MHz on the internal clock, <code>fCLK / 2</code> less a 10 percent margin on an external one</td>
+<td><code>fCLK / 2</code>: 4 MHz on the internal clock (with its 10 percent margin), 8 MHz on an external 16 MHz clock; the driver keeps a 10 percent margin on an external clock too (A2)</td>
 <td>9000 baud to <code>fCLK / 16</code>, set from the sync nibble</td>
 </tr>
 <tr>
@@ -2031,7 +1995,8 @@ is accepted (10 to 16 MHz advised). Every time, velocity and acceleration value 
 </tbody>
 </table>
 <p>SPI timing (section 4.3, page 25): CSN high time more than <code>2 tCLK + 10 ns</code>, SCK high and low more than <code>tCLK + 10 ns</code>,
-SDI setup and hold 10 ns. The driver does not time the bus: the port's clock sets it.</p>
+SDI setup and hold 10 ns. The driver does not time the bus: the port's clock sets it. The waveforms are on
+<a href="../bus/">On the bus</a>.</p>
 <h2 id="timing-the-driver-waits-for">Timing the driver waits for<a class="headerlink" href="#timing-the-driver-waits-for" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2098,7 +2063,7 @@ of the driver is in the datasheet: <a href="../datasheet/">Datasheet map</a>.</p
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/0ec6e77045c1f84f61e15ae770c3cab3efa788eb/inc/tmc5160_registers.hpp"><code>inc/tmc5160_registers.hpp</code></a></td>
+<td><a href="https://github.com/kokeb-labs-drivers/driver-tmc5160/blob/6cf958fc5ef72bfafa1be83ff1019dd51c92993e/inc/tmc5160_registers.hpp"><code>inc/tmc5160_registers.hpp</code></a></td>
 <td>The register map as the driver uses it, with datasheet section numbers</td>
 </tr>
 <tr>
@@ -2161,13 +2126,13 @@ of the driver is in the datasheet: <a href="../datasheet/">Datasheet map</a>.</p
         
         
           
-          <a href="../architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture">
+          <a href="../bus/" class="md-footer__link md-footer__link--next" aria-label="Next: On the bus">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Architecture
+                On the bus
               </div>
             </div>
             <div class="md-footer__button md-icon">
