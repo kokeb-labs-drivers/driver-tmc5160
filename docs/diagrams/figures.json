@@ -13,6 +13,20 @@
       "inc/tmc5160_uart_interface.hpp"
     ]
   },
+  "chip-capabilities": {
+    "title": "What the TMC5160A does",
+    "alt": "Capability map of the TMC5160A: Motion controller and homing (supported): Moves to a target or runs at a velocity on its own ramp; stops and latches the position at switches; STEP/DIR input (supported): Takes step pulses from your MCU instead, interpolated to 256 microsteps by MicroPlyer; Motor current (supported): Sets run and hold current from the motor rating and the sense resistor, and powers down at standstill; StealthChop2 and SpreadCycle (supported): Silent voltage-mode chopping at low speed, cycle-by-cycle current chopping at high speed; StallGuard2, CoolStep and DcStep (supported): Senses the load without a sensor: detects a stall, saves current at light load, slows under overload; Encoder input (supported): Counts an ABN incremental encoder and flags a deviation from the commanded position; Bridge and protection (guarded): Short, overtemperature and gate-drive settings; a wrong value can destroy the bridge; SPI chain and UART nodes (supported): Several chips on one SPI daisy chain or one single wire UART, each with its own address; OTP programming (not covered): One-time programmable defaults in the chip; the driver reads them and never programs them.",
+    "description": "Each card is one function of the TMC5160A: an icon, its name and what it does for the application. The filled pill says how this driver covers it (legend below); the outlined pills are the chip registers behind it. The coverage table in the README gives the driver calls and the datasheet section of each card.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
   "chip-circuit-spi-typical": {
     "title": "TMC5160A: SPI application",
     "alt": "Schematic of the TMC5160A spi application: the chip with U2 MCU, U3 Power bridge and sense resistors, C1 capacitor 22 nF, C2 capacitor 100 nF, C3 capacitor 2.2 µF, C4 capacitor 2.2 µF, C5 capacitor 470 nF, C6 capacitor 100 nF, C7 capacitor 100 nF, R1 resistor 2.2 Ω, R2 resistor 4.7 kΩ; the MCU wires carry the port hooks GpioGet(InputPin::Diag0), GpioSet(CtrlPin::DrvEnn), Transfer().",
@@ -29,10 +43,38 @@
   },
   "chip-circuit-uart-chain": {
     "title": "TMC5160A: UART chain of two nodes",
-    "alt": "Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().",
+    "alt": "Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer().",
     "description": "A schematic. The MCU is on the left, each of its pins level with the chip pin it connects to; above each wire is the hook of the driver's port that drives or reads it. Supply pins point up to their supply and decoupling, ground pins down. Pins on the right carry the loads and the pins tied to a supply or ground; a cross marks a pin left open. A dot is a junction; wires that cross without a dot are not connected.",
     "profile": "detail",
     "width": 1432,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-frame-spi": {
+    "title": "TMC5160A: SPI datagram",
+    "alt": "SPI datagram of the TMC5160A, 40 bits, most significant bit first. Write: W (bit 39), address (bits 38 to 32), data (bits 31 to 0); Read: W (bit 39), address (bits 38 to 32), any value (ignored) (bits 31 to 0); Reply: SPI_STATUS (bits 39 to 32), data of the previous read (or the previous write) (bits 31 to 0). The SPI_STATUS field of the Reply row: bit 7 status_stop_r, bit 6 status_stop_l, bit 5 position_reached, bit 4 velocity_reached, bit 3 standstill, bit 2 sg2, bit 1 driver_error, bit 0 reset_flag. Below, the SPI mode 3 waveform of one transfer in the same bit grid.",
+    "description": "One SPI datagram of the TMC5160A, 40 bits in a row from the most significant (left, sent first) to the least significant (right). Each row is one kind of frame; each coloured box a field, with its first and last bit number under it. The waveform below draws the select, the clock and the data lines over the same bits. The table at the bottom names each bit of the SPI_STATUS field.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-hero": {
+    "title": "TMC5160A",
+    "alt": "Overview of the TMC5160A, a controller and driver for two-phase bipolar stepper motors: it runs the motion profile itself and drives an external MOSFET bridge for coil currents from 1 A to several 10 A. A MCU talks to it over SPI or UART; it drives MOSFET bridge, then Stepper motor; it reads back Coil current, ABN encoder, Reference switches. Headline figures: 10 to 55 V motor and bridge supply; 256 microsteps per full step; 8 gates for an external MOSFET bridge (two full bridges); 4 MHz SPI clock on the internal oscillator; 7 x 7 mm TQFP48 body; also an 8 x 8 mm QFN.",
+    "description": "The TMC5160A in the middle, drawn as its TQFP-48 package. On the left the MCU that runs the driver, joined to it by SPI or UART. To the right, what the chip drives, in the order the power flows. Below it, what the chip reads back. The tiles at the bottom are the headline numbers, each with the datasheet section and page it comes from.",
+    "profile": "overview",
+    "width": 1200,
     "source": "docs/hardware.yml",
     "sources": [
       "docs/hardware.yml",
@@ -69,6 +111,34 @@
       "inc/tmc5160_uart_interface.hpp"
     ]
   },
+  "chip-wiring-spi-typical": {
+    "title": "Wiring: SPI application",
+    "alt": "Wiring of the TMC5160A for the SPI application: MCU SPI SCK to SCK_CFG2 (Transfer()); MCU SPI MOSI to SDI_CFG1 (Transfer()); MCU SPI MISO to SDO_CFG0 (Transfer()); MCU GPIO / CS to CSN_CFG3 (Transfer()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); MCU GPIO (IRQ) to DIAG0_SWN (GpioGet(InputPin::Diag0)); SRAH to Power bridge and sense resistors SRAH; SRAL to Power bridge and sense resistors SRAL; SRBH to Power bridge and sense resistors SRBH; SRBL to Power bridge and sense resistors SRBL. Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU on the left, the TMC5160A in the middle, the blocks it drives on the right. Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
+  "chip-wiring-uart-chain": {
+    "title": "Wiring: UART chain of two nodes",
+    "alt": "Wiring of the TMC5160A for the UART chain of two nodes: MCU UART RX to DIAG1_SWP (Exchange()); MCU GPIO to DRV_ENN (GpioSet(CtrlPin::DrvEnn)); SDO_CFG0 to TMC5160 node 2 (supply and ground as node 1) NAI. Supplies, grounds and the support parts are listed under the drawing.",
+    "description": "The MCU on the left, the TMC5160A in the middle, the blocks it drives on the right. Each wire to the chip is coloured by the chip pin's electrical type and carries the net name and the chip pin number above it and, under it, the driver hooks that use it (and any part on the net). The boxes underneath list the supplies, the support parts and the pins this circuit leaves unconnected.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/hardware.yml",
+    "sources": [
+      "docs/hardware.yml",
+      "inc/tmc5160_spi_interface.hpp",
+      "inc/tmc5160_types.hpp",
+      "inc/tmc5160_uart_interface.hpp"
+    ]
+  },
   "driver-layers": {
     "title": "The layers, one of them yours",
     "alt": "Layer diagram: your application calls the TMC5160 core, which sends register reads and writes through the SPI port contract to the port class you write, which drives the chip; the core and the contract are the same on every MCU.",
@@ -92,6 +162,91 @@
       "docs/model/one-call-through-the-layers.seq.yml"
     ],
     "kind": "seq",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
+  },
+  "spi-chain": {
+    "title": "SPI daisy chain",
+    "alt": "Daisy chain of TMC5160 drivers on one SPI bus: the MCU feeds SDI of the first, each SDO feeds the next SDI and the last SDO returns to the MCU, with SCK and CSN shared.",
+    "description": "The MCU drives MOSI into SDI of TMC5160 1; its SDO feeds the next driver and so on to TMC5160 N, whose SDO returns to MISO. SCK and CSN are rails every device shares, so one select frames the datagrams of every driver.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/spi-chain.topology.yml",
+    "sources": [
+      "docs/model/spi-chain.topology.yml"
+    ],
+    "kind": "topology",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": false,
+    "font": ""
+  },
+  "spi-timing": {
+    "title": "SPI bus timing",
+    "alt": "SPI timing of the TMC5160 in mode 3: CSN low frames a 40-bit datagram, SDI is read on each rising SCK edge and SDO changes after each falling edge, with the setup, hold and select times the datasheet gives.",
+    "description": "The four lanes are CSN, SCK, SDI and SDO, left to right in time. CSN goes low, SCK idles high and clocks the 40 bits, the chip reads SDI on the rising edge and drives SDO after the falling edge; bits 37 to 1 are left out. The table gives each interval with its datasheet value, tCLK being one period of the chip's clock.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/spi-timing.timing.yml",
+    "sources": [
+      "docs/model/spi-timing.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "uart-read": {
+    "title": "UART register read",
+    "alt": "One UART register read of the TMC5160: the host sends a four-byte request, the chip waits SENDDELAY and answers on the same wire with an eight-byte reply, then releases the line.",
+    "description": "Two lanes share the single wire SWP: Host and Chip (the TMC5160), left to right in time. The host sends sync, node address, register address and CRC, then releases the line; after the send delay the Chip sends sync, the master address 0xFF, the register address, the four data bytes (left out) and the CRC, holds the line for four bit times and releases it. The table gives the delays.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-read.timing.yml",
+    "sources": [
+      "docs/model/uart-read.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "uart-timing": {
+    "title": "UART single wire bytes",
+    "alt": "UART timing of the TMC5160 on its single wire SWP: the first byte carries the sync nibble the chip measures its baud rate from, and the start bits of two bytes must follow within the pause the datasheet allows.",
+    "description": "The lane is SWP, left to right in time. The line idles high; the start bit pulls it low, the sync nibble 1, 0, 1, 0 follows least significant bit first, then four reserved bits and the stop bit; the next byte starts with its own start bit and carries NODEADDR. The table gives the baud rate and the pause and recovery times in bit times.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-timing.timing.yml",
+    "sources": [
+      "docs/model/uart-timing.timing.yml"
+    ],
+    "kind": "timing",
+    "palette": 2,
+    "print": "landscape",
+    "adaptive": true,
+    "twin": true,
+    "font": ""
+  },
+  "uart-topology": {
+    "title": "UART nodes on one wire",
+    "alt": "Several TMC5160 drivers on one single wire UART: the MCU and every driver share SWP, an idle resistor holds the line high, and each NAO output enables the next driver's NAI while the node addresses are programmed.",
+    "description": "The MCU, a UART whose TXD goes to high impedance to receive, shares the SWP line with TMC5160 1, the drivers left out and TMC5160 N. TMC5160 1 has NAI tied to ground and answers at address 0 first; each driver that has its address sets NAO low and so lets the next driver answer at address 0.",
+    "profile": "phone",
+    "width": 640,
+    "source": "docs/model/uart-topology.topology.yml",
+    "sources": [
+      "docs/model/uart-topology.topology.yml"
+    ],
+    "kind": "topology",
     "palette": 2,
     "print": "landscape",
     "adaptive": true,

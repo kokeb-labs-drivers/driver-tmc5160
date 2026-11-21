@@ -1,0 +1,37 @@
+---
+kind: timing
+id: uart-read
+title: UART register read
+kicker: On the bus
+alt: >-
+  One UART register read of the TMC5160: the host sends a four-byte request, the chip waits SENDDELAY and answers on
+  the same wire with an eight-byte reply, then releases the line.
+reads: >-
+  Two lanes share the single wire SWP: Host and Chip (the TMC5160), left to right in time. The host sends sync, node
+  address, register address and CRC, then releases the line; after the send delay the Chip sends sync, the master
+  address 0xFF, the register address, the four data bytes (left out) and the CRC, holds the line for four bit times
+  and releases it. The table gives the delays.
+bus: transaction
+refs:
+  uart_read: {doc: ds, section: "5.1.2 Read Access", page: 27}
+  nodeconf: {doc: ds, section: "6.1 General Configuration Registers", page: 34}
+signals:
+  - {id: host, label: Host, wave: "=.=.=.=.z............", data: [sync, node, reg, CRC]}
+  - {id: chip, label: Chip, wave: "z........=.=.=.|=.1z.", tone: teal,
+     data: [sync, FF, reg, CRC]}
+groups:
+  - {from: 0, to: 8, label: "request, 4 bytes", ref: uart_read}
+  - {from: 9, to: 18, label: "reply, 8 bytes", ref: uart_read}
+params:
+  - {id: tsend, symbol: tSEND, label: "Request to reply delay at SENDDELAY 0 or 1, the default", typ: 8,
+     unit: bit times, ref: nodeconf}
+  - {id: tsend-max, symbol: tSEND, label: "Request to reply delay at SENDDELAY 14 or 15", typ: 120, unit: bit times,
+     ref: nodeconf}
+  - {id: toff, symbol: tOFF, label: Reply transmitter released after its last bit, typ: 4, unit: bit times,
+     ref: uart_read}
+marks:
+  - {param: tsend, signal: chip, from: 8, to: 9}
+  - {param: toff, signal: chip, from: 18, to: 19}
+notes:
+  - {text: "With several nodes, set SENDDELAY to 2 or more (3 × 8 bit times) on every node.", ref: uart_read}
+  - {text: "The reply uses the baud rate of the request; a read does not change IFCNT.", ref: uart}

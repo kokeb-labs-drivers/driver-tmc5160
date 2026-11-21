@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="892" viewBox="0 0 1200 892" role="img" aria-labelledby="chip-frame-spi-title chip-frame-spi-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="chip-frame-spi-title">TMC5160A: SPI datagram</title>
+<desc id="chip-frame-spi-desc">SPI datagram of the TMC5160A, 40 bits, most significant bit first. Write: W (bit 39), address (bits 38 to 32), data (bits 31 to 0); Read: W (bit 39), address (bits 38 to 32), any value (ignored) (bits 31 to 0); Reply: SPI_STATUS (bits 39 to 32), data of the previous read (or the previous write) (bits 31 to 0). The SPI_STATUS field of the Reply row: bit 7 status_stop_r, bit 6 status_stop_l, bit 5 position_reached, bit 4 velocity_reached, bit 3 standstill, bit 2 sg2, bit 1 driver_error, bit 0 reset_flag. Below, the SPI mode 3 waveform of one transfer in the same bit grid.</desc>
+<rect x="0.5" y="0.5" width="1199" height="891" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#7A360E">ON THE BUS</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#0E1726">TMC5160A: SPI datagram</text>
+<text x="32" y="115.4" font-size="18" fill="#566070">Every transfer is one 40-bit datagram with CSN low; the reply carries the status and the data asked for in the previous</text>
+<text x="32" y="141.5" font-size="18" fill="#566070">datagram. 40 bits, sent most significant bit first. Datasheet: 4.1 SPI Datagram Structure, p. 23.</text>
+<rect x="32" y="157.5" width="1136" height="1" fill="#E2E7EE"/>
+<path d="M228 485.5 L236 485.5 L236 507.5 L1160 507.5 L1160 485.5 L1168 485.5" fill="none" stroke="#2B3442" stroke-width="2"/>
+<path d="M228 531.5 L256 531.5 L256 531.5 L256 553.5 L267.1 553.5 L267.1 531.5 L278.1 531.5 L278.1 553.5 L289.1 553.5 L289.1 531.5 L300.2 531.5 L300.2 553.5 L311.2 553.5 L311.2 531.5 L322.3 531.5 L322.3 553.5 L333.4 553.5 L333.4 531.5 L344.4 531.5 L344.4 553.5 L355.4 553.5 L355.4 531.5 L366.5 531.5 L366.5 553.5 L377.6 553.5 L377.6 531.5 L388.6 531.5 L388.6 553.5 L399.6 553.5 L399.6 531.5 L410.7 531.5 L410.7 553.5 L421.8 553.5 L421.8 531.5 L432.8 531.5 L432.8 553.5 L443.9 553.5 L443.9 531.5 L454.9 531.5 L454.9 553.5 L466 553.5 L466 531.5 L477 531.5 L477 553.5 L488.1 553.5 L488.1 531.5 L499.1 531.5 L499.1 553.5 L510.1 553.5 L510.1 531.5 L521.2 531.5 L521.2 553.5 L532.2 553.5 L532.2 531.5 L543.3 531.5 L543.3 553.5 L554.4 553.5 L554.4 531.5 L565.4 531.5 L565.4 553.5 L576.5 553.5 L576.5 531.5 L587.5 531.5 L587.5 553.5 L598.5 553.5 L598.5 531.5 L609.6 531.5 L609.6 553.5 L620.7 553.5 L620.7 531.5 L631.7 531.5 L631.7 553.5 L642.8 553.5 L642.8 531.5 L653.8 531.5 L653.8 553.5 L664.9 553.5 L664.9 531.5 L675.9 531.5 L675.9 553.5 L687 553.5 L687 531.5 L698 531.5 L698 553.5 L709 553.5 L709 531.5 L720.1 531.5 L720.1 553.5 L731.2 553.5 L731.2 531.5 L742.2 531.5 L742.2 553.5 L753.2 553.5 L753.2 531.5 L764.3 531.5 L764.3 553.5 L775.4 553.5 L775.4 531.5 L786.4 531.5 L786.4 553.5 L797.5 553.5 L797.5 531.5 L808.5 531.5 L808.5 553.5 L819.6 553.5 L819.6 531.5 L830.6 531.5 L830.6 553.5 L841.7 553.5 L841.7 531.5 L852.7 531.5 L852.7 553.5 L863.8 553.5 L863.8 531.5 L874.8 531.5 L874.8 553.5 L885.9 553.5 L885.9 531.5 L896.9 531.5 L896.9 553.5 L908 553.5 L908 531.5 L919 531.5 L919 553.5 L930.1 553.5 L930.1 531.5 L941.1 531.5 L941.1 553.5 L952.2 553.5 L952.2 531.5 L963.2 531.5 L963.2 553.5 L974.2 553.5 L974.2 531.5 L985.3 531.5 L985.3 553.5 L996.4 553.5 L996.4 531.5 L1007.4 531.5 L1007.4 553.5 L1018.5 553.5 L1018.5 531.5 L1029.5 531.5 L1029.5 553.5 L1040.6 553.5 L1040.6 531.5 L1051.6 531.5 L1051.6 553.5 L1062.7 553.5 L1062.7 531.5 L1073.7 531.5 L1073.7 553.5 L1084.8 553.5 L1084.8 531.5 L1095.8 531.5 L1095.8 553.5 L1106.8 553.5 L1106.8 531.5 L1117.9 531.5 L1117.9 553.5 L1129 553.5 L1129 531.5 L1168 531.5" fill="none" stroke="#2563EB" stroke-width="2"/>
+<path d="M228 588.5 L256 588.5" fill="none" stroke="#8893A2" stroke-width="1.6"/>
+<path d="M1140 588.5 L1168 588.5" fill="none" stroke="#8893A2" stroke-width="1.6"/>
+<path d="M228 634.5 L256 634.5" fill="none" stroke="#8893A2" stroke-width="1.6"/>
+<path d="M1140 634.5 L1168 634.5" fill="none" stroke="#8893A2" stroke-width="1.6"/>
+<rect x="256" y="209.5" width="22.1" height="46" rx="6" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<rect x="278.1" y="209.5" width="154.7" height="46" rx="6" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="432.8" y="209.5" width="707.2" height="46" rx="6" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<rect x="256" y="297.5" width="22.1" height="46" rx="6" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4"/>
+<rect x="278.1" y="297.5" width="154.7" height="46" rx="6" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="432.8" y="297.5" width="707.2" height="46" rx="6" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<rect x="256" y="385.5" width="176.8" height="46" rx="6" fill="#F3EEFF" stroke="#7C3AED" stroke-width="1.4"/>
+<rect x="432.8" y="385.5" width="707.2" height="46" rx="6" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4"/>
+<path d="M256 588.5 L261 576.5 L273.1 576.5 L278.1 588.5 L273.1 600.5 L261 600.5 Z" fill="#FFF5E3" stroke="#C26A05" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M278.1 588.5 L283.1 576.5 L427.8 576.5 L432.8 588.5 L427.8 600.5 L283.1 600.5 Z" fill="#EAF2FF" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M432.8 588.5 L437.8 576.5 L1135 576.5 L1140 588.5 L1135 600.5 L437.8 600.5 Z" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M256 634.5 L261 622.5 L427.8 622.5 L432.8 634.5 L427.8 646.5 L261 646.5 Z" fill="#F3EEFF" stroke="#7C3AED" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M432.8 634.5 L437.8 622.5 L1135 622.5 L1140 634.5 L1135 646.5 L437.8 646.5 Z" fill="#EAF7EF" stroke="#15803D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="769.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="815.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="319" y="769.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="319" y="815.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="606" y="769.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="606" y="815.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="893" y="769.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="893" y="815.9" width="275" height="38" rx="8" fill="#F5F7FA" stroke="#C9D1DB" stroke-width="1"/>
+<text x="256" y="191.5" font-size="16" fill="#566070">MSB, sent first</text>
+<text x="1140" y="191.5" font-size="16" text-anchor="end" fill="#566070">LSB, sent last</text>
+<text x="32" y="230.5" font-size="20" font-weight="700" fill="#0E1726">Write</text>
+<text x="32" y="250.5" font-size="16" fill="#566070">SDI, W = 1</text>
+<text x="267.1" y="238.3" font-size="16" font-weight="600" text-anchor="middle" fill="#8A3C0B">W</text>
+<text x="267.1" y="275.5" font-size="16" text-anchor="middle" fill="#566070">39</text>
+<text x="355.4" y="238.6" font-size="17" font-weight="600" text-anchor="middle" fill="#1E429F">address</text>
+<text x="280.1" y="275.5" font-size="16" fill="#566070">38</text>
+<text x="430.8" y="275.5" font-size="16" text-anchor="end" fill="#566070">32</text>
+<text x="786.4" y="238.6" font-size="17" font-weight="600" text-anchor="middle" fill="#14532D">data</text>
+<text x="434.8" y="275.5" font-size="16" fill="#566070">31</text>
+<text x="1138" y="275.5" font-size="16" text-anchor="end" fill="#566070">0</text>
+<text x="32" y="318.5" font-size="20" font-weight="700" fill="#0E1726">Read</text>
+<text x="32" y="338.5" font-size="16" fill="#566070">SDI, W = 0</text>
+<text x="267.1" y="326.3" font-size="16" font-weight="600" text-anchor="middle" fill="#8A3C0B">W</text>
+<text x="267.1" y="363.5" font-size="16" text-anchor="middle" fill="#566070">39</text>
+<text x="355.4" y="326.6" font-size="17" font-weight="600" text-anchor="middle" fill="#1E429F">address</text>
+<text x="280.1" y="363.5" font-size="16" fill="#566070">38</text>
+<text x="430.8" y="363.5" font-size="16" text-anchor="end" fill="#566070">32</text>
+<text x="786.4" y="326.6" font-size="17" font-weight="600" text-anchor="middle" fill="#334155">any value (ignored)</text>
+<text x="434.8" y="363.5" font-size="16" fill="#566070">31</text>
+<text x="1138" y="363.5" font-size="16" text-anchor="end" fill="#566070">0</text>
+<text x="32" y="406.5" font-size="20" font-weight="700" fill="#0E1726">Reply</text>
+<text x="32" y="426.5" font-size="16" fill="#566070">SDO, every datagram</text>
+<text x="344.4" y="414.6" font-size="17" font-weight="600" text-anchor="middle" fill="#5B21B6">SPI_STATUS</text>
+<text x="258" y="451.5" font-size="16" fill="#566070">39</text>
+<text x="430.8" y="451.5" font-size="16" text-anchor="end" fill="#566070">32</text>
+<text x="786.4" y="414.6" font-size="17" font-weight="600" text-anchor="middle" fill="#14532D">data of the previous read (or the previous write)</text>
+<text x="434.8" y="451.5" font-size="16" fill="#566070">31</text>
+<text x="1138" y="451.5" font-size="16" text-anchor="end" fill="#566070">0</text>
+<text x="32" y="502.3" font-size="16" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">CSN</text>
+<text x="32" y="548.3" font-size="16" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">SCK</text>
+<text x="32" y="594.3" font-size="16" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">SDI</text>
+<text x="355.4" y="594.3" font-size="16" font-weight="600" text-anchor="middle" fill="#1E429F">address</text>
+<text x="786.4" y="594.3" font-size="16" font-weight="600" text-anchor="middle" fill="#14532D">data</text>
+<text x="32" y="640.3" font-size="16" font-weight="700" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">SDO</text>
+<text x="344.4" y="640.3" font-size="16" font-weight="600" text-anchor="middle" fill="#5B21B6">STATUS</text>
+<text x="786.4" y="640.3" font-size="16" font-weight="600" text-anchor="middle" fill="#14532D">data of the previous read (or the previous write)</text>
+<text x="32" y="682.3" font-size="16" fill="#566070">SPI mode 3: SCK idles high; the chip samples its input on the rising edge and changes its output after the falling edge. CSN stays low for the</text>
+<text x="32" y="705.5" font-size="16" fill="#566070">whole frame.</text>
+<text x="32" y="748.9" font-size="20" font-weight="700" fill="#0E1726">SPI_STATUS, one flag per bit (datasheet 4.1.2, p. 24)</text>
+<rect x="40" y="775.9" width="51.4" height="26" rx="13" fill="#334155"/>
+<text x="48" y="794" font-size="16" font-weight="700" fill="#FFFFFF">bit 7</text>
+<text x="103.4" y="794.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">status_stop_r</text>
+<rect x="40" y="821.9" width="52.5" height="26" rx="13" fill="#334155"/>
+<text x="48" y="840" font-size="16" font-weight="700" fill="#FFFFFF">bit 6</text>
+<text x="104.5" y="840.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">status_stop_l</text>
+<rect x="327" y="775.9" width="52.1" height="26" rx="13" fill="#334155"/>
+<text x="335" y="794" font-size="16" font-weight="700" fill="#FFFFFF">bit 5</text>
+<text x="391.1" y="794.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">position_reached</text>
+<rect x="327" y="821.9" width="53" height="26" rx="13" fill="#334155"/>
+<text x="335" y="840" font-size="16" font-weight="700" fill="#FFFFFF">bit 4</text>
+<text x="392" y="840.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">velocity_reached</text>
+<rect x="614" y="775.9" width="52.5" height="26" rx="13" fill="#334155"/>
+<text x="622" y="794" font-size="16" font-weight="700" fill="#FFFFFF">bit 3</text>
+<text x="678.5" y="794.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">standstill</text>
+<rect x="614" y="821.9" width="52.2" height="26" rx="13" fill="#334155"/>
+<text x="622" y="840" font-size="16" font-weight="700" fill="#FFFFFF">bit 2</text>
+<text x="678.2" y="840.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">sg2</text>
+<rect x="901" y="775.9" width="48.8" height="26" rx="13" fill="#334155"/>
+<text x="909" y="794" font-size="16" font-weight="700" fill="#FFFFFF">bit 1</text>
+<text x="961.8" y="794.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">driver_error</text>
+<rect x="901" y="821.9" width="53" height="26" rx="13" fill="#334155"/>
+<text x="909" y="840" font-size="16" font-weight="700" fill="#FFFFFF">bit 0</text>
+<text x="966" y="840.7" font-size="16" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0E1726">reset_flag</text>
+</svg>

@@ -17,13 +17,17 @@ are the datasheet's own (the printed page numbers).
 | Package, pins and signal descriptions | 2 Pin Assignments | p. 11 | `CtrlPin`, `InputPin`, `Config::mode` | [Hardware](hardware.md), [Quickstart](quickstart.md) |
 | Sample circuits and gate drive | 3 Sample Circuits | p. 15 | `Bridge`, `SetBridge()` | [Hardware](hardware.md), [Guards and acknowledgements](guards.md) |
 | SPI datagram, status byte and timing | 4 SPI Interface | p. 23 | `SpiInterface`, `Transfer()`, `Verify::Echo`, `kSpiMode` | [SPI protocol](spi-protocol.md), [Porting](porting.md) |
-| SPI daisy chain | 4.1 SPI Datagram Structure | p. 23 | `SpiOptions::chain_length`, `chain_index` | [SPI protocol](spi-protocol.md) |
-| UART datagram, node address and SENDDELAY | 5.1 Datagram Structure | p. 26 | `UartInterface`, `Exchange()`, `UartOptions` | [UART protocol](uart-protocol.md), [Porting](porting.md) |
+| SPI signals and daisy chain | 4.2 SPI Signals | p. 24 | `SpiOptions::chain_length`, `chain_index` | [SPI protocol](spi-protocol.md), [On the bus](bus.md) |
+| SPI timing and mode 3 | 4.3 Timing | p. 25 | `kSpiMode` | [On the bus](bus.md), [SPI protocol](spi-protocol.md) |
+| UART baud rate detection, pause and recovery times | 5 UART Single Wire Interface | p. 26 | `UartOptions` | [On the bus](bus.md), [UART protocol](uart-protocol.md) |
+| UART datagram, node address and SENDDELAY | 5.1 Datagram Structure | p. 26 | `UartInterface`, `Exchange()`, `UartOptions` | [UART protocol](uart-protocol.md), [Porting](porting.md), [On the bus](bus.md) |
+| UART read request, reply delay and reply | 5.1.2 Read Access | p. 27 | `UartOptions::send_delay`, `Exchange()` | [On the bus](bus.md), [UART protocol](uart-protocol.md) |
 | UART CRC-8 | 5.2 CRC Calculation | p. 28 | `detail::Crc8()`, `Error::Crc` | [UART protocol](uart-protocol.md), [Testing and CI](testing.md) |
-| Addressing multiple UART nodes | 5.4 Addressing Multiple Nodes | p. 29 | `ProgramNode()` | [UART protocol](uart-protocol.md), [Examples](examples.md) |
+| Addressing multiple UART nodes | 5.4 Addressing Multiple Nodes | p. 29 | `ProgramNode()` | [UART protocol](uart-protocol.md), [Examples](examples.md), [On the bus](bus.md) |
 | Register map and reset values | 6 Register Mapping | p. 31 | `inc/tmc5160_registers.hpp`, `ReadRegister()` | [Registers](registers.md), [Configuration](configuration.md) |
 | General configuration registers | 6.1 General Configuration Registers | p. 32 | `SetFlags()`, `SetDiag()`, `Config::flags` | [Registers](registers.md), [Configuration](configuration.md) |
 | Global status and interface counter | 6.1 General Configuration Registers | p. 33 | `ReadGlobalStatus()`, `ClearGlobalStatus()`, `Error::UnexpectedReset` | [DIAG and status](diag-and-status.md), [Troubleshooting](troubleshooting.md) |
+| Node address and SENDDELAY register (NODECONF) | 6.1 General Configuration Registers | p. 34 | `UartOptions::node`, `UartOptions::send_delay`, `ProgramNode()` | [On the bus](bus.md), [UART protocol](uart-protocol.md) |
 | Standstill current and power-down | 6.1 General Configuration Registers | p. 36 | `SetStandstill()`, `Standstill` | [Current and limits](current-and-limits.md) |
 | Velocity dependent control | 6.2 Velocity Dependent Driver Feature Control Register Set | p. 38 | `SetThresholds()`, `Thresholds` | [Motion](motion.md), [StealthChop and SpreadCycle](chopper.md) |
 | Ramp generator registers | 6.3 Ramp Generator Registers | p. 40 | `SetRamp()`, `RampProfile`, `MoveTo()`, `RunVelocity()` | [Motion](motion.md) |

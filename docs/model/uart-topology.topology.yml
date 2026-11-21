@@ -1,0 +1,27 @@
+---
+kind: topology
+id: uart-topology
+title: UART nodes on one wire
+kicker: Several drivers
+alt: >-
+  Several TMC5160 drivers on one single wire UART: the MCU and every driver share SWP, an idle resistor holds the line
+  high, and each NAO output enables the next driver's NAI while the node addresses are programmed.
+reads: >-
+  The MCU, a UART whose TXD goes to high impedance to receive, shares the SWP line with TMC5160 1, the drivers left
+  out and TMC5160 N. TMC5160 1 has NAI tied to ground and answers at address 0 first; each driver that has its address
+  sets NAO low and so lets the next driver answer at address 0.
+style: bus
+host: {label: MCU, detail: "UART, TXD released to receive"}
+nodes:
+  - {label: TMC5160 1, detail: NAI to GND, address: "address 254", ref: chain}
+  - {more: true, label: "…", detail: NAI from the NAO before}
+  - {label: TMC5160 N, detail: NAI from the NAO before, address: "address 255 - N", ref: chain}
+shared: [SWP]
+pullups: {label: "RIDLE to +VIO, 3.3 kΩ for 14 nodes", ref: chain}
+facts:
+  - {text: "Up to 255 nodes: each programmed driver sets NAO low and the next one answers at address 0", ref: chain}
+  - {text: "Two nodes: tie their NAI pins to different levels", ref: chain}
+  - {text: "Address 255 is reserved for replies to the master", ref: uart_read_ref}
+  - {text: "With several nodes set SENDDELAY to 2 or more", ref: uart_read_ref}
+refs:
+  uart_read_ref: {doc: ds, section: "5.1.2 Read Access", page: 27}

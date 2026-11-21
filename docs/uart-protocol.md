@@ -7,9 +7,12 @@ The single wire UART datagram, the CRC-8, the interface counter, node addressing
 
     From Analog Devices (Trinamic) TMC5160A-DS 1.18:
 
+    - UART baud rate detection, pause and recovery times: 5 UART Single Wire Interface, p. 26
     - UART datagram, node address and SENDDELAY: 5.1 Datagram Structure, p. 26
+    - UART read request, reply delay and reply: 5.1.2 Read Access, p. 27
     - UART CRC-8: 5.2 CRC Calculation, p. 28
     - Addressing multiple UART nodes: 5.4 Addressing Multiple Nodes, p. 29
+    - Node address and SENDDELAY register (NODECONF): 6.1 General Configuration Registers, p. 34
 
     All of them, with the driver API for each: [Datasheet map](datasheet.md).
 <!-- /generated -->
@@ -46,8 +49,12 @@ Writes are not retried; reads are retried twice (`kUartReadRetries`), because a 
 
 ## SENDDELAY and timeouts
 
-The reply starts after SENDDELAY times 8 bit times (default 8; 0 and 1 are equal; at least 2 with several nodes). The
-port's `timeout_us` is that delay plus a margin of 64 bit times at the declared baud (A32).
+The reply starts a programmable delay after the read request (section 5.1.2, page 27). NODECONF sets it in steps
+of 8 bit times: SENDDELAY 0 and 1 give 8 bit times (the chip's reset value), 2 and 3 give 3 × 8, and so on up to 15 × 8
+for 14 and 15 (page 34); with several nodes every node needs SENDDELAY 2 or more. `UartOptions::send_delay` defaults
+to 8, which the chip runs as 9 × 8 = 72 bit times. The port's `timeout_us` is the delay the driver computes,
+SENDDELAY × 8 bit times, plus a margin of 64 bit times at the declared baud (A32); for an even SENDDELAY that is 8 bit
+times shorter than the chip's delay, which the margin covers. The waveform is on [On the bus](bus.md).
 
 ## Several nodes
 

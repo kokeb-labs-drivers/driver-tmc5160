@@ -20,6 +20,23 @@ refs:
   outline: {doc: ds, section: "30.1 Dimensional Drawings TQFP48-EP", page: 128}
   outline_qfn: {doc: ds, section: "30.2 Dimensional Drawings QFN-WA", page: 130}
   order: {doc: ds, section: "30.3 Package Codes", page: 131}
+  cover: {doc: ds, section: "Title page", page: 1}
+  moving: {doc: ds, section: "1.4 Moving and Controlling the Motor", page: 8}
+  spi_frame: {doc: ds, section: "4.1 SPI Datagram Structure", page: 23}
+  spi_status: {doc: ds, section: "4.1.2 SPI Status Bits Transferred with Each Datagram Read Back", page: 24}
+  spi_signals: {doc: ds, section: "4.2 SPI Signals", page: 24}
+  spi_timing: {doc: ds, section: "4.3 Timing", page: 25}
+  gconf: {doc: ds, section: "6.1 General Configuration Registers", page: 32}
+  stealth: {doc: ds, section: "7 StealthChop", page: 57}
+  spread: {doc: ds, section: "8 SpreadCycle and Classic Chopper", page: 68}
+  diag_prot: {doc: ds, section: "11 Diagnostics and Protection", page: 78}
+  ramp: {doc: ds, section: "12 Ramp Generator", page: 81}
+  switches: {doc: ds, section: "12.4 Reference Switches", page: 85}
+  stallguard: {doc: ds, section: "13 StallGuard2 Load Measurement", page: 87}
+  coolstep: {doc: ds, section: "14 CoolStep Operation", page: 91}
+  stepdir: {doc: ds, section: "15 STEP/DIR Interface", page: 94}
+  dcstep: {doc: ds, section: "17 DcStep", page: 99}
+  encoder: {doc: ds, section: "20 ABN Incremental Encoder Interface", page: 107}
 
 package:
   type: TQFP-48
@@ -36,6 +53,128 @@ supply:
   - {name: VS, min_v: 10.0, max_v: 55.0, ref: electrical}
   - {name: VSA, min_v: 10.0, max_v: 50.0, ref: electrical}
   - {name: VCC_IO, min_v: 3.0, max_v: 5.25, ref: electrical}
+
+# The chip-first README: what the chip is and does, where it is used, how the driver covers it, what one SPI
+# transfer carries. `kokeb-docs figures` draws chip-hero, chip-capabilities and chip-frame-spi from it,
+# `kokeb-docs gen` the README's chip-summary, chip-uses and chip-coverage regions.
+overview:
+  summary: >-
+    a controller and driver for two-phase bipolar stepper motors: it runs the motion profile itself and drives an
+    external MOSFET bridge for coil currents from 1 A to several 10 A
+  category: Stepper motor controller and driver
+  ref: cover
+  applications:
+    - Robotics and industrial drives
+    - Textile and sewing machines
+    - Packing machines
+    - Factory and lab automation
+    - High-speed 3D printers
+    - Liquid handling and medical equipment
+    - Office automation, CCTV, ATMs and cash recyclers
+    - Pumps and valves
+  specs:
+    - {value: "10 to 55 V", label: motor and bridge supply, ref: electrical}
+    - {value: "256", label: microsteps per full step, ref: moving}
+    - {value: "8 gates", label: "for an external MOSFET bridge (two full bridges)", ref: signals}
+    - {value: "4 MHz", label: "SPI clock on the internal oscillator", ref: spi_timing}
+    - {value: "7 x 7 mm", label: "TQFP48 body; also an 8 x 8 mm QFN", ref: outline}
+  system:
+    host: MCU
+    bus: SPI or UART
+    drives:
+      - {label: MOSFET bridge, detail: "8 MOSFETs, two full bridges, gates driven by the chip", ref: sample}
+      - {label: Stepper motor, detail: "two-phase bipolar", ref: cover}
+    senses:
+      - {label: Coil current, detail: "sense resistors", ref: signals}
+      - {label: ABN encoder, ref: encoder}
+      - {label: Reference switches, ref: switches}
+
+# Headers the capability `api` and `registers` names are checked against.
+driver:
+  api: [inc/tmc5160.hpp, inc/tmc5160_types.hpp]
+  registers: [inc/tmc5160_registers.hpp]
+
+capabilities:
+  - {id: ramp, title: Motion controller and homing, icon: ramp, status: supported, ref: ramp, docs: motion.md,
+     what: "Moves to a target or runs at a velocity on its own ramp; stops and latches the position at switches",
+     api: [SetRamp, MoveTo, MoveBy, RunVelocity, Stop, SetSwitches, ReadLatchedPosition],
+     registers: [RAMPMODE, XTARGET, VMAX, AMAX, XACTUAL, SW_MODE, XLATCH, RAMP_STAT]}
+  - {id: stepdir, title: STEP/DIR input, icon: steps, status: supported, ref: stepdir, docs: special-modes.md,
+     what: "Takes step pulses from your MCU instead, interpolated to 256 microsteps by MicroPlyer",
+     api: ["Mode::StepDir"], registers: [CHOPCONF]}
+  - {id: current, title: Motor current, icon: current, status: supported, ref: moving, docs: current-and-limits.md,
+     what: "Sets run and hold current from the motor rating and the sense resistor, and powers down at standstill",
+     api: [SetCurrent, SetStandstill], registers: [GLOBALSCALER, IHOLD_IRUN, TPOWERDOWN]}
+  - {id: chopper, title: StealthChop2 and SpreadCycle, icon: chopper, status: supported, ref: stealth,
+     docs: chopper.md,
+     what: "Silent voltage-mode chopping at low speed, cycle-by-cycle current chopping at high speed",
+     api: [SetStealthChop, ReadStealthChopState, SetChopper, SetThresholds],
+     registers: [PWMCONF, CHOPCONF, TPWMTHRS, THIGH, PWM_SCALE, PWM_AUTO]}
+  - {id: load, title: "StallGuard2, CoolStep and DcStep", icon: gauge, status: supported, ref: stallguard,
+     docs: stallguard-and-coolstep.md,
+     what: "Senses the load without a sensor: detects a stall, saves current at light load, slows under overload",
+     api: [SetStallGuard, SetCoolStep, ReadStallGuard, SetStopOnStall, SetDcStep, ReadLostSteps],
+     registers: [COOLCONF, TCOOLTHRS, DRV_STATUS, DCCTRL, VDCMIN, LOST_STEPS]}
+  - {id: encoder, title: Encoder input, icon: encoder, status: supported, ref: encoder, docs: special-modes.md,
+     what: "Counts an ABN incremental encoder and flags a deviation from the commanded position",
+     api: [SetEncoder, ReadEncoderPosition, ReadEncoderStatus], registers: [ENCMODE, X_ENC, ENC_CONST, ENC_DEVIATION]}
+  - {id: protection, title: Bridge and protection, icon: shield, status: guarded, ref: diag_prot, docs: guards.md,
+     what: "Short, overtemperature and gate-drive settings; a wrong value can destroy the bridge",
+     api: [SetBridge, SetProtection, ReadDriverStatus, ReadGlobalStatus],
+     registers: [DRV_CONF, SHORT_CONF, GSTAT, DRV_STATUS]}
+  - {id: interfaces, title: SPI chain and UART nodes, icon: chain, status: supported, ref: chain,
+     docs: uart-protocol.md,
+     what: "Several chips on one SPI daisy chain or one single wire UART, each with its own address",
+     api: [ProgramNode, ReadInterfaceCounter], registers: [NODECONF, IFCNT]}
+  - {id: otp, title: OTP programming, icon: memory, status: not-covered, ref: gconf, docs: coverage.md,
+     what: "One-time programmable defaults in the chip; the driver reads them and never programs them",
+     api: [ReadOtp], registers: [OTP_PROG, OTP_READ]}
+
+frames:
+  - id: spi
+    title: SPI datagram
+    description: Every transfer is one 40-bit datagram with CSN low; the reply carries the status and the data asked
+      for in the previous datagram.
+    bits: 40
+    ref: spi_frame
+    rows:
+      - label: Write
+        sub: "SDI, W = 1"
+        fields:
+          - {name: W, bits: 39, tone: amber}
+          - {name: address, bits: [38, 32], tone: blue}
+          - {name: data, bits: [31, 0], tone: green}
+      - label: Read
+        sub: "SDI, W = 0"
+        fields:
+          - {name: W, bits: 39, tone: amber}
+          - {name: address, bits: [38, 32], tone: blue}
+          - {name: any value (ignored), bits: [31, 0], tone: slate}
+      - label: Reply
+        sub: SDO, every datagram
+        fields:
+          - {name: SPI_STATUS, bits: [39, 32], tone: violet, short: STATUS}
+          - {name: data of the previous read (or the previous write), bits: [31, 0], tone: green}
+    decode:
+      row: Reply
+      field: SPI_STATUS
+      ref: spi_status
+      bits:
+        - {bit: 7, name: status_stop_r}
+        - {bit: 6, name: status_stop_l}
+        - {bit: 5, name: position_reached}
+        - {bit: 4, name: velocity_reached}
+        - {bit: 3, name: standstill}
+        - {bit: 2, name: sg2}
+        - {bit: 1, name: driver_error}
+        - {bit: 0, name: reset_flag}
+    waveform:
+      spi_mode: 3
+      select: CSN
+      clock: SCK
+      lanes:
+        - {name: SDI, row: Write}
+        - {name: SDO, row: Reply}
 
 hooks:
   - {id: transfer, call: "Transfer()", kind: spi, source: inc/tmc5160_spi_interface.hpp, symbol: Transfer}
@@ -243,7 +382,7 @@ circuits:
     nets:
       - {name: "VCC_IO", kind: supply, nodes: [U1.VCC_IO, C1.1, U2.VIO]}
       - {name: GND, kind: ground, nodes: [U1.GNDD, U1.GNDA, U1.EP, C1.2, U2.GND]}
-      - {name: SWP, nodes: [U1.DIAG1_SWP, U3.SWP, R1.2, U2.RX]}
+      - {name: SWP, nodes: [U1.DIAG1_SWP, U3.SWP, R1.2, U2.RX], hook: exchange}
       - {name: TX, nodes: [R1.1, U2.TX]}
       - {name: NAO, nodes: [U1.SDO_CFG0, U3.NAI]}
       - {name: DRV_ENN, nodes: [U1.DRV_ENN, U2.ENN]}

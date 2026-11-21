@@ -134,7 +134,7 @@ marked.
   <img src="diagrams/chip-circuit-uart-chain.svg"
     alt="Schematic of the TMC5160A uart chain of two nodes: the chip with U2 MCU, U3 TMC5160 node 2 (supply
     and ground as node 1), R1 resistor 1 kΩ, C1 capacitor 100 nF; the MCU wires carry the port hooks
-    GpioGet(InputPin::Diag1), GpioSet(CtrlPin::DrvEnn), Transfer().">
+    Exchange(), GpioSet(CtrlPin::DrvEnn), Transfer().">
 </picture>
 <!-- /figure -->
 
@@ -213,12 +213,13 @@ is accepted (10 to 16 MHz advised). Every time, velocity and acceleration value 
 | Setting | SPI | UART |
 | --- | --- | --- |
 | Mode | Mode 3: SCK idle high, sampled on the rising edge | 8N1, LSB first |
-| Clock | Up to 4 MHz on the internal clock, `fCLK / 2` less a 10 percent margin on an external one | 9000 baud to `fCLK / 16`, set from the sync nibble |
+| Clock | `fCLK / 2`: 4 MHz on the internal clock (with its 10 percent margin), 8 MHz on an external 16 MHz clock; the driver keeps a 10 percent margin on an external clock too (A2) | 9000 baud to `fCLK / 16`, set from the sync nibble |
 | Frame | 40 bits, CSN low for the whole frame | 8 bytes write, 4 bytes read request, 8 bytes reply |
 | Integrity | none | CRC-8 |
 
 SPI timing (section 4.3, page 25): CSN high time more than `2 tCLK + 10 ns`, SCK high and low more than `tCLK + 10 ns`,
-SDI setup and hold 10 ns. The driver does not time the bus: the port's clock sets it.
+SDI setup and hold 10 ns. The driver does not time the bus: the port's clock sets it. The waveforms are on
+[On the bus](bus.md).
 
 ## Timing the driver waits for
 

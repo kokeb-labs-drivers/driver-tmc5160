@@ -8,7 +8,8 @@ The 40-bit datagram, the pipelined read, the status byte, write verification and
     From Analog Devices (Trinamic) TMC5160A-DS 1.18:
 
     - SPI datagram, status byte and timing: 4 SPI Interface, p. 23
-    - SPI daisy chain: 4.1 SPI Datagram Structure, p. 23
+    - SPI signals and daisy chain: 4.2 SPI Signals, p. 24
+    - SPI timing and mode 3: 4.3 Timing, p. 25
 
     All of them, with the driver API for each: [Datasheet map](datasheet.md).
 <!-- /generated -->
